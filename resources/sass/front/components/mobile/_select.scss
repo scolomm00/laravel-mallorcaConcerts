@@ -1,0 +1,45 @@
+.product-text-price {
+
+    margin: 10% 0;
+
+    span {
+
+        color: hsl(0, 0%, 100%);
+        font-size: 1.5rem;
+        font-weight: 600;
+    }
+}
+
+.box-element {
+
+    .select-related{
+        
+            border: 2px solid white;
+            border-radius: 10px;
+            background-color: black;
+            width: 100%;
+            height: 2rem;
+            color: white;
+            text-align: center;
+    }
+
+    
+
+
+    .box-message {
+
+        .message {
+
+            opacity: 0;
+            height: 0;
+
+            &.active {
+                margin-top: 5%;
+                opacity: 1;
+                height: auto;
+            }
+        }
+
+
+    }
+}

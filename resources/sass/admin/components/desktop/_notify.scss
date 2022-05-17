@@ -1,0 +1,32 @@
+#notify{
+    background-color: rgba(0, 128, 0, 0.719);
+    bottom: 15vh;
+    opacity: 0;
+    position: fixed;
+    padding: 1.5rem;
+    left: 90vh;
+    transition: opacity 0.5s;
+    z-index: -1;
+    border-radius: 10px;
+    
+}
+
+#notify.active{
+    opacity: 1;
+    z-index: 5000;
+}
+
+#notify.success{
+    background-color: hsl(120, 100%, 25%);
+}
+
+#notify.error{
+    background-color: hsl(0, 100%, 50%);
+}
+
+#notify span{
+    color: hsl(0, 0%, 100%);
+    font-weight: 600;
+}
+
+

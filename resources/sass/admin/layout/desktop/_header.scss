@@ -1,0 +1,59 @@
+header{
+
+    padding: 1rem 5%;
+    width: 90%;
+    
+}
+
+.header{
+
+    background-color: hsl(0, 0%, 0%);
+    padding-bottom: 0.7rem;
+    padding-top: 0.5rem;
+
+    .header-logo{
+
+        display: flex;
+
+    }
+
+
+}
+
+.header-menu {
+
+    margin-top: 2%;
+
+    ul{
+
+        display: flex;
+        justify-content: space-between;
+        font-size: 1rem;
+    }
+
+    li{
+
+        display: inline;
+        cursor: pointer;
+        font-family: "Roboto Condensed";
+        font-size: 1.5rem;
+        font-weight: 600;
+        align-items: center;
+        justify-content: center;
+        display: flex;
+        color: hsl(0, 0%, 100%);
+
+        &:hover{
+
+            color: hsla(0, 100%, 50%, 0.588);
+        }   
+    }
+
+    svg{
+
+        width: 1.5rem;
+        height: 1.5rem;
+    }
+    
+}
+

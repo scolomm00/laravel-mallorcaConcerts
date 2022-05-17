@@ -1,0 +1,126 @@
+.product {
+
+    margin: 5%;
+
+    .product-image {
+
+        .product-image-main {
+
+            border: 2px solid hsl(0, 0%, 100%);
+        }
+
+        .product-image-small {
+
+            margin: 2%;
+        }
+    }
+
+    .product-text {
+        width: 170rem;
+        margin-left: 10%;
+
+
+        .product-text-price {
+
+            margin: 3% 0;
+
+            span {
+
+                color: hsl(0, 0%, 100%);
+                font-size: 1.5rem;
+                font-weight: 600;
+            }
+        }
+
+        .product-text-day {
+
+            margin-top: 5%;
+            width: 70%;
+
+            .product-text-day-letter {
+
+                span {
+
+                    color: hsl(0, 0%, 100%);
+                    font-weight: 600;
+                }
+            }
+
+            .box-plus-minus {
+
+                display: flex;
+
+                .plus-minus-counter.rest {
+
+                    button {
+
+                        border-radius: 1rem 0 0 1rem;
+                        background-color: hsl(0, 100%, 50%);
+                        color: hsl(0, 0%, 100%);
+                        font-weight: 600;
+                        width: 2rem;
+                        height: 2rem;
+
+                        &:hover {
+                            cursor: pointer;
+                        }
+                    }
+                }
+
+                .plus-minus.counter {
+
+                    input {
+
+                        width: 1.5rem;
+                        height: 1.5rem;
+                        text-align: center;
+                    }
+                }
+
+                .plus-minus-counter.sume {
+
+                    button {
+
+                        border-radius: 0 1rem 1rem 0;
+                        background-color: hsl(120, 100%, 25%);
+                        color: hsl(0, 0%, 100%);
+                        font-weight: 600;
+                        width: 2rem;
+                        height: 2rem;
+
+                        &:hover {
+                            cursor: pointer;
+                        }
+                    }
+                }
+            }
+        }
+
+        .product-text-booking {
+
+            margin-top: 6%;
+
+            .product-text-booking-button {
+
+                button {
+
+                    width: 15rem;
+                    height: 2.5rem;
+                    border-radius: 10px;
+                    background-color: hsla(0, 0%, 0%, 0.548);
+                    color: hsl(0, 0%, 100%);
+                    border: 2px solid hsl(0, 0%, 100%);
+                    font-weight: 900;
+
+                    &:hover {
+
+                        cursor: pointer;
+                        box-shadow: 5px 5px 15px 5px hsla(0, 100%, 50%, 0.835);
+                        color: hsl(0, 0%, 100%);
+                    }
+                }
+            }
+        }
+    }
+
+}

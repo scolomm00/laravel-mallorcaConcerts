@@ -1,0 +1,210 @@
+header {
+
+    padding-top: 2%;
+    background-color: hsl(0, 0%, 0%);
+
+    .header-admin-logo {
+
+        display: flex;
+
+        .logo-admin {
+
+            svg {
+
+                width: 3rem;
+                height: 3rem;
+                color: white;
+            }
+        }
+
+        .title-admin {
+
+            margin-left: 1%;
+            margin-top: 0.5%;
+
+            h1 {
+
+                color: hsl(0, 0%, 100%);
+            }
+        }
+    }
+
+    .header-admin-menu {
+
+        margin-left: auto;
+        width: max-content;
+    }
+}
+
+.filters {
+
+    width: 100%;
+    background-color: hsl(0, 0%, 100%);
+    justify-content: center;
+    text-align: center;
+
+    svg {
+
+        margin: 0.5rem;
+        width: 2rem;
+        height: 2rem;
+        color: hsl(0, 0%, 0%);
+    }
+
+    &:hover {
+
+        cursor: pointer;
+    }
+}
+
+.admin-panel {
+
+    margin: 5% 3%;
+
+    .admin-panel-table {
+
+        table {
+
+            margin: auto;
+            width: 100%;
+
+            th {
+
+                padding: 0.5rem;
+                font-size: 1.2rem;
+                border-bottom: 3px solid hsl(0, 0%, 100%);
+                color: hsl(0, 0%, 100%);
+            }
+
+            td {
+
+                font-weight: 300;
+                padding: 1rem;
+                text-align: center;
+                color: hsl(0, 0%, 100%);
+
+                .table-button-read {
+
+                    padding-right: 0.5rem;
+
+                    button {
+
+                        width: 2rem;
+                        height: 2rem;
+                        border-radius: 10px;
+                        background-color: hsla(0, 0%, 0%, 0.548);
+                        color: hsl(0, 0%, 100%);
+                        border: 2px solid hsl(0, 0%, 100%);
+                        font-weight: 900;
+
+                        &:hover {
+
+                            cursor: pointer;
+                            color: hsl(0, 0%, 100%);
+                        }
+                    }
+                }
+
+                .table-button-delete {
+
+                    button {
+
+                        width: 2rem;
+                        height: 2rem;
+                        border-radius: 10px;
+                        background-color: hsla(0, 0%, 0%, 0.548);
+                        color: hsl(0, 0%, 100%);
+                        border: 2px solid hsl(0, 0%, 100%);
+                        font-weight: 900;
+
+                        &:hover {
+
+                            cursor: pointer;
+                            color: hsl(0, 0%, 100%);
+                        }
+                    }
+                }
+
+            }
+        }
+    }
+
+    .admin-panel-form {
+
+        padding-bottom: 2rem;
+        border-left: 1px solid hsl(0, 0%, 100%);
+        padding-left: 5%;
+        margin-top: 2%;
+
+        .form-element {
+
+            padding-right: 5%;
+
+            .form-element-label {}
+
+            .form-element-input {
+
+                input {
+
+                    font-size: 100%;
+                    height: 2rem;
+                    width: 100%;
+                }
+
+
+            }
+        }
+
+        .form-button {
+
+            padding-top: 4rem;
+            display: flex;
+            margin-left: auto;
+            width: max-content;
+
+            .form-button-create {
+
+                padding-right: 2rem;
+
+                button {
+
+                    width: 3rem;
+                    height: 3rem;
+                    border-radius: 10px;
+                    background-color: hsla(0, 0%, 0%, 0.548);
+                    color: hsl(0, 0%, 100%);
+                    border: 2px solid hsl(0, 0%, 100%);
+                    font-weight: 900;
+
+                    &:hover {
+
+                        cursor: pointer;
+                        color: hsl(0, 0%, 100%);
+                    }
+                }
+            }
+
+            .form-button-update {
+
+                button {
+
+                    width: 3rem;
+                    height: 3rem;
+                    border-radius: 10px;
+                    background-color: hsla(0, 0%, 0%, 0.548);
+                    color: hsl(0, 0%, 100%);
+                    border: 2px solid hsl(0, 0%, 100%);
+                    font-weight: 900;
+
+                    &:hover {
+
+                        cursor: pointer;
+                        color: hsl(0, 0%, 100%);
+                    }
+                }
+            }
+        }
+
+        
+    }
+}

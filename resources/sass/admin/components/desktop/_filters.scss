@@ -1,0 +1,48 @@
+.filters {
+
+    width: 100%;
+    background-color: hsl(0, 0%, 67%);
+    justify-content: center;
+    text-align: center;
+
+    svg {
+
+        margin: 0.5rem;
+        width: 2rem;
+        height: 2rem;
+        color: hsl(0, 0%, 0%);
+    }
+
+    &:hover {
+
+        cursor: pointer;
+    }
+
+    #filter-bar {
+
+        background-color: hsl(0, 0%, 67%);
+        height: 0;
+        transition: height 0.5s;
+        
+        h1{
+
+            display: none;
+        }
+
+        &.active {
+
+            height: 30vh;
+            transition: height 0.5s;
+            border-top: 1px solid hsl(0, 0%, 0%);
+            
+            h1{
+                
+                display: block;
+                text-align: center;
+                margin-top: 8%;
+                color: hsl(0, 0%, 0%)
+            }
+
+        }
+    }
+}

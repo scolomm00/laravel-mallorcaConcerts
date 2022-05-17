@@ -1,0 +1,28 @@
+.hamburger {
+
+    margin-top: 10%;
+
+    .line {
+
+        background: rgb(255, 255, 255);
+        height: 0.2rem;
+        width: 2rem;
+        margin-bottom: 0.5rem;
+        transition: all 1s;
+    }
+    
+    &.active .line1 {
+
+        transform: rotate(0.125turn) translate(0, 15px);
+    }
+    
+    &.active .line2 {
+
+        opacity: 0;
+    }
+    
+    &.active .line3 {
+        
+        transform: rotate(-0.125turn) translate(0, -16px);
+    }
+}

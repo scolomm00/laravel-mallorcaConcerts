@@ -1,0 +1,157 @@
+.products-container{
+
+    margin: 5%;
+}
+
+.products{
+
+    .products-menu{
+
+        .box-title{
+
+            padding: 5% 0 5% 0;
+
+            h3{
+               color: white;
+               text-align: center;
+               text-decoration: underline;
+            }
+        }
+
+        .products-menu-counter-items{
+
+            padding: 2% 0 3% 0;
+            span{
+
+                color: hsl(0, 0%, 100%);
+                font-size: 1rem;
+            }
+        }
+
+        .products-menu-filter{
+
+            padding: 1% 0 5% 0;
+        }
+
+        .products-menu-filter select{
+    
+            border: 2px solid white;
+            border-radius: 10px;
+            background-color: black;
+            width: 100%;
+            height: 2rem;
+            color: white;
+
+        }
+    }
+
+    .products-gallery{
+
+        width: 100%;
+
+        .products-element{
+
+            border: solid 3px hsl(0, 0%, 100%);
+            border-radius: 10px;
+            background-color: hsla(0, 1%, 74%, 0.76);
+            margin: 5% 5% 10% 5%;
+            box-shadow: 5px 5px 15px 5px hsla(0, 100%, 50%, 0.835);
+
+            &:hover{
+
+                box-shadow: 5px 5px 15px 5px hsl(0, 0%, 0%);
+            }
+
+            .products-element-image{
+                
+                &:hover{
+                    
+                    cursor: pointer;
+                }
+            }
+
+            .products-element-title{
+
+                min-height: 4vh;
+                max-height: 10vh;
+                white-space: nowrap;
+                text-overflow: ellipsis;
+                overflow: hidden;
+                padding: 0 0.3rem;
+
+                span{
+
+                    font-size: 1.5rem;
+                    font-weight: 900;
+
+                    &:hover{
+
+                        text-decoration: underline;
+                        cursor: pointer;
+                    }
+                }
+            }
+
+            .products-element-day{
+
+                min-height: 4vh;
+                max-height: 10vh;
+                white-space: nowrap;
+                text-overflow: ellipsis;
+                overflow: hidden;
+                padding: 0 0.3rem;
+
+                svg{
+
+                    width: 1.3rem;
+                    height: 1.3rem;
+                }
+            }
+            
+            .products-element-address{
+
+                min-height: 5vh;
+                max-height: 10vh;
+                white-space: nowrap;
+                text-overflow: ellipsis;
+                overflow: hidden;
+
+                svg{
+
+                    width: 1.3rem;
+                    height: 1.3rem;
+                }
+            }
+
+            .products-element-buy{
+
+                padding: 0.5rem;
+                align-items: center;
+                display: flex;
+                justify-content: center;
+
+                button{
+
+                    width: 10rem;
+                    height: 2rem;
+                    border-radius: 10px;
+                    font-size: 150%;
+                    font-weight: bolder;
+                    font-family: "Roboto Condensed";
+                    background-color: hsla(0, 0%, 0%, 0.966);
+                    cursor: pointer;
+                    color: hsl(0, 0%, 100%);
+
+                    &:hover{
+                        
+                        color: hsl(0, 0%, 0%);
+                        background-color: hsl(0, 0%, 100%);
+                        border: solid 2px;
+                    }
+                }
+            }
+
+        }
+
+    }
+}

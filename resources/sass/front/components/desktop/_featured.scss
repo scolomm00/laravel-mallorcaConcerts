@@ -1,0 +1,118 @@
+.featured{
+
+    margin: 0 5%;
+
+    .featured-title{
+
+        padding: 2rem;
+
+        h1{
+
+            align-items: center;
+            display: flex;
+            justify-content: center;
+            font-family: "Roboto Condensed";
+            font-size: 200%;
+            /*font-style: oblique;*/
+            color: hsl(0, 0%, 100%);
+            font-weight: 900;
+            content: "»";
+        }
+    }
+
+    .featured-block{
+
+        padding: 1rem 0;
+
+        .featured-element{
+
+            border: solid 3px hsl(0, 0%, 100%);
+            border-radius: 10px;
+            background-color: hsla(0, 1%, 74%, 0.76);
+            padding: 0.1rem;
+            box-shadow: 5px 5px 15px 5px hsla(0, 100%, 50%, 0.835);
+            
+        
+            .featured-element-title{
+
+                min-height: 4vh;
+                max-height: 10vh;
+                white-space: nowrap;
+                text-overflow: ellipsis;
+                overflow: hidden;
+                padding: 0 0.3rem;
+
+                span{
+
+                    font-size: 1.5rem;
+                    font-weight: 900;
+                }
+
+                span:hover{
+
+                    text-decoration: underline;
+                    cursor: pointer;
+                }
+            }
+
+            .featured-element-image:hover{
+
+                cursor: pointer;
+            }
+
+            .featured-element-day svg{
+
+                width: 1.3rem;
+                height: 1.3rem;   
+            }
+
+            .featured-element-address{
+
+                min-height: 5vh;
+                max-height: 10vh;
+                white-space: nowrap;
+                text-overflow: ellipsis;
+                overflow: hidden;
+
+                svg{
+
+                    width: 1.3rem;
+                    height: 1.3rem;
+                }
+            }
+
+            .featured-element-buy{
+
+                padding: 0.5rem;
+                align-items: center;
+                display: flex;
+                justify-content: center;
+
+                button{
+
+                    width: 10rem;
+                    height: 2rem;
+                    border-radius: 10px;
+                    font-size: 150%;
+                    font-weight: bolder;
+                    font-family: "Roboto Condensed";
+                    background-color: hsla(0, 0%, 0%, 0.966);
+                    cursor: pointer;
+                    color: hsl(0, 0%, 100%);
+
+                    &:hover{
+
+                        box-shadow: 5px 5px 15px 5px hsl(120, 100%, 25%);
+                        border: solid 2px hsl(0, 0%, 0%);
+                    }
+                }
+            }
+
+            &:hover{
+
+                box-shadow: 5px 5px 15px 5px hsla(0, 100%, 50%, 0.835);
+            }
+        }
+    }
+        
+}

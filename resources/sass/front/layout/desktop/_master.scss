@@ -1,0 +1,22 @@
+$bgcolor-body: hsl(0, 0%, 0%);
+$space-margin: 0 auto;
+$width: 100%;
+
+body{
+
+    background-color: $bgcolor-body;
+}
+
+main{
+    
+    margin: $space-margin;
+    width: $width;
+}
+
+.desktop-only{
+    display: revert;
+}
+
+.mobile-only{
+    display: none;
+}

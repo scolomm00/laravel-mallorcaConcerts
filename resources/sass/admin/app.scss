@@ -1,0 +1,20 @@
+@charset "utf-8";
+
+@import "admin/helpers/variables";
+@import "admin/helpers/mixins";
+@import "admin/base/normalize";
+@import "admin/base/contents";
+@import "admin/base/typography";
+@import "admin/layout/desktop/master";
+@import "admin/layout/desktop/header";
+@import "admin/layout/desktop/footer";
+@import "admin/layout/desktop/columns";
+@import "admin/components/desktop/admin-panel";
+@import "admin/components/desktop/filters";
+@import "admin/components/desktop/header";
+@import "admin/components/desktop/tab";
+@import "admin/components/desktop/notify";
+@import "admin/components/desktop/image-content";
+@import "admin/components/desktop/burger";
+
+

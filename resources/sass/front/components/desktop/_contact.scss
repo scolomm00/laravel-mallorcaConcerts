@@ -1,0 +1,42 @@
+.contact{
+    
+    margin: 5%;
+
+    .contact-title{
+
+        margin-bottom: 5%;
+        
+        h1{
+
+            text-align: center;
+        }
+    }
+
+    .contact-options{
+        
+        .contact-info{
+
+            width: 100%;
+    
+            .contact-info-option{
+
+                margin-bottom: 5%;
+                font-size: 1.2rem;
+    
+                span{
+
+                    color: hsl(0, 0%, 100%);
+                }
+            }
+    
+            svg{
+
+                width: 1.2rem;
+                height: 1.2rem;
+                color: hsl(0, 0%, 100%);
+                margin-right: 2%;
+            }
+    
+        }
+    }
+}

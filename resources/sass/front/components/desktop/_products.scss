@@ -1,0 +1,145 @@
+.products-container{
+
+    margin: 2rem auto;
+    width: 90%;
+}
+
+.products{
+
+    border-left: 2px solid hsl(0, 0%, 100%);
+    padding-left: 5%;
+
+    .products-menu{
+
+        .products-menu-counter-items{
+
+            span{
+
+                color: hsl(0, 0%, 100%);
+                font-size: 1.2rem;
+            }
+        }
+
+        .products-menu-filter{
+
+            margin-left: auto;
+            width: max-content;
+        }
+
+        .products-menu-filter select{
+
+            padding: 0.2rem 2rem 0.2rem 0.2rem;
+        }
+    }
+
+    .products-gallery{
+
+        width: 100%;
+
+        .products-element{
+
+            border: solid 3px hsl(0, 0%, 100%);
+            border-radius: 10px;
+            background-color: hsla(0, 1%, 74%, 0.76);
+            margin: 2rem 0;
+            padding: 0.1rem;
+            box-shadow: 5px 5px 15px 5px hsla(0, 100%, 50%, 0.835);
+
+            &:hover{
+
+                box-shadow: 5px 5px 15px 5px hsl(0, 0%, 0%);
+            }
+
+            .products-element-image{
+                
+                &:hover{
+                    
+                    cursor: pointer;
+                }
+            }
+
+            .products-element-title{
+
+                min-height: 4vh;
+                max-height: 10vh;
+                white-space: nowrap;
+                text-overflow: ellipsis;
+                overflow: hidden;
+                padding: 0 0.3rem;
+
+                span{
+
+                    font-size: 1.5rem;
+                    font-weight: 900;
+
+                    &:hover{
+
+                        text-decoration: underline;
+                        cursor: pointer;
+                    }
+                }
+            }
+
+            .products-element-day{
+
+                min-height: 4vh;
+                max-height: 10vh;
+                white-space: nowrap;
+                text-overflow: ellipsis;
+                overflow: hidden;
+                padding: 0 0.3rem;
+
+                svg{
+
+                    width: 1.3rem;
+                    height: 1.3rem;
+                }
+            }
+            
+            .products-element-address{
+
+                min-height: 5vh;
+                max-height: 10vh;
+                white-space: nowrap;
+                text-overflow: ellipsis;
+                overflow: hidden;
+
+                svg{
+
+                    width: 1.3rem;
+                    height: 1.3rem;
+                }
+            }
+
+            .products-element-buy{
+
+                padding: 0.5rem;
+                align-items: center;
+                display: flex;
+                justify-content: center;
+
+                button{
+
+                    width: 10rem;
+                    height: 2rem;
+                    border-radius: 10px;
+                    font-size: 150%;
+                    font-weight: bolder;
+                    font-family: "Roboto Condensed";
+                    background-color: hsla(0, 0%, 0%, 0.966);
+                    cursor: pointer;
+                    color: hsl(0, 0%, 100%);
+
+                    &:hover{
+                        
+                        color: hsl(0, 0%, 0%);
+                        background-color: hsl(0, 0%, 100%);
+                        border: solid 2px;
+                    }
+                }
+            }
+
+        }
+
+    }
+}

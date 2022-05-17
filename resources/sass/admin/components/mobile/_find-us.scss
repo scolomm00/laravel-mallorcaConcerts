@@ -1,0 +1,53 @@
+.find-us{
+    
+    margin: 0 5%;
+    padding: 1rem;
+    padding-bottom: 3rem;
+
+    .find-us-main{
+
+        margin: 2rem 0;
+
+        h1{
+
+            align-items: center;
+            display: flex;
+            justify-content: center;
+            font-family: "Roboto Condensed";
+            font-size: 200%;
+            color: hsl(0, 0%, 100%);
+            font-weight: 900;
+        }
+    }
+
+    .find-us-content{
+
+        border: solid 3px hsl(0, 0%, 100%);
+        background-color: hsla(0, 1%, 74%, 0.76);
+        border-radius: 10px;
+        margin-bottom: 1rem;
+        padding: 0.5rem 15%;
+
+        .find-us-content-title{
+
+            align-items: center;
+            display: flex;
+            justify-content: center;
+            padding: 1rem 0;
+        }
+
+        .find-us-content-text{
+
+            padding-bottom: 1rem;
+        }
+    }
+
+    
+    .find-us-map iframe{
+
+        width: 100%;
+        height: 22rem;
+        border: solid 3px hsl(0, 0%, 100%);
+        border-radius: 10px;
+    }
+}

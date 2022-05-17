@@ -1,0 +1,50 @@
+.banner{
+
+    border-top: solid 3px hsla(0, 100%, 50%, 0.493);
+    border-bottom: solid 3px hsla(0, 100%, 50%, 0.541);
+
+    .banner-text{
+
+        left: 10%;
+        top: 30vh;
+        width: 70%;
+        position:absolute; 
+        z-index:1;
+
+        h1{
+
+            font-family: fantasy;
+            font-size: 200%;
+            font-style: oblique;
+            color: hsl(47, 7%, 63%);
+            -webkit-text-stroke: 2px hsl(0, 0%, 0%);
+            font-weight: 900;
+        }
+    }
+
+    .banner-button{
+
+        position: absolute;
+        left: 10%;
+        top: 70vh;
+        z-index: 1;
+
+        button{
+
+            width: 15rem;
+            height: 4rem;
+            border-radius: 10px;
+            font-size: 150%;
+            font-weight: bolder;
+            font-family: "Roboto Condensed";
+            background-color: hsla(0, 0%, 38%, 0.815);
+            cursor: pointer;
+
+            &:hover{
+            
+                background-color: hsla(0, 0%, 38%, 0.938);
+                box-shadow: 5px 5px 15px 5px hsla(123, 100%, 50%, 0.835);
+            }
+        }  
+    }
+}
