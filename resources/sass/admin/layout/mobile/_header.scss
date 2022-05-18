@@ -40,9 +40,14 @@ header{
     height: 100vh;
     left: 0;
     position: fixed;
-    top: 0;
+    top: -100vh;
+    transition: all 0.4s;
     width: 100%;
     z-index: $z-index-mobile-menu;
+
+    &.up{
+        top: 0;
+    }
 
     ul{
 

@@ -1,133 +1,53 @@
-.Panel {
-	width: 100%;
-	max-width: 600px;
-	margin: 30px auto;
-	&__body {
-		background-color: hsl(0, 0%, 0%);
-		padding: 10px 20px;
-	}
-}
+.box-tabs-content {
 
-.Tabs {
+    .tabs {
 
-	position: relative;
-	background-color: hsl(0, 0%, 100%);
+        background-color: hsl(0, 0%, 100%);
+        display: flex;
+        justify-content: center;
+        justify-content: space-between;
+        margin-bottom: 3%;
 
-	&:after {
-		content: ' ';
-		display: table;
-		clear: both;
-	}
+        .tab {
 
-	margin: 0;
-	padding: 0;
-	list-style: none;
-	/**
-	 * UPDATE: better to animate "transform" property than "left"
-	 * property. You can see old code lower down for reference.
-	 */
+            border: 2px solid hsl(0, 0%, 0%);
+            width: 100%;
+            text-align: center;
+            padding: 0.5rem;
+            font-family: Arial, Helvetica, sans-serif;
+            font-weight: 600;
 
-	&__tab {
+            &:hover {
 
-		float: left;
-		width: 33.333%;
-		text-align: center;
+                background-color: hsl(0, 2%, 76%);
+                cursor: pointer;
+            }
 
-		&:first-child.active ~ .Tabs__presentation-slider {
+            &.active {
 
-			transform: translateX(0) scaleX(0.333);
-		}
+                background-color: hsl(0, 0%, 0%);
+                color: hsl(0, 0%, 100%);
+                border-top: 2px solid white;
+                border-left: 2px solid white;
+                border-right: 2px solid white;
+                transition: 0.5s;
+            }
+        }
+    }
 
-		&:nth-child(2).active ~ .Tabs__presentation-slider {
+    .tabs-content {
+        
+        height: 15rem;
+        width: 100%;
 
-			transform: translateX(33.333%) scaleX(0.333);
-		}
+        .tab-content {
 
-		&:nth-child(3).active ~ .Tabs__presentation-slider {
+            display: none;
 
-			transform: translateX(calc(33.333% * 2)) scaleX(0.333);
-		}
-	}
+            &.active {
 
-	&__presentation-slider {
-
-		position: absolute;
-		bottom: 0;
-		left: 0;
-		width: 100%;
-		height: 2px;
-		background-color: hsl(230, 90%, 63%);
-		transform-origin: 0 0;
-		transition: transform .25s;
-	}
-	
-	/**
-	 * OLD CODE (for reference)
-	 * It's a bit easier to understand with "left",
-	 * but the animation is not as smooth
-	 */
-
-	&__tab {
-
-		float: left;
-		width: 33.333%;
-		text-align: center;
-
-		&:first-child.active ~ .Tabs__presentation-slider {
-
-			left: 0;
-		}
-
-		&:nth-child(2).active ~ .Tabs__presentation-slider {
-
-			left: 33.333%;
-		}
-
-		&:nth-child(3).active ~ .Tabs__presentation-slider {
-
-			left: calc(33.333% * 2);
-		}
-	}
-
-	&__presentation-slider {
-
-		position: absolute;
-		bottom: 0;
-		left: 0;
-		width: 33.333%;
-		height: 2px;
-		background-color: hsl(230, 89%, 62%);
-		transform-origin: 0 0;
-		transition: left .25s;
-	}
-}
-
-.Tab {
-
-	font-family: 'Roboto Slab';
-
-	> a {
-
-		display: block;
-		padding: 10px 12px;
-		text-decoration: none;
-		color: hsl(0, 0%, 40%);
-		transition: color .15s;
-	}
-
-	&.active {
-
-		> a {
-
-			color: hsl(0, 0%, 13%);
-		}
-	}
-
-	&:hover {
-
-		> a {
-			
-			color: hsl(0, 0%, 13%);
-		}
-	}
+                display: block;
+            }
+        }
+    }
 }

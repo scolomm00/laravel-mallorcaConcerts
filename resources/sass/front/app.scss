@@ -1,27 +1,29 @@
 @charset "utf-8";
 
-@import "front/helpers/variables";
-@import "front/helpers/mixins";
-@import "front/base/normalize";
-@import "front/base/contents";
-@import "front/base/typography";
-@import "front/layout/desktop/master";
-@import "front/layout/desktop/header";
-@import "front/layout/desktop/footer";
-@import "front/layout/desktop/columns";
-@import "front/components/desktop/banner";
-@import "front/components/desktop/featured";
-@import "front/components/desktop/find-us";
-@import "front/components/desktop/categories-menu";
-@import "front/components/desktop/products";
-@import "front/components/desktop/product";
-@import "front/components/desktop/contact";
-@import "front/components/desktop/form";
-@import "front/components/desktop/cart";
-@import "front/components/desktop/checkout";
-@import "front/components/desktop/admin-panel";
-@import "front/components/desktop/tab";
-@import "front/components/desktop/faqs";
-@import "front/pages/home/desktop/home";
+@import "helpers/variables";
+@import "helpers/mixins";
+@import "base/normalize";
+@import "base/contents";
+@import "base/typography";
+@import "layout/desktop/master";
+@import "layout/desktop/header";
+@import "layout/desktop/footer";
+@import "layout/desktop/columns";
+@import "components/desktop/banner";
+@import "components/desktop/featured";
+@import "components/desktop/find-us";
+@import "components/desktop/categories-menu";
+@import "components/desktop/products";
+@import "components/desktop/product";
+@import "components/desktop/contact";
+@import "components/desktop/form";
+@import "components/desktop/cart";
+@import "components/desktop/checkout";
+@import "components/desktop/admin-panel";
+@import "components/desktop/tab";
+@import "components/desktop/faqs";
+@import "components/desktop/page-title";
+@import "pages/home/desktop/home";
+
 
 

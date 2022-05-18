@@ -1,20 +1,20 @@
 @charset "utf-8";
 
-@import "admin/helpers/variables";
-@import "admin/helpers/mixins";
-@import "admin/base/normalize";
-@import "admin/base/contents";
-@import "admin/base/typography";
-@import "admin/layout/desktop/master";
-@import "admin/layout/desktop/header";
-@import "admin/layout/desktop/footer";
-@import "admin/layout/desktop/columns";
-@import "admin/components/desktop/admin-panel";
-@import "admin/components/desktop/filters";
-@import "admin/components/desktop/header";
-@import "admin/components/desktop/tab";
-@import "admin/components/desktop/notify";
-@import "admin/components/desktop/image-content";
-@import "admin/components/desktop/burger";
+@import "helpers/variables";
+@import "helpers/mixins";
+@import "base/normalize";
+@import "base/contents";
+@import "base/typography";
+@import "layout/desktop/master";
+@import "layout/desktop/header";
+@import "layout/desktop/footer";
+@import "layout/desktop/columns";
+@import "components/desktop/admin-panel";
+@import "components/desktop/filters";
+@import "components/desktop/header";
+@import "components/desktop/tab";
+@import "components/desktop/notify";
+@import "components/desktop/image-content";
+@import "components/desktop/burger";
 
 

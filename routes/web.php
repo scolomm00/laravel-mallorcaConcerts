@@ -14,29 +14,33 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('front.pages.home.home');
+    return view('front.pages.home.index');
 });
 
 Route::get('/cart', function () {
-    return view('front.pages.cart.cart');
+    return view('front.pages.cart.index');
 });
 
 Route::get('/checkout', function () {
-    return view('front.pages.checkout.checkout');
+    return view('front.pages.checkout.index');
 });
 
 Route::get('/contact', function () {
-    return view('front.pages.contact.contact');
+    return view('front.pages.contact.index');
 });
 
 Route::get('/faqs', function () {
-    return view('front.pages.faqs.faqs');
+    return view('front.pages.faqs.index');
 });
 
 Route::get('/product', function () {
-    return view('front.pages.product.product');
+    return view('front.pages.product.index');
 });
 
 Route::get('/products', function () {
-    return view('front.pages.products.products');
+    return view('front.pages.products.index');
+});
+
+Route::get('/admin-panel', function () {
+    return view('admin.pages.admin-panel.admin-panel');
 });
