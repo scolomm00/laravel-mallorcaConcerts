@@ -7,6 +7,7 @@ export let filterBar = () => {
         filterButton.addEventListener("click", () => {
 
             filterBar.classList.toggle("active");
+            filterButton.classList.toggle("active");
     
         });
     }

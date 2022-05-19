@@ -42,5 +42,5 @@ Route::get('/products', function () {
 });
 
 Route::get('/admin-panel', function () {
-    return view('admin.pages.admin-panel.admin-panel');
+    return view('admin.pages.admin-panel.index');
 });

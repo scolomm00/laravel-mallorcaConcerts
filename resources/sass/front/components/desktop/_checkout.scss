@@ -23,8 +23,15 @@
 
                 .form-element-input{
 
+                    input{
+                        
+                        height: 1.5rem;
+
+                    }
+
                     select{
 
+                        height: 2rem;
                         width: 78%;
                     }
                 }
@@ -32,7 +39,7 @@
                 .form-element-input-address{
 
                     input{
-
+                        height: 1.5rem;
                         width:88%;
                     }
                 }

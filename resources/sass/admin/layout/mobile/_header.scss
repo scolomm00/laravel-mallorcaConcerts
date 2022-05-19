@@ -1,63 +1,65 @@
 header{
 
-    padding: 0 5%;
-    padding-top: 3%;
-    padding-bottom: 12%;
-    width: 90%;
+    height: 10vh;
+}
 
-    .header-logo{
+.admin-header {
 
+    padding: 2rem;
+
+    .admin-header-button-menu {
+
+        cursor: pointer;
+        display: flex;
         position: absolute;
-        width: 70%;
-        z-index: $z-index-header-logo;
+        right: 5%;
+        z-index: $z-index-menu-button;
 
+
+
+        svg {
+            width: 2rem;
+            height: 2rem;
+            color: white;
+
+            &:hover {
+
+                color: hsla(0, 100%, 50%, 0.588);
+            }
+        }
     }
 }
 
-.mobile-header-button-menu{
+.header-logo{
     
-    display: flex;
-    position: absolute;
-    right: 5%;
-    z-index: $z-index-menu-button;
-
-
-    
-    svg{
-        width: 2rem;
-        height: 2rem;
-        color: white;
-
-        &:hover{
-
-            color: hsla(0, 100%, 50%, 0.588);
-        } 
-    }
 }
 
-.mobile-menu {
+
+.admin-menu {
     background-color: hsl(0, 0%, 0%);
     height: 100vh;
     left: 0;
     position: fixed;
-    top: -100vh;
-    transition: all 0.4s;
+    top: -120vh;
+    transition: all 0.5s;
     width: 100%;
     z-index: $z-index-mobile-menu;
+    padding: 2rem;
 
-    &.up{
+
+    &.up {
         top: 0;
     }
 
-    ul{
+    ul {
 
         align-items: center;
         justify-content: center;
         text-align: center;
-        margin: 50% 30%;
+        margin: 10% 30%;
     }
 
-    li{
+    li {
 
         margin-bottom: 20%;
         z-index: $z-index-mobile-menu;
@@ -69,16 +71,15 @@ header{
         justify-content: center;
         color: hsl(0, 0%, 100%);
 
-        &:hover{
+        &:hover {
 
             color: hsla(0, 100%, 50%, 0.588);
-        }   
+        }
     }
 
-    svg{
+    svg {
 
         width: 1.5rem;
         height: 1.5rem;
     }
 }
-

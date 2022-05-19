@@ -99,25 +99,39 @@
             }
         }
 
+        .form-element-textarea {
+            padding-top: 5%;
+        
+        
+            .ck.ck-editor__editable_inline>:last-child {
+        
+                color: black;
+                min-height: 4rem;
+            }
+        }
+
         .form-button {
 
-            padding-top: 5%;
+            padding-top: 10%;
             display: flex;
             justify-content: center;
-            padding-right: 0.5rem;
             width: 100%;
             margin-bottom: 30%;
 
             .form-button-reset {
 
-                padding-right: 2rem;
-                width: 50%;
-
                 button {
 
                     display: flex;
                     padding: 0.5rem;
-                    width: 8rem;
+                    width: 12rem;
+                    border-radius: 10px 0 0 10px;
+                    background-color: hsla(0, 0%, 0%, 0.548);
+                    color: hsl(0, 0%, 100%);
+                    border: 2px solid hsl(0, 0%, 100%);
+                    font-weight: 300;
+                    align-items: center;
+                    justify-content: center;
 
                     svg {
 
@@ -126,16 +140,13 @@
                         padding-right: 0.5rem;
                     }
 
-                    border-radius: 10px;
-                    background-color: hsla(0, 0%, 0%, 0.548);
-                    color: hsl(0, 0%, 100%);
-                    border: 2px solid hsl(0, 0%, 100%);
-                    font-weight: 900;
+                    
 
                     &:hover {
 
                         cursor: pointer;
                         color: hsl(0, 0%, 100%);
+                        
                     }
                 }
             }
@@ -146,7 +157,14 @@
 
                     display: flex;
                     padding: 0.5rem;
-                    width: 8rem;
+                    width: 12rem;
+                    border-radius: 0 10px 10px 0;
+                    background-color: hsla(0, 0%, 0%, 0.548);
+                    color: hsl(0, 0%, 100%);
+                    border: 2px solid hsl(0, 0%, 100%);
+                    font-weight: 500;
+                    align-items: center;
+                    justify-content: center;
 
                     svg {
 
@@ -154,12 +172,6 @@
                         height: 1.5rem;
                         padding-right: 0.5rem;
                     }
-
-                    border-radius: 10px;
-                    background-color: hsla(0, 0%, 0%, 0.548);
-                    color: hsl(0, 0%, 100%);
-                    border: 2px solid hsl(0, 0%, 100%);
-                    font-weight: 900;
 
                     &:hover {
 
@@ -169,133 +181,5 @@
                 }
             }
         }
-    }
-}
-
-.footer-admin {
-
-    margin-top: 10%;
-    border-top: 3px solid hsl(0, 0%, 100%);
-    text-align: center;
-    justify-content: center;
-    width: 100%;
-
-    img {
-
-        margin-top: 1.5%;
-    }
-}
-
-
-/*---------------------*/
-
-
-.hamburger {
-
-    margin-top: 10%;
-
-    .line {
-
-        background: hsl(0, 0%, 100%);
-        height: 0.5rem;
-        width: 4rem;
-        margin-bottom: 0.7rem;
-        transition: all 1s;
-    }
-
-    &.active .line1 {
-
-        transform: rotate(0.125turn) translate(0, 25px);
-    }
-
-    &.active .line2 {
-
-        opacity: 0;
-    }
-
-    &.active .line3 {
-
-        transform: rotate(-0.125turn) translate(0, -26px);
-    }
-}
-
-.header-admin-menu {
-
-    display: flex;
-    position: absolute;
-    right: 5%;
-    z-index: $z-index-menu-button;
-
-    svg {
-
-        width: 2rem;
-        height: 2rem;
-        color: white;
-
-        &:hover {
-
-            color: hsla(0, 100%, 50%, 0.588);
-        }
-    }
-}
-
-.admin-menu {
-
-    background-color: hsl(0, 0%, 0%);
-    height: 100vh;
-    left: 0;
-    position: fixed;
-    top: -100vh;
-    transition: top 0.5s;
-    width: 100%;
-    z-index: $z-index-mobile-menu;
-
-    &.up {
-
-        top: 0;
-        overflow: hidden;
-
-        ul {
-
-            align-items: center;
-            justify-content: center;
-            text-align: center;
-            margin: 30% 30%;
-        }
-
-        li {
-
-            margin-bottom: 20%;
-            z-index: $z-index-mobile-menu;
-            cursor: pointer;
-            font-family: "Roboto Condensed";
-            font-size: 1.5rem;
-            font-weight: 600;
-            align-items: center;
-            justify-content: center;
-            color: hsl(0, 0%, 100%);
-
-            &:hover {
-
-                color: hsla(0, 100%, 50%, 0.588);
-            }
-        }
-
-        svg {
-
-            width: 1.5rem;
-            height: 1.5rem;
-        }
-    }
-}
-
-.form-element-textarea {
-    padding-top: 5%;
-
-
-    .ck.ck-editor__editable_inline>:last-child {
-
-        color: black;
-        min-height: 4rem;
     }
 }

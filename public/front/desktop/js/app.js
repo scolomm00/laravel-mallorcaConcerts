@@ -122,6 +122,7 @@ var filterBar = function filterBar() {
   if (filterBar) {
     filterButton.addEventListener("click", function () {
       filterBar.classList.toggle("active");
+      filterButton.classList.toggle("active");
     });
   }
 };

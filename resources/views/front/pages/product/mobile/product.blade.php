@@ -27,7 +27,7 @@
                         </div>
                         <div class="column">
                             
-                            @include ('front.components.desktop.plus-minus-button')
+                            @include ('front.components.mobile.plus_minus_button')
 
                         </div>
                     </div>

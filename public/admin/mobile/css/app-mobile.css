@@ -444,52 +444,49 @@ main {
 }
 
 header {
-  padding: 0 5%;
-  padding-top: 3%;
-  padding-bottom: 12%;
-  width: 90%;
-}
-header .header-logo {
-  position: absolute;
-  width: 70%;
-  z-index: 5001;
+  height: 10vh;
 }
 
-.mobile-header-button-menu {
+.admin-header {
+  padding: 2rem;
+}
+.admin-header .admin-header-button-menu {
+  cursor: pointer;
   display: flex;
   position: absolute;
   right: 5%;
   z-index: 5001;
 }
-.mobile-header-button-menu svg {
+.admin-header .admin-header-button-menu svg {
   width: 2rem;
   height: 2rem;
   color: white;
 }
-.mobile-header-button-menu svg:hover {
+.admin-header .admin-header-button-menu svg:hover {
   color: hsla(0deg, 100%, 50%, 0.588);
 }
 
-.mobile-menu {
+.admin-menu {
   background-color: hsl(0deg, 0%, 0%);
   height: 100vh;
   left: 0;
   position: fixed;
-  top: -100vh;
-  transition: all 0.4s;
+  top: -120vh;
+  transition: all 0.5s;
   width: 100%;
   z-index: 5000;
+  padding: 2rem;
 }
-.mobile-menu.up {
+.admin-menu.up {
   top: 0;
 }
-.mobile-menu ul {
+.admin-menu ul {
   align-items: center;
   justify-content: center;
   text-align: center;
-  margin: 50% 30%;
+  margin: 10% 30%;
 }
-.mobile-menu li {
+.admin-menu li {
   margin-bottom: 20%;
   z-index: 5000;
   cursor: pointer;
@@ -500,48 +497,12 @@ header .header-logo {
   justify-content: center;
   color: hsl(0deg, 0%, 100%);
 }
-.mobile-menu li:hover {
+.admin-menu li:hover {
   color: hsla(0deg, 100%, 50%, 0.588);
 }
-.mobile-menu svg {
+.admin-menu svg {
   width: 1.5rem;
   height: 1.5rem;
-}
-
-.footer {
-  padding-top: 5%;
-  border-top: 1px solid hsl(0deg, 0%, 100%);
-  height: 0;
-}
-.footer .footer-text .footer-text-span {
-  text-align: center;
-  margin: 1rem;
-}
-.footer .footer-text .footer-text-span span {
-  color: hsl(0deg, 0%, 100%);
-}
-.footer .footer-text .footer-text-span span:hover {
-  cursor: pointer;
-  text-decoration: underline;
-}
-.footer .footer-logo {
-  padding: 0.5rem;
-}
-.footer .footer-logo .footer-logo-social {
-  display: flex;
-}
-.footer .footer-logo .footer-logo-social .footer-logo-social-media {
-  width: 100%;
-  text-align: center;
-  margin-top: 5%;
-}
-.footer .footer-logo .footer-logo-social .footer-logo-social-media svg {
-  width: 1.5rem;
-  height: 1.5rem;
-  color: hsl(0deg, 0%, 100%);
-}
-.footer .footer-logo .footer-logo-social .footer-logo-social-media svg:hover {
-  cursor: pointer;
 }
 
 .mobile-five-columns {
@@ -661,27 +622,31 @@ header .header-logo {
   font-size: 100%;
   height: 1.5rem;
 }
-.admin-panel .admin-panel-form .form-button {
+.admin-panel .admin-panel-form .form-element-textarea {
   padding-top: 5%;
+}
+.admin-panel .admin-panel-form .form-element-textarea .ck.ck-editor__editable_inline > :last-child {
+  color: black;
+  min-height: 4rem;
+}
+.admin-panel .admin-panel-form .form-button {
+  padding-top: 10%;
   display: flex;
   justify-content: center;
-  padding-right: 0.5rem;
   width: 100%;
   margin-bottom: 30%;
-}
-.admin-panel .admin-panel-form .form-button .form-button-reset {
-  padding-right: 2rem;
-  width: 50%;
 }
 .admin-panel .admin-panel-form .form-button .form-button-reset button {
   display: flex;
   padding: 0.5rem;
-  width: 8rem;
-  border-radius: 10px;
+  width: 12rem;
+  border-radius: 10px 0 0 10px;
   background-color: hsla(0deg, 0%, 0%, 0.548);
   color: hsl(0deg, 0%, 100%);
   border: 2px solid hsl(0deg, 0%, 100%);
-  font-weight: 900;
+  font-weight: 300;
+  align-items: center;
+  justify-content: center;
 }
 .admin-panel .admin-panel-form .form-button .form-button-reset button svg {
   width: 1.5rem;
@@ -695,12 +660,14 @@ header .header-logo {
 .admin-panel .admin-panel-form .form-button .form-button-update button {
   display: flex;
   padding: 0.5rem;
-  width: 8rem;
-  border-radius: 10px;
+  width: 12rem;
+  border-radius: 0 10px 10px 0;
   background-color: hsla(0deg, 0%, 0%, 0.548);
   color: hsl(0deg, 0%, 100%);
   border: 2px solid hsl(0deg, 0%, 100%);
-  font-weight: 900;
+  font-weight: 500;
+  align-items: center;
+  justify-content: center;
 }
 .admin-panel .admin-panel-form .form-button .form-button-update button svg {
   width: 1.5rem;
@@ -712,145 +679,8 @@ header .header-logo {
   color: hsl(0deg, 0%, 100%);
 }
 
-.footer-admin {
-  margin-top: 10%;
-  border-top: 3px solid hsl(0deg, 0%, 100%);
-  text-align: center;
-  justify-content: center;
-  width: 100%;
-}
-.footer-admin img {
-  margin-top: 1.5%;
-}
-
-/*---------------------*/
-.hamburger {
-  margin-top: 10%;
-}
 .hamburger .line {
   background: hsl(0deg, 0%, 100%);
-  height: 0.5rem;
-  width: 4rem;
-  margin-bottom: 0.7rem;
-  transition: all 1s;
-}
-.hamburger.active .line1 {
-  transform: rotate(0.125turn) translate(0, 25px);
-}
-.hamburger.active .line2 {
-  opacity: 0;
-}
-.hamburger.active .line3 {
-  transform: rotate(-0.125turn) translate(0, -26px);
-}
-
-.header-admin-menu {
-  display: flex;
-  position: absolute;
-  right: 5%;
-  z-index: 5001;
-}
-.header-admin-menu svg {
-  width: 2rem;
-  height: 2rem;
-  color: white;
-}
-.header-admin-menu svg:hover {
-  color: hsla(0deg, 100%, 50%, 0.588);
-}
-
-.admin-menu {
-  background-color: hsl(0deg, 0%, 0%);
-  height: 100vh;
-  left: 0;
-  position: fixed;
-  top: -100vh;
-  transition: top 0.5s;
-  width: 100%;
-  z-index: 5000;
-}
-.admin-menu.up {
-  top: 0;
-  overflow: hidden;
-}
-.admin-menu.up ul {
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-  margin: 30% 30%;
-}
-.admin-menu.up li {
-  margin-bottom: 20%;
-  z-index: 5000;
-  cursor: pointer;
-  font-family: "Roboto Condensed";
-  font-size: 1.5rem;
-  font-weight: 600;
-  align-items: center;
-  justify-content: center;
-  color: hsl(0deg, 0%, 100%);
-}
-.admin-menu.up li:hover {
-  color: hsla(0deg, 100%, 50%, 0.588);
-}
-.admin-menu.up svg {
-  width: 1.5rem;
-  height: 1.5rem;
-}
-
-.form-element-textarea {
-  padding-top: 5%;
-}
-.form-element-textarea .ck.ck-editor__editable_inline > :last-child {
-  color: black;
-  min-height: 4rem;
-}
-
-.banner {
-  border-top: solid 3px hsla(0deg, 100%, 50%, 0.493);
-  border-bottom: solid 3px hsla(0deg, 100%, 50%, 0.541);
-}
-.banner .banner-text {
-  left: 10%;
-  top: 30vh;
-  width: 70%;
-  position: absolute;
-  z-index: 1;
-}
-.banner .banner-text h1 {
-  font-family: fantasy;
-  font-size: 200%;
-  font-style: oblique;
-  color: hsl(47deg, 7%, 63%);
-  -webkit-text-stroke: 2px hsl(0deg, 0%, 0%);
-  font-weight: 900;
-}
-.banner .banner-button {
-  position: absolute;
-  left: 10%;
-  top: 70vh;
-  z-index: 1;
-}
-.banner .banner-button button {
-  width: 15rem;
-  height: 4rem;
-  border-radius: 10px;
-  font-size: 150%;
-  font-weight: bolder;
-  font-family: "Roboto Condensed";
-  background-color: hsla(0deg, 0%, 38%, 0.815);
-  cursor: pointer;
-}
-.banner .banner-button button:hover {
-  background-color: hsla(0deg, 0%, 38%, 0.938);
-  box-shadow: 5px 5px 15px 5px hsla(123deg, 100%, 50%, 0.835);
-}
-
-.hamburger {
-  margin-top: 10%;
-}
-.hamburger .line {
-  background: rgb(255, 255, 255);
   height: 0.2rem;
   width: 2rem;
   margin-bottom: 0.5rem;
@@ -1028,27 +858,6 @@ header .header-logo {
   border-radius: 10px;
 }
 
-header {
-  padding-top: 2%;
-  background-color: hsl(0deg, 0%, 0%);
-}
-header .header-admin-logo h1 {
-  color: hsl(0deg, 0%, 100%);
-}
-header .header-admin-logo h1 svg {
-  padding-right: 1rem;
-  width: 5rem;
-  height: 5rem;
-}
-header .header-admin-menu {
-  margin-top: 0.7%;
-  margin-left: auto;
-  width: -webkit-max-content;
-  width: -moz-max-content;
-  width: max-content;
-  cursor: pointer;
-}
-
 .content-image {
   padding: 2rem;
 }
@@ -1136,44 +945,6 @@ header .header-admin-menu {
 #notify span {
   color: hsl(0deg, 0%, 100%);
   font-weight: 600;
-}
-
-.box-tabs-content .tabs {
-  background-color: hsl(0deg, 0%, 100%);
-  display: flex;
-  justify-content: center;
-  justify-content: space-between;
-  margin-bottom: 3%;
-}
-.box-tabs-content .tabs .tab {
-  border: 2px solid hsl(0deg, 0%, 0%);
-  width: 100%;
-  text-align: center;
-  padding: 0.5rem;
-  font-family: Arial, Helvetica, sans-serif;
-  font-weight: 600;
-}
-.box-tabs-content .tabs .tab:hover {
-  background-color: hsl(0deg, 2%, 76%);
-  cursor: pointer;
-}
-.box-tabs-content .tabs .tab.active {
-  background-color: hsl(0deg, 0%, 0%);
-  color: hsl(0deg, 0%, 100%);
-  border-top: 2px solid white;
-  border-left: 2px solid white;
-  border-right: 2px solid white;
-  transition: 0.5s;
-}
-.box-tabs-content .tabs-content {
-  height: 15rem;
-  width: 100%;
-}
-.box-tabs-content .tabs-content .tab-content {
-  display: none;
-}
-.box-tabs-content .tabs-content .tab-content.active {
-  display: block;
 }
 
 .product-text-price {

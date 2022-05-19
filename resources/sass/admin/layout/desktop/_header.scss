@@ -1,59 +1,85 @@
 header{
 
-    padding: 1rem 5%;
-    width: 90%;
+    height: 10vh;
+}
+
+.admin-header {
+
+    padding: 2rem;
+
+    .admin-header-button-menu {
+
+        cursor: pointer;
+        display: flex;
+        position: absolute;
+        right: 5%;
+        z-index: $z-index-menu-button;
+
+
+
+        svg {
+            width: 2rem;
+            height: 2rem;
+            color: white;
+
+            &:hover {
+
+                color: hsla(0, 100%, 50%, 0.588);
+            }
+        }
+    }
+}
+
+.header-logo{
     
 }
 
-.header{
 
+.admin-menu {
     background-color: hsl(0, 0%, 0%);
-    padding-bottom: 0.7rem;
-    padding-top: 0.5rem;
+    height: 100vh;
+    left: 0;
+    position: fixed;
+    top: -120vh;
+    transition: all 0.5s;
+    width: 100%;
+    z-index: $z-index-mobile-menu;
+    padding: 2rem;
 
-    .header-logo{
 
-        display: flex;
-
+    &.up {
+        top: 0;
     }
 
+    ul {
 
-}
-
-.header-menu {
-
-    margin-top: 2%;
-
-    ul{
-
-        display: flex;
-        justify-content: space-between;
-        font-size: 1rem;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        margin: 10% 30%;
     }
 
-    li{
+    li {
 
-        display: inline;
+        margin-bottom: 20%;
+        z-index: $z-index-mobile-menu;
         cursor: pointer;
         font-family: "Roboto Condensed";
         font-size: 1.5rem;
         font-weight: 600;
         align-items: center;
         justify-content: center;
-        display: flex;
         color: hsl(0, 0%, 100%);
 
-        &:hover{
+        &:hover {
 
             color: hsla(0, 100%, 50%, 0.588);
-        }   
+        }
     }
 
-    svg{
+    svg {
 
         width: 1.5rem;
         height: 1.5rem;
     }
-    
 }
-
