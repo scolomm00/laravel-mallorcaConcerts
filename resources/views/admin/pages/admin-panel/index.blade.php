@@ -50,9 +50,65 @@
 
         @include('admin.components.desktop.button')
         
-        <div class="box-tabs-content">
+
+        <div class="form-content">
+            <div class="form-element">
+                <div class="form-element-label">
+                    <label>Nombre</label>
+                </div>
+                <div class="form-element-input">
+                    <input type="text" name="name">
+                </div>
+            </div>
+            <div class="desktop-two-columns">
+                <div class="column">
+                    <div class="form-element">
+                        <div class="form-element-label">
+                            <label>Usuario</label>
+                        </div>
+                        <div class="form-element-input">
+                            <input type="text" name="user">
+                        </div>
+                    </div>
+                </div>
+                <div class="column">
+                    <div class="form-element">
+                        <div class="form-element-label">
+                            <label>Email</label>
+                        </div>
+                        <div class="form-element-input">
+                            <input type="email" name="email">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="desktop-two-columns">
+                <div class="column">
+                    <div class="form-element">
+                        <div class="form-element-label">
+                            <label>Contraseña</label>
+                        </div>
+                        <div class="form-element-input">
+                            <input type="password" name="password">
+                        </div>
+                    </div>
+                </div>
+                <div class="column">
+                    <div class="form-element">
+                        <div class="form-element-label">
+                            <label>Repetir contraseña</label>
+                        </div>
+                        <div class="form-element-input">
+                            <input type="password" name="password">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        {{-- <div class="box-tabs-content">
             <div class="tabs">
-                <div class="tab active" data-num="one">Formulario</div>
+                <div class="tab active" data-num="one">Contenido</div>
                 <div class="tab" data-num="two">Imagen</div>
                 <div class="tab" data-num="three">CKEditor</div>
             </div>
@@ -136,7 +192,7 @@
                 </div>
         
             </div>
-        </div>
+        </div> --}}
 
     </form>
 @endsection

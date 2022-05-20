@@ -44,3 +44,7 @@ Route::get('/products', function () {
 Route::get('/admin-panel', function () {
     return view('admin.pages.admin-panel.index');
 });
+
+Route::get('/admin-faqs', function () {
+    return view('admin.pages.faqs.index');
+});

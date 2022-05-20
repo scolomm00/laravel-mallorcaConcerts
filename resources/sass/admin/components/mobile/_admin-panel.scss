@@ -71,40 +71,67 @@
         width: 100%;
         
 
-        .form-element {
+        .form-content {
 
-            padding-top: 1rem;
-            width: 100%;
-            margin-left: 5%;
+            margin: 3%;
+            margin-bottom: 30%;
 
-            .form-element-label {
+            .form-element {
 
-                margin-bottom: 0.5rem;
+                width: 100%;
 
-                label {
 
-                    color: hsl(0, 0%, 100%);
+                .form-element-label {
+
                     font-size: 1rem;
-                    font-weight: 600;
-                }
-            }
+                    font-weight: bold;
+                    margin-bottom: 1rem;
+                    color: hsl(0, 0%, 100%);
 
-            .form-element-input {
+                    label {
 
-                input {
-                    width: 90%;
-                    font-size: 100%;
-                    height: 1.5rem;
+                        color: hsl(0, 0%, 100%);
+                        font-size: 1rem;
+                        font-weight: 600;
+                    }
                 }
+
+                .form-element-input {
+
+                    width: 100%;
+                    height: 2rem;
+                    border: 1px solid hsl(0, 0%, 80%);
+                    border-radius: 0.25rem;
+                    padding: 0.5rem;
+                    font-size: 1rem;
+                    color: black;
+                    margin-bottom: 1rem;
+
+                    input {
+
+                        width: 100%;
+                        height: 100%;
+                        border: none;
+                        outline: none;
+                        color: hsl(0, 0%, 0%);
+                        font-size: 1rem;
+                    }
+
+
+                }
+
+
             }
         }
 
+
+
         .form-element-textarea {
-            padding-top: 5%;
-        
-        
+            padding-top: 3%;
+            margin-left: 10%;
+
             .ck.ck-editor__editable_inline>:last-child {
-        
+
                 color: black;
                 min-height: 4rem;
             }
@@ -116,7 +143,7 @@
             display: flex;
             justify-content: center;
             width: 100%;
-            margin-bottom: 30%;
+            margin-bottom: 10%;
 
             .form-button-reset {
 

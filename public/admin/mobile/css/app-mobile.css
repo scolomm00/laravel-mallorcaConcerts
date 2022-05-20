@@ -604,26 +604,45 @@ header {
   margin-top: 2%;
   width: 100%;
 }
-.admin-panel .admin-panel-form .form-element {
-  padding-top: 1rem;
+.admin-panel .admin-panel-form .form-content {
+  margin: 3%;
+  margin-bottom: 30%;
+}
+.admin-panel .admin-panel-form .form-content .form-element {
   width: 100%;
-  margin-left: 5%;
 }
-.admin-panel .admin-panel-form .form-element .form-element-label {
-  margin-bottom: 0.5rem;
+.admin-panel .admin-panel-form .form-content .form-element .form-element-label {
+  font-size: 1rem;
+  font-weight: bold;
+  margin-bottom: 1rem;
+  color: hsl(0deg, 0%, 100%);
 }
-.admin-panel .admin-panel-form .form-element .form-element-label label {
+.admin-panel .admin-panel-form .form-content .form-element .form-element-label label {
   color: hsl(0deg, 0%, 100%);
   font-size: 1rem;
   font-weight: 600;
 }
-.admin-panel .admin-panel-form .form-element .form-element-input input {
-  width: 90%;
-  font-size: 100%;
-  height: 1.5rem;
+.admin-panel .admin-panel-form .form-content .form-element .form-element-input {
+  width: 100%;
+  height: 2rem;
+  border: 1px solid hsl(0deg, 0%, 80%);
+  border-radius: 0.25rem;
+  padding: 0.5rem;
+  font-size: 1rem;
+  color: black;
+  margin-bottom: 1rem;
+}
+.admin-panel .admin-panel-form .form-content .form-element .form-element-input input {
+  width: 100%;
+  height: 100%;
+  border: none;
+  outline: none;
+  color: hsl(0deg, 0%, 0%);
+  font-size: 1rem;
 }
 .admin-panel .admin-panel-form .form-element-textarea {
-  padding-top: 5%;
+  padding-top: 3%;
+  margin-left: 10%;
 }
 .admin-panel .admin-panel-form .form-element-textarea .ck.ck-editor__editable_inline > :last-child {
   color: black;
@@ -634,7 +653,7 @@ header {
   display: flex;
   justify-content: center;
   width: 100%;
-  margin-bottom: 30%;
+  margin-bottom: 10%;
 }
 .admin-panel .admin-panel-form .form-button .form-button-reset button {
   display: flex;
@@ -971,4 +990,44 @@ header {
 .box-element .box-message .message.active {
   margin-top: 5%;
   display: block;
+}
+
+.admin-faqs .box-faqs {
+  margin: 5% 7% 5% 5%;
+}
+.admin-faqs .box-faqs .faqs-label {
+  font-size: 1rem;
+  font-weight: bold;
+  margin-bottom: 1rem;
+  color: hsl(0deg, 0%, 100%);
+}
+.admin-faqs .box-faqs .faqs-input {
+  width: 100%;
+  height: 1.5rem;
+  border: 1px solid hsl(0deg, 0%, 80%);
+  border-radius: 0.25rem;
+  padding: 0.5rem;
+  font-size: 1rem;
+  color: black;
+  margin-bottom: 1rem;
+}
+.admin-faqs .box-faqs .faqs-input input {
+  width: 100%;
+  height: 100%;
+  border: none;
+  outline: none;
+  color: hsl(0deg, 0%, 0%);
+  font-size: 1rem;
+}
+.admin-faqs .box-faqs .faqs-ckeditor {
+  padding-top: 3%;
+  border: 1px solid hsl(0deg, 0%, 80%);
+  border-radius: 0.25rem;
+  padding: 0.5rem;
+  width: 100%;
+}
+.admin-faqs .box-faqs .faqs-ckeditor .ck.ck-editor__editable_inline > :last-child {
+  color: black;
+  min-height: 10rem;
+  font-size: 1rem;
 }

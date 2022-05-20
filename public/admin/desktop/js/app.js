@@ -156,10 +156,12 @@ __webpack_require__.r(__webpack_exports__);
 var filterBar = function filterBar() {
   var filterBar = document.getElementById("filter-bar");
   var filterButton = document.getElementById("filter-button");
+  var down = document.getElementById("down");
 
   if (filterBar) {
     filterButton.addEventListener("click", function () {
       filterBar.classList.toggle("active");
+      down.classList.toggle("active");
     });
   }
 };

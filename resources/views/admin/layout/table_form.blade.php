@@ -2,6 +2,7 @@
 
 @section('content')
 
+
     <div class="admin-panel">
         <div class="desktop-two-columns mobile-one-column">
             <div class="column">

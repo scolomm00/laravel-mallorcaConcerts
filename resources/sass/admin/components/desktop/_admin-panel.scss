@@ -24,45 +24,45 @@
                 text-align: center;
                 color: hsl(0, 0%, 100%);
 
-                .table-buttons{
+                .table-buttons {
 
                     display: flex;
 
                     .table-button-read {
 
                         padding-right: 0.5rem;
-    
+
                         svg {
-    
+
                             color: hsl(0, 0%, 100%);
                             width: 1.5rem;
                             height: 1.5rem;
-    
+
                             &:hover {
-    
+
                                 color: hsl(0, 0%, 50%);
                                 cursor: pointer;
                             }
                         }
                     }
-    
+
                     .table-button-delete {
-    
+
                         svg {
-    
+
                             color: hsl(0, 0%, 100%);
                             width: 1.5rem;
                             height: 1.5rem;
-    
+
                             &:hover {
-    
+
                                 color: hsl(0, 96%, 39%);
                                 cursor: pointer;
                             }
                         }
                     }
                 }
-                
+
 
             }
         }
@@ -74,45 +74,66 @@
         padding-left: 5%;
         margin-top: 2%;
 
-        .form-element {
+        .form-content {
 
-            padding-top: 1rem;
-            width: 100%;
-            padding-left: 2rem;
+            margin: 3%;
 
-            .form-element-label {
+            .form-element {
 
-                margin-bottom: 0.5rem;
+                width: 98%;
 
-                label {
 
-                    color: hsl(0, 0%, 100%);
+                .form-element-label {
+
                     font-size: 1rem;
-                    font-weight: 600;
+                    font-weight: bold;
+                    margin-bottom: 1rem;
+                    color: hsl(0, 0%, 100%);
+
+                    label {
+
+                        color: hsl(0, 0%, 100%);
+                        font-size: 1rem;
+                        font-weight: 600;
+                    }
                 }
-            }
 
-            .form-element-input {
-
-                input {
+                .form-element-input {
 
                     width: 100%;
-                    font-size: 100%;
                     height: 2rem;
+                    border: 1px solid hsl(0, 0%, 80%);
+                    border-radius: 0.25rem;
+                    padding: 0.5rem;
+                    font-size: 1rem;
+                    color: black;
+                    margin-bottom: 1rem;
+
+                    input {
+
+                        width: 100%;
+                        height: 100%;
+                        border: none;
+                        outline: none;
+                        color: hsl(0, 0%, 0%);
+                        font-size: 1rem;
+                    }
+
+
                 }
 
 
             }
-
-           
         }
- 
+
+
+
         .form-element-textarea {
             padding-top: 3%;
             margin-left: 10%;
-            
+
             .ck.ck-editor__editable_inline>:last-child {
-                
+
                 color: black;
                 min-height: 4rem;
             }
@@ -143,7 +164,7 @@
                     justify-content: center;
 
                     svg {
-                        
+
                         width: 1.5rem;
                         height: 1.5rem;
                         padding-right: 0.5rem;
@@ -181,7 +202,7 @@
                         padding-right: 0.5rem;
                     }
 
-                    
+
 
                     &:hover {
 
@@ -195,4 +216,3 @@
 
     }
 }
-
