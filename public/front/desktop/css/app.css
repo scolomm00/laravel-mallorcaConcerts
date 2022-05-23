@@ -960,10 +960,11 @@ header {
   margin: 0 10% 0 10%;
 }
 .contact .contact-options .contact-info {
+  margin-top: 5%;
   width: 100%;
 }
 .contact .contact-options .contact-info .contact-info-option {
-  margin-bottom: 5%;
+  margin-bottom: 10%;
   font-size: 1.2rem;
 }
 .contact .contact-options .contact-info .contact-info-option span {
@@ -974,6 +975,43 @@ header {
   height: 1.2rem;
   color: hsl(0deg, 0%, 100%);
   margin-right: 2%;
+}
+.contact .form-element {
+  width: 100%;
+}
+.contact .form-element .form-element-label {
+  font-size: 1rem;
+  font-weight: bold;
+  margin-bottom: 1rem;
+  color: hsl(0deg, 0%, 100%);
+}
+.contact .form-element .form-element-label label {
+  color: hsl(0deg, 0%, 100%);
+  font-size: 1rem;
+  font-weight: 600;
+}
+.contact .form-element .form-element-input {
+  width: 97%;
+  height: 2rem;
+  border: 1px solid hsl(0deg, 0%, 80%);
+  border-radius: 0.25rem;
+  padding: 0.5rem;
+  font-size: 1rem;
+  color: black;
+  margin-bottom: 1rem;
+}
+.contact .form-element .form-element-input input {
+  width: 97%;
+  height: 100%;
+  border: none;
+  outline: none;
+  color: hsl(0deg, 0%, 0%);
+  font-size: 1rem;
+}
+.contact .form-element .form-element-textarea {
+  border: 1px solid hsl(0deg, 0%, 80%);
+  padding: 0.5rem;
+  width: 97%;
 }
 
 form .form-element {

@@ -1,44 +1,99 @@
-.contact{
-    
+.contact {
+
     margin: 5%;
 
-    .contact-title{
+    .contact-title {
 
         margin-bottom: 5%;
-        
-        h1{
+
+        h1 {
 
             text-align: center;
         }
     }
 
-    .contact-options{
+    .contact-options {
 
         margin: 0 10% 0 10%;
-        
-        .contact-info{
 
+        .contact-info {
+
+            margin-top: 5%;
             width: 100%;
-    
-            .contact-info-option{
 
-                margin-bottom: 5%;
+            .contact-info-option {
+
+                margin-bottom: 10%;
                 font-size: 1.2rem;
-    
-                span{
+
+                span {
 
                     color: hsl(0, 0%, 100%);
                 }
             }
-    
-            svg{
+
+            svg {
 
                 width: 1.2rem;
                 height: 1.2rem;
                 color: hsl(0, 0%, 100%);
                 margin-right: 2%;
             }
-    
+
         }
+    }
+
+
+
+    .form-element {
+
+        width: 100%;
+
+        .form-element-label {
+
+            font-size: 1rem;
+            font-weight: bold;
+            margin-bottom: 1rem;
+            color: hsl(0, 0%, 100%);
+
+            label {
+
+                color: hsl(0, 0%, 100%);
+                font-size: 1rem;
+                font-weight: 600;
+            }
+        }
+
+        .form-element-input {
+
+            width: 97%;
+            height: 2rem;
+            border: 1px solid hsl(0, 0%, 80%);
+            border-radius: 0.25rem;
+            padding: 0.5rem;
+            font-size: 1rem;
+            color: black;
+            margin-bottom: 1rem;
+
+            input {
+
+                width: 97%;
+                height: 100%;
+                border: none;
+                outline: none;
+                color: hsl(0, 0%, 0%);
+                font-size: 1rem;
+            }
+
+
+        }
+
+        .form-element-textarea{
+
+            border: 1px solid hsl(0, 0%, 80%);
+            padding: 0.5rem;
+            width: 97%;
+        }
+
     }
 }

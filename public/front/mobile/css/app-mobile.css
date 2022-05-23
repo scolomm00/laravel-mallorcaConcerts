@@ -817,6 +817,47 @@ header .header-logo {
   color: hsl(0deg, 0%, 100%);
   margin-right: 2%;
 }
+.contact .contact-form {
+  border-left: 1px solid hsl(0deg, 0%, 100%);
+  margin-left: 2%;
+}
+.contact .contact-form .form-element {
+  width: 98%;
+}
+.contact .contact-form .form-element .form-element-label {
+  font-size: 1rem;
+  font-weight: bold;
+  margin-bottom: 1rem;
+  color: hsl(0deg, 0%, 100%);
+}
+.contact .contact-form .form-element .form-element-label label {
+  color: hsl(0deg, 0%, 100%);
+  font-size: 1rem;
+  font-weight: 600;
+}
+.contact .contact-form .form-element .form-element-input {
+  width: 100%;
+  height: 2rem;
+  border: 1px solid hsl(0deg, 0%, 80%);
+  border-radius: 0.25rem;
+  padding: 0.5rem;
+  font-size: 1rem;
+  color: black;
+  margin-bottom: 1rem;
+}
+.contact .contact-form .form-element .form-element-input input {
+  width: 100%;
+  height: 100%;
+  border: none;
+  outline: none;
+  color: hsl(0deg, 0%, 0%);
+  font-size: 1rem;
+}
+.contact .contact-form .form-element .form-element-textarea {
+  border: 1px solid hsl(0deg, 0%, 80%);
+  padding: 0.5rem;
+  width: 100%;
+}
 
 form .form-element {
   margin-bottom: 1rem;

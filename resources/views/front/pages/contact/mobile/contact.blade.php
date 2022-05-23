@@ -46,7 +46,7 @@
                             <div class="form-element-label">
                                 <label>Mensajes</label>
                             </div>
-                            <div class="form-element-input">
+                            <div class="form-element-textarea">
                                 <textarea name="comment"></textarea>
                             </div>
                         </div>
