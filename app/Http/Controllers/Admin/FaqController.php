@@ -9,6 +9,7 @@ use Illuminate\Support\Facades\View;
 use App\Http\Controllers\Controller;
 use App\Models\Faq;
 use App\Http\Requests\Admin\FaqRequest;
+use Debugbar;
 
 // Podemos identificar que estamos ante un objeto por la palabra "class"
 // el nombre objeto es "FaqController", el nombre del objeto tiene que
@@ -41,7 +42,7 @@ class FaqController extends Controller
     cada método. Existen tres formas de construir (instanciar) un objeto, instanciar un objeto
     significa que hacemos disponible su código para poder ser usado. 
     1ª Forma (clásica):
-    $faq = new Faq; 
+    $faq = new Faq(); 
     En esta forma estamos creando una variable que se llama faq, y que tiene como valor el objeto Faq. Si vemos
     la palabra "new" significa que se está instanciando el objeto. 
     2ª Forma (inyección de dependencias, la más óptima):
@@ -54,7 +55,7 @@ class FaqController extends Controller
     En esta forma lo que hacemos es usar un método de un objeto sin necesidad de instanciarlo. En este caso estamos usando el método
     make del objeto View. 
     Finalmente, una vez instanciado un objeto (por ejemplo, el objeto Faq) podemos acceder a sus propiedades escribiendo:
-    $faq = new Faq;
+    $faq = new Faq();
     $faq->name;
     En este caso estamos accediendo a la propiedad "name" del objeto "faq";
     Si queremos acceder al método de un objeto tenemos que escribir:
@@ -78,7 +79,7 @@ class FaqController extends Controller
 
         $view = View::make('admin.pages.faqs.index')
                 ->with('faq', $this->faq)
-                ->with('faqs', $this->faq->get());
+                ->with('faqs', $this->faq->where('active', 1)->get());
 
         if(request()->ajax()) {
             
@@ -95,10 +96,25 @@ class FaqController extends Controller
 
     public function create()
     {
+        /*
+            En la siguientes líneas estamos creando una variable que se llama view, y que tiene como valor el objeto View.
+            El objeto View medienta un método estático está creando la vista 'admin.pages.faqs.create' que es la que se
+            mostrará en pantalla. Con 'with' le estamos diciendo que le pase la variable 'faq' y que su valor sea el objeto
+            modelo Faq, que como no estamos haciendo ninguna llamada a la base de datos nos devolverá los campos vacíos de la tabla.
+            Por último, renderSections() lo que está haciendo es recargar las sections que tiene la vista (en este caso 'form' y 'table')
+            con los datos procesados. 
+        */
 
        $view = View::make('admin.pages.faqs.index')
         ->with('faq', $this->faq)
         ->renderSections();
+        Debugbar::info($view['form']);
+
+        /*
+            En la siguiente línea estamos devolviendo una respuesta a la petición AJAX, una petición AJAX hará que una parte de la página
+            se actualice sin necesidad de recargar toda la página. En este caso, la parte que se actualizará es la parte del formulario. Para
+            ello estamos diciendo que la palabra "form" será equivalente a $view['form'], la cual contiene el html del formulario ya actualizado.
+        */
 
         return response()->json([
             'form' => $view['form']
