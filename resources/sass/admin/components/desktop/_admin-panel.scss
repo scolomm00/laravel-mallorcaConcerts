@@ -4,71 +4,74 @@
 
     .admin-panel-table {
 
-        // table {
+        margin: auto;
+        width: 100%;
 
-            margin: auto;
+        .table-row.swipe-element{
+        
+            padding: 0.5rem;
             width: 100%;
+            border: 2px solid rgb(255, 255, 255);
+            border-radius: 1rem;
+            margin-bottom: 1rem;
             
-            .table-row .swipe-element{
 
+            .table-field-container.swipe-front{
                 
+                
+                .table-field{
 
-                .table-field-container .swipe-front{
+                    span{
 
-                    border: 1px solid red;
-                    
-                    .table-field{
+                        font-weight: 600;
+                    }
+                }
+            }
 
+            .table-buttons {
+
+                margin: 0.5rem 0.5rem 0 auto;
+
+                .table-button-read {
+
+                    svg {
+
+                        color: hsl(0, 0%, 100%);
+                        width: 1.5rem;
+                        height: 1.5rem;
+
+                        &:hover {
+
+                            color: hsl(0, 0%, 50%);
+                            cursor: pointer;
+                        }
                     }
                 }
 
-                .table-buttons {
+                .table-button-delete {
 
-                    display: flex;
+                    svg {
 
-                    .table-button-read {
+                        color: hsl(0, 0%, 100%);
+                        width: 1.5rem;
+                        height: 1.5rem;
 
-                        padding-right: 0.5rem;
+                        &:hover {
 
-                        svg {
-
-                            color: hsl(0, 0%, 100%);
-                            width: 1.5rem;
-                            height: 1.5rem;
-
-                            &:hover {
-
-                                color: hsl(0, 0%, 50%);
-                                cursor: pointer;
-                            }
-                        }
-                    }
-
-                    .table-button-delete {
-
-                        svg {
-
-                            color: hsl(0, 0%, 100%);
-                            width: 1.5rem;
-                            height: 1.5rem;
-
-                            &:hover {
-
-                                color: hsl(0, 96%, 39%);
-                                cursor: pointer;
-                            }
+                            color: hsl(0, 96%, 39%);
+                            cursor: pointer;
                         }
                     }
                 }
             }
-        // }
+        }
+
     }
 
     .admin-panel-form {
 
         border-left: 1px solid hsl(0, 0%, 100%);
         padding-left: 5%;
-        margin-top: 2%;
 
         .form-content {
 
@@ -139,9 +142,8 @@
 
             width: 100%;
             display: flex;
-            margin-left: auto;
-            margin-bottom: 10%;
-
+            margin-left: 4%;
+            margin-bottom: 2%;
 
             .form-button-reset {
 
@@ -214,9 +216,9 @@
             }
 
             .button{
-                padding-left: 0.5rem;
+                padding-left: 2rem;
                 display:block;
-                margin-bottom:2rem;
+                margin-bottom: 2rem;
             }
 
             .switch[type="checkbox"] {

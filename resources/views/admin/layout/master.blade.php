@@ -4,6 +4,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="csrf-token" content="{{ csrf_token() }}">
     <link rel="icon" type="image/png" sizes="192x192" href="http://cdn.onlinewebfonts.com/svg/img_325788.png">
     <link rel="shortcut icon" href="/assets/favicon.ico">
 

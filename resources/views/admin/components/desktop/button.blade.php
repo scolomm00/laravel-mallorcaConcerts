@@ -6,7 +6,7 @@
             </svg>Borrar
         </button>
     </div>
-    <div class="form-button-update">
+    <div class="form-button-update" data-url="{{route('faqs_store')}}">
         <button class="store-button">
             <svg viewBox="0 0 24 24">
                 <path fill="currentColor"

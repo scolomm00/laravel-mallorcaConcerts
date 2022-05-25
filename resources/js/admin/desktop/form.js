@@ -4,7 +4,7 @@ export let form = () => {
     let storeButton = document.querySelector('.form-button-update');
     let createButton = document.querySelector('.form-button-reset');
     let forms = document.querySelectorAll('.admin-form');
-    
+
     document.addEventListener("renderFormModules",( event =>{
         form();
     }), {once: true});
@@ -89,6 +89,10 @@ export let form = () => {
                 let data = new FormData(form);
                 let url = form.action;
 
+
+                for (var pair of data.entries()) {
+                    console.log(pair[0]+ ', ' + pair[1]); 
+                }
                 /*	
                     En el siguiente valor estamos capturando los datos del ckeditor y se los añadimos a los datos
                     del formData. 
@@ -106,6 +110,8 @@ export let form = () => {
                     añadir en los headers el token que nos ha dado Laravel el cual va a prevenir que se puedan 
                     hacer ataques de tipos cross-site scripting.
                 */
+
+                    
     
                 let sendPostRequest = async () => {
     

@@ -590,37 +590,40 @@ header {
   margin: auto;
   width: 100%;
 }
-.admin-panel .admin-panel-table .table-row .swipe-element .table-field-container .swipe-front {
-  border: 1px solid red;
+.admin-panel .admin-panel-table .table-row.swipe-element {
+  padding: 0.5rem;
+  width: 100%;
+  border: 2px solid rgb(255, 255, 255);
+  border-radius: 1rem;
+  margin-bottom: 1rem;
 }
-.admin-panel .admin-panel-table .table-row .swipe-element .table-buttons {
-  display: flex;
+.admin-panel .admin-panel-table .table-row.swipe-element .table-field-container.swipe-front .table-field span {
+  font-weight: 600;
 }
-.admin-panel .admin-panel-table .table-row .swipe-element .table-buttons .table-button-read {
-  padding-right: 0.5rem;
+.admin-panel .admin-panel-table .table-row.swipe-element .table-buttons {
+  margin: 0.5rem 0.5rem 0 auto;
 }
-.admin-panel .admin-panel-table .table-row .swipe-element .table-buttons .table-button-read svg {
+.admin-panel .admin-panel-table .table-row.swipe-element .table-buttons .table-button-read svg {
   color: hsl(0deg, 0%, 100%);
   width: 1.5rem;
   height: 1.5rem;
 }
-.admin-panel .admin-panel-table .table-row .swipe-element .table-buttons .table-button-read svg:hover {
+.admin-panel .admin-panel-table .table-row.swipe-element .table-buttons .table-button-read svg:hover {
   color: hsl(0deg, 0%, 50%);
   cursor: pointer;
 }
-.admin-panel .admin-panel-table .table-row .swipe-element .table-buttons .table-button-delete svg {
+.admin-panel .admin-panel-table .table-row.swipe-element .table-buttons .table-button-delete svg {
   color: hsl(0deg, 0%, 100%);
   width: 1.5rem;
   height: 1.5rem;
 }
-.admin-panel .admin-panel-table .table-row .swipe-element .table-buttons .table-button-delete svg:hover {
+.admin-panel .admin-panel-table .table-row.swipe-element .table-buttons .table-button-delete svg:hover {
   color: hsl(0deg, 96%, 39%);
   cursor: pointer;
 }
 .admin-panel .admin-panel-form {
   border-left: 1px solid hsl(0deg, 0%, 100%);
   padding-left: 5%;
-  margin-top: 2%;
 }
 .admin-panel .admin-panel-form .form-content {
   margin: 3%;
@@ -668,8 +671,8 @@ header {
 .admin-panel .admin-panel-form .form-button {
   width: 100%;
   display: flex;
-  margin-left: auto;
-  margin-bottom: 10%;
+  margin-left: 4%;
+  margin-bottom: 2%;
 }
 .admin-panel .admin-panel-form .form-button .form-button-reset button {
   display: flex;
@@ -720,7 +723,7 @@ header {
   transform: translate(-50%, -50%);
 }
 .admin-panel .admin-panel-form .form-button .button {
-  padding-left: 0.5rem;
+  padding-left: 2rem;
   display: block;
   margin-bottom: 2rem;
 }
