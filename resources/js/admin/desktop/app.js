@@ -7,7 +7,8 @@ import {form} from './form.js';
 import {renderCkeditor} from './ckeditor.js';
 import{renderFaqs} from './faqs.js';
 import{imageContent} from './image-content.js';
-import { renderTable } from './table.js';
+import {renderTable} from './table.js';
+import { renderModalDelete } from './modal-delete.js';
 
 burgerButton();
 filterBar();
@@ -19,3 +20,4 @@ renderCkeditor();
 renderFaqs();
 imageContent();
 renderTable();
+renderModalDelete();

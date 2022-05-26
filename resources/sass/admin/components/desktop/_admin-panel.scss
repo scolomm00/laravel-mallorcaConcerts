@@ -212,7 +212,8 @@
                 position:absolute;
                 left: 50%;
                 top: 50%;
-                transform:translate(-50%,-50%);	
+                transform:translate(-50%,-50%);
+                
             }
 
             .button{
@@ -235,6 +236,7 @@
 
             .switch:checked[type="checkbox"] {
                 background-color:lime;
+                
             }
 
             .switch[type="checkbox"]::before {
@@ -248,6 +250,7 @@
                 background:white;
                 transition:.5s;
                 box-shadow:0 2px 5px rgba(0,0,0,.2);
+                cursor: pointer;
             }
             .switch:checked[type="checkbox"]::before {
                 left:3rem;

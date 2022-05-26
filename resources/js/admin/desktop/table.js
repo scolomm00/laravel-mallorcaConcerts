@@ -5,7 +5,7 @@ export let renderTable = () => {
     let deleteButtons = document.querySelectorAll(".table-button-delete");
     
     document.addEventListener("loadTable",( event =>{
-                tableContainer.innerHTML = event.detail.table;
+        tableContainer.innerHTML = event.detail.table;
     }));
 
     document.addEventListener("renderTableModules",( event =>{
@@ -64,7 +64,12 @@ export let renderTable = () => {
         deleteButtons.forEach(deleteButton => {
 
             deleteButton.addEventListener("click", () => {
-
+                
+                document.dispatchEvent(new CustomEvent('openModalDelete', {
+                    detail: {
+                        url: deleteButton.dataset.url,
+                    }
+                }));
                 
             });
         });

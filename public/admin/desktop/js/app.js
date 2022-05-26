@@ -47,6 +47,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _faqs_js__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./faqs.js */ "./resources/js/admin/desktop/faqs.js");
 /* harmony import */ var _image_content_js__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./image-content.js */ "./resources/js/admin/desktop/image-content.js");
 /* harmony import */ var _table_js__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./table.js */ "./resources/js/admin/desktop/table.js");
+/* harmony import */ var _modal_delete_js__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./modal-delete.js */ "./resources/js/admin/desktop/modal-delete.js");
+
 
 
 
@@ -67,6 +69,7 @@ __webpack_require__.r(__webpack_exports__);
 (0,_faqs_js__WEBPACK_IMPORTED_MODULE_7__.renderFaqs)();
 (0,_image_content_js__WEBPACK_IMPORTED_MODULE_8__.imageContent)();
 (0,_table_js__WEBPACK_IMPORTED_MODULE_9__.renderTable)();
+(0,_modal_delete_js__WEBPACK_IMPORTED_MODULE_10__.renderModalDelete)();
 
 /***/ }),
 
@@ -229,6 +232,9 @@ var form = function form() {
   var storeButton = document.querySelector('.form-button-update');
   var createButton = document.querySelector('.form-button-reset');
   var forms = document.querySelectorAll('.admin-form');
+  document.addEventListener("loadForm", function (event) {
+    formContainer.innerHTML = event.detail.form;
+  });
   document.addEventListener("renderFormModules", function (event) {
     form();
   }, {
@@ -508,6 +514,113 @@ var imageContent = function imageContent() {
 
 /***/ }),
 
+/***/ "./resources/js/admin/desktop/modal-delete.js":
+/*!****************************************************!*\
+  !*** ./resources/js/admin/desktop/modal-delete.js ***!
+  \****************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "renderModalDelete": () => (/* binding */ renderModalDelete)
+/* harmony export */ });
+/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/regenerator */ "./node_modules/@babel/runtime/regenerator/index.js");
+/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__);
+
+
+function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } }
+
+function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err); } _next(undefined); }); }; }
+
+var renderModalDelete = function renderModalDelete() {
+  var deleteNotify = document.querySelector(".delete");
+  var deleteConfirm = document.querySelector('.button-yes-delete');
+  var deleteCancel = document.querySelector('.button-no-delete');
+  document.addEventListener("openModalDelete", function (event) {
+    deleteConfirm.dataset.url = event.detail.url;
+    deleteNotify.classList.add('active');
+  });
+  deleteCancel.addEventListener("click", function () {
+    deleteNotify.classList.remove('active');
+    document.dispatchEvent(new CustomEvent('stopWait'));
+  });
+  deleteConfirm.addEventListener("click", function () {
+    var url = deleteConfirm.dataset.url;
+    console.log(url);
+
+    var sendDeleteRequest = /*#__PURE__*/function () {
+      var _ref = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee() {
+        var response;
+        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().wrap(function _callee$(_context) {
+          while (1) {
+            switch (_context.prev = _context.next) {
+              case 0:
+                _context.next = 2;
+                return fetch(url, {
+                  headers: {
+                    'X-Requested-With': 'XMLHttpRequest',
+                    'X-CSRF-TOKEN': document.head.querySelector('meta[name="csrf-token"]').content
+                  },
+                  method: 'DELETE'
+                }).then(function (response) {
+                  if (!response.ok) throw response;
+                  return response.json();
+                }).then(function (json) {
+                  if (json.table) {
+                    document.dispatchEvent(new CustomEvent('loadTable', {
+                      detail: {
+                        table: json.table
+                      }
+                    }));
+                  }
+
+                  document.dispatchEvent(new CustomEvent('loadForm', {
+                    detail: {
+                      form: json.form
+                    }
+                  }));
+                  deleteNotify.classList.remove('active');
+                  document.dispatchEvent(new CustomEvent('renderFormModules'));
+                  document.dispatchEvent(new CustomEvent('renderTableModules'));
+                  document.dispatchEvent(new CustomEvent('stopWait')); // document.dispatchEvent(new CustomEvent('message', {
+                  //     detail: {
+                  //         message: json.message,
+                  //         type: 'success'
+                  //     }
+                  // }));
+                })["catch"](function (error) {
+                  document.dispatchEvent(new CustomEvent('stopWait'));
+
+                  if (error.status == '500') {
+                    console.log(error);
+                  }
+
+                  ;
+                });
+
+              case 2:
+                response = _context.sent;
+
+              case 3:
+              case "end":
+                return _context.stop();
+            }
+          }
+        }, _callee);
+      }));
+
+      return function sendDeleteRequest() {
+        return _ref.apply(this, arguments);
+      };
+    }();
+
+    sendDeleteRequest();
+  });
+};
+
+/***/ }),
+
 /***/ "./resources/js/admin/desktop/notify.js":
 /*!**********************************************!*\
   !*** ./resources/js/admin/desktop/notify.js ***!
@@ -693,7 +806,13 @@ var renderTable = function renderTable() {
 
   if (deleteButtons) {
     deleteButtons.forEach(function (deleteButton) {
-      deleteButton.addEventListener("click", function () {});
+      deleteButton.addEventListener("click", function () {
+        document.dispatchEvent(new CustomEvent('openModalDelete', {
+          detail: {
+            url: deleteButton.dataset.url
+          }
+        }));
+      });
     });
   }
 };

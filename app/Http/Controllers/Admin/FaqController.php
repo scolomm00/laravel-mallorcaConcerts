@@ -108,7 +108,7 @@ class FaqController extends Controller
        $view = View::make('admin.pages.faqs.index')
         ->with('faq', $this->faq)
         ->renderSections();
-        Debugbar::info($view['form']);
+    
 
         /*
             En la siguiente línea estamos devolviendo una respuesta a la petición AJAX, una petición AJAX hará que una parte de la página

@@ -5,6 +5,10 @@ export let form = () => {
     let createButton = document.querySelector('.form-button-reset');
     let forms = document.querySelectorAll('.admin-form');
 
+    document.addEventListener("loadForm",( event =>{
+        formContainer.innerHTML = event.detail.form;
+    }));
+
     document.addEventListener("renderFormModules",( event =>{
         form();
     }), {once: true});

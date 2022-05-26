@@ -28,6 +28,7 @@
 
     </main>
 
+    @include('admin.components.desktop.modal_delete')
     @include('admin.layout.partials.notify')
     @include('admin.layout.partials.js')
 

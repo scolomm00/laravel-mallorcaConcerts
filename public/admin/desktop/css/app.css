@@ -752,6 +752,7 @@ header {
   background: white;
   transition: 0.5s;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+  cursor: pointer;
 }
 .admin-panel .admin-panel-form .form-button .switch:checked[type=checkbox]::before {
   left: 3rem;
@@ -993,4 +994,52 @@ header {
   color: black;
   min-height: 10rem;
   font-size: 1.2rem;
+}
+
+.delete {
+  bottom: 45vh;
+  opacity: 0;
+  position: fixed;
+  padding: 1.5rem;
+  left: 45vh;
+  background-color: rgb(0, 0, 0);
+  border: 2px solid rgb(255, 255, 255);
+  border-radius: 1rem;
+  transition: all 0.5s;
+  z-index: -1;
+}
+.delete span {
+  color: rgb(255, 255, 255);
+  font-weight: 600;
+  font-size: 1rem;
+}
+.delete .box-buttons {
+  display: flex;
+  justify-content: center;
+}
+.delete .box-buttons .button-yes {
+  padding: 1rem;
+}
+.delete .box-buttons .button-yes button {
+  border: 1px solid white;
+  border-radius: 0.5rem;
+  background-color: rgb(8, 150, 3);
+  color: white;
+  padding: 0.5rem;
+  cursor: pointer;
+}
+.delete .box-buttons .button-no {
+  padding: 1rem;
+}
+.delete .box-buttons .button-no button {
+  border: 1px solid white;
+  border-radius: 0.5rem;
+  background-color: rgb(165, 0, 0);
+  color: white;
+  padding: 0.5rem;
+  cursor: pointer;
+}
+.delete.active {
+  opacity: 1;
+  z-index: 5000;
 }
