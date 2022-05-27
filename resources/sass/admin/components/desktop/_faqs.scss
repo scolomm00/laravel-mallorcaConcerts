@@ -10,6 +10,7 @@
             font-weight: bold;
             margin-bottom: 1rem;
             color: hsl(0, 0%, 100%);
+            padding-top: 1rem;
         }
 
         .faqs-input{
@@ -21,7 +22,6 @@
                 padding: 0.5rem;
                 font-size: 1.2rem;
                 color: black;
-                margin-bottom: 1rem;
 
                 input{
                     
@@ -37,13 +37,14 @@
         .faqs-ckeditor{
 
             padding-top: 3%;
+            padding-bottom: 3%;
             border: 1px solid hsl(0, 0%, 80%);
             border-radius: 0.25rem;
-            padding: 0.5rem;
             width: 100%;
+            padding: 0.5rem;
+            
 
             .ck.ck-editor__editable_inline>:last-child {
-                
                 color: black;
                 min-height: 10rem;
                 font-size: 1.2rem;

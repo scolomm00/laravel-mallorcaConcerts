@@ -964,6 +964,7 @@ header {
   font-weight: bold;
   margin-bottom: 1rem;
   color: hsl(0deg, 0%, 100%);
+  padding-top: 1rem;
 }
 .admin-faqs .box-faqs .faqs-input {
   width: 100%;
@@ -973,7 +974,6 @@ header {
   padding: 0.5rem;
   font-size: 1.2rem;
   color: black;
-  margin-bottom: 1rem;
 }
 .admin-faqs .box-faqs .faqs-input input {
   width: 100%;
@@ -985,10 +985,11 @@ header {
 }
 .admin-faqs .box-faqs .faqs-ckeditor {
   padding-top: 3%;
+  padding-bottom: 3%;
   border: 1px solid hsl(0deg, 0%, 80%);
   border-radius: 0.25rem;
-  padding: 0.5rem;
   width: 100%;
+  padding: 0.5rem;
 }
 .admin-faqs .box-faqs .faqs-ckeditor .ck.ck-editor__editable_inline > :last-child {
   color: black;

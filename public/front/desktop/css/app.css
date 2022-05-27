@@ -976,6 +976,19 @@ header {
   color: hsl(0deg, 0%, 100%);
   margin-right: 2%;
 }
+.contact .contact-form .form-button-send button {
+  width: 8rem;
+  height: 2.5rem;
+  border-radius: 10px;
+  background-color: hsla(0deg, 0%, 0%, 0.548);
+  color: hsl(0deg, 0%, 100%);
+  border: 2px solid hsl(0deg, 0%, 100%);
+  font-weight: 900;
+}
+.contact .contact-form .form-button-send button:hover {
+  cursor: pointer;
+  color: hsl(0deg, 0%, 100%);
+}
 .contact .form-element {
   width: 100%;
 }
@@ -1009,9 +1022,15 @@ header {
   font-size: 1rem;
 }
 .contact .form-element .form-element-textarea {
-  border: 1px solid hsl(0deg, 0%, 80%);
+  padding-top: 3%;
+  border: 2px solid white;
   padding: 0.5rem;
-  width: 97%;
+  width: 25rem;
+  padding-right: 2rem;
+}
+.contact .form-element .form-element-textarea .ck.ck-editor__editable_inline > :last-child {
+  color: black;
+  min-height: 7rem;
 }
 
 form .form-element {

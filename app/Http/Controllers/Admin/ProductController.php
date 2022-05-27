@@ -4,26 +4,27 @@ namespace App\Http\Controllers\Admin;
 
 use Illuminate\Support\Facades\View;
 use App\Http\Controllers\Controller;
-use App\Models\Faq;
-use App\Http\Requests\Admin\FaqRequest;
+use App\Models\Product;
+use App\Http\Requests\Admin\ProductRequest;
 use Debugbar;
 
-class FaqController extends Controller
-{ 
+class ProductController extends Controller
+{
 
-    protected $faq;
+    protected $product;
 
-    public function __construct(Faq $faq)
+
+    public function __construct(Product $product)
     {
-        $this->faq = $faq;
+        $this->product = $product;
     }
     
     public function index()
     {
 
-        $view = View::make('admin.pages.faqs.index')
-                ->with('faq', $this->faq)
-                ->with('faqs', $this->faq->where('active', 1)->get());
+        $view = View::make('admin.pages.products.index')
+                ->with('product', $this->product)
+                ->with('products', $this->product->where('active', 1)->get());
 
         if(request()->ajax()) {
             
@@ -41,8 +42,8 @@ class FaqController extends Controller
     public function create()
     {
 
-       $view = View::make('admin.pages.faqs.index')
-        ->with('faq', $this->faq)
+       $view = View::make('admin.pages.products.index')
+        ->with('product', $this->product)
         ->renderSections();
 
         return response()->json([
@@ -50,35 +51,37 @@ class FaqController extends Controller
         ]);
     }
 
-    public function store(FaqRequest $request)
+    public function store(ProductRequest $request)
     {            
 
-        $faq = $this->faq->updateOrCreate([
+        $product = $this->product->updateOrCreate([
                 'id' => request('id')],[
                 'name' => request('name'),
                 'title' => request('title'),
+                'price' => request('price'),
                 'description' => request('description'),
+                'features' => request('features'),
                 'visible' => 1,
                 'active' => 1,
         ]);
 
-        $view = View::make('admin.pages.faqs.index')
-        ->with('faqs', $this->faq->where('active', 1)->get())
-        ->with('faq', $this->faq)
+        $view = View::make('admin.pages.products.index')
+        ->with('products', $this->product->where('active', 1)->get())
+        ->with('product', $this->product)
         ->renderSections();        
 
         return response()->json([
             'table' => $view['table'],
             'form' => $view['form'],
-            'id' => $faq->id,
+            'id' => $product->id,
         ]);
     }
 
-    public function edit(Faq $faq)
+    public function edit(Product $product)
     {
-        $view = View::make('admin.pages.faqs.index')
-        ->with('faq', $faq)
-        ->with('faqs', $this->faq->where('active', 1)->get());   
+        $view = View::make('admin.pages.products.index')
+        ->with('product', $product)
+        ->with('products', $this->product->where('active', 1)->get());   
         
         if(request()->ajax()) {
 
@@ -92,18 +95,18 @@ class FaqController extends Controller
         return $view;
     }
 
-    public function show(Faq $faq){
+    public function show(Product $product){
 
     }
 
-    public function destroy(Faq $faq)
+    public function destroy(Product $product)
     {
-        $faq->active = 0;
-        $faq->save();
+        $product->active = 0;
+        $product->save();
 
-        $view = View::make('admin.pages.faqs.index')
-            ->with('faq', $this->faq)
-            ->with('faqs', $this->faq->where('active', 1)->get())
+        $view = View::make('admin.pages.products.index')
+            ->with('product', $this->product)
+            ->with('products', $this->product->where('active', 1)->get())
             ->renderSections();
         
         return response()->json([

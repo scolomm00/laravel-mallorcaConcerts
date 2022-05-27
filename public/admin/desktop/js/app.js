@@ -244,12 +244,6 @@ var form = function form() {
   if (createButton) {
     createButton.addEventListener("click", function () {
       var url = createButton.dataset.url;
-      /* 
-          A continuación vamos a hacer una llamada de tipo fetch, utilizando el método GET. Una llamada fetch es una
-          promesa, y una promesa es una llamada que puede estar en estado pendiente, cumplida o rechazada. Para ello estamos
-          diciendo que sendCreateRequest que es una función será asincrona, y se quedará esperando la respuesta de la
-          llamada. que es el fetch que tiene un await.
-      */
 
       var sendCreateRequest = /*#__PURE__*/function () {
         var _ref = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee() {
@@ -269,21 +263,6 @@ var form = function form() {
                     return response.json();
                   }).then(function (json) {
                     formContainer.innerHTML = json.form;
-                    /*
-                        Cuando hacemos un innerHTML se pierden todos los eventos de javascript, por lo que tenemos que
-                        volver a asignar los eventos a los elementos que hemos creado. Para ello vamos a hacer un evento 
-                        personalizado, que será el evento que cargará todo el javascript que tenga el formulario. 
-                        En la siguiente línea estamos declarando un evento personalizado que se llamará 'renderFormModules' que 
-                        podrá ser escuchado por el resto de archivos. 
-                    */
-
-                    /*
-                        Cuando hacemos un innerHTML se pierden todos los eventos de javascript, por lo que tenemos que
-                        volver a asignar los eventos a los elementos que hemos creado. Para ello vamos a hacer un evento 
-                        personalizado, que será el evento que cargará todo el javascript que tenga el formulario. 
-                        En la siguiente línea estamos declarando un evento personalizado que se llamará 'renderFormModules' que 
-                        podrá ser escuchado por el resto de archivos. 
-                    */
                     document.dispatchEvent(new CustomEvent('renderFormModules'));
                   })["catch"](function (error) {
                     if (error.status == '500') {
@@ -316,10 +295,6 @@ var form = function form() {
   if (storeButton) {
     storeButton.addEventListener("click", function (event) {
       forms.forEach(function (form) {
-        /*
-            En las siguientes líneas se obtiene el valor del formulario a través de un objeto FormData
-            y se captura la url que usaremos para enviar los datos al servidor.
-        */
         var data = new FormData(form);
         var url = form.action;
 
@@ -331,11 +306,6 @@ var form = function form() {
             var pair = _step.value;
             console.log(pair[0] + ', ' + pair[1]);
           }
-          /*	
-              En el siguiente valor estamos capturando los datos del ckeditor y se los añadimos a los datos
-              del formData. 
-          */
-
         } catch (err) {
           _iterator.e(err);
         } finally {
@@ -351,12 +321,6 @@ var form = function form() {
             data.append(key, value.getData());
           });
         }
-        /*
-            A continuación vamos a hacer una llamada de tipo POST mediante fetch, esta vez vamos a 
-            añadir en los headers el token que nos ha dado Laravel el cual va a prevenir que se puedan 
-            hacer ataques de tipos cross-site scripting.
-        */
-
 
         var sendPostRequest = /*#__PURE__*/function () {
           var _ref4 = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee2() {
