@@ -976,6 +976,9 @@ header {
   color: hsl(0deg, 0%, 100%);
   margin-right: 2%;
 }
+.contact .contact-form .form-button-send {
+  padding-top: 2rem;
+}
 .contact .contact-form .form-button-send button {
   width: 8rem;
   height: 2.5rem;
@@ -1344,4 +1347,34 @@ form .form-button-send button:hover {
 .page-header .page-header-title h1 {
   text-align: center;
   margin: 4rem 0 4rem 0;
+}
+
+#notify {
+  background-color: rgb(0, 128, 0);
+  bottom: 17vh;
+  opacity: 0;
+  position: fixed;
+  padding: 1.5rem;
+  left: 90vh;
+  transition: opacity 0.5s;
+  z-index: -1;
+  border-radius: 10px;
+}
+
+#notify.active {
+  opacity: 1;
+  z-index: 5000;
+}
+
+#notify.success {
+  background-color: hsl(120deg, 100%, 25%);
+}
+
+#notify.error {
+  background-color: hsl(0deg, 100%, 50%);
+}
+
+#notify span {
+  color: hsl(0deg, 0%, 100%);
+  font-weight: 600;
 }

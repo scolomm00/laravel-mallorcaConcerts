@@ -15,10 +15,7 @@ class ProductCategoryRequest extends FormRequest
     {
         return [
             'name' => 'required',
-            'surname' => 'required',
-            'email' => 'required',
-            'phone' => 'required',
-            'message' => 'required',
+            'title' => 'required',
         ];
     }
 
@@ -26,10 +23,7 @@ class ProductCategoryRequest extends FormRequest
     {
         return [
             'name.required' => 'El nombre es obligatorio',
-            'surname.required' => 'El apellido es obligatorio',
-            'email.required' => 'El email es obligatorio',
-            'phone.required' => 'El teléfono es obligatorio',
-            'message.required' => 'El mensaje es obligatorio',
+            'title.required' => 'El título es obligatorio',
         ];
     }
 }

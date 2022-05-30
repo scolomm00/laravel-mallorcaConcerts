@@ -16,6 +16,7 @@ class FaqRequest extends FormRequest
         return [
             'name' => 'required',
             'title' => 'required',
+            'description' => 'required',
         ];
     }
 
@@ -24,6 +25,7 @@ class FaqRequest extends FormRequest
         return [
             'name.required' => 'El nombre es obligatorio',
             'title.required' => 'El título es obligatorio',
+            'description.required' => 'La descripción es obligatoria',
         ];
     }
 }

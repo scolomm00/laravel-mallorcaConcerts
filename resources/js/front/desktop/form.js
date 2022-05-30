@@ -1,5 +1,6 @@
 export let form = () => {
 
+    let main = document.querySelector('main');
     let storeButton = document.querySelector('.form-button-send');
     let forms = document.querySelectorAll('.front-form');
 
@@ -44,13 +45,7 @@ export let form = () => {
                     })
                     .then(json => {
 
-                        formContainer.innerHTML = json.form;
-
-                        document.dispatchEvent(new CustomEvent('loadTable', {
-                            detail: {
-                                table: json.table,
-                            }
-                        }));
+                        main.innerHTML = json.content;
 
                         document.dispatchEvent(new CustomEvent('renderFormModules'));
 

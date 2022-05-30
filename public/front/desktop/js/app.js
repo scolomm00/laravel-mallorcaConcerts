@@ -183,6 +183,7 @@ function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o =
 function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) { arr2[i] = arr[i]; } return arr2; }
 
 var form = function form() {
+  var main = document.querySelector('main');
   var storeButton = document.querySelector('.form-button-send');
   var forms = document.querySelectorAll('.front-form');
 
@@ -236,12 +237,7 @@ var form = function form() {
                       if (!response.ok) throw response;
                       return response.json();
                     }).then(function (json) {
-                      formContainer.innerHTML = json.form;
-                      document.dispatchEvent(new CustomEvent('loadTable', {
-                        detail: {
-                          table: json.table
-                        }
-                      }));
+                      main.innerHTML = json.content;
                       document.dispatchEvent(new CustomEvent('renderFormModules'));
                       document.dispatchEvent(new CustomEvent('message', {
                         detail: {

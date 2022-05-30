@@ -16,6 +16,9 @@ class ProductRequest extends FormRequest
         return [
             'name' => 'required',
             'title' => 'required',
+            'price' => 'required|numeric',
+            'description' => 'required',
+            'features' => 'required',
         ];
     }
 
@@ -24,6 +27,10 @@ class ProductRequest extends FormRequest
         return [
             'name.required' => 'El nombre es obligatorio',
             'title.required' => 'El título es obligatorio',
+            'price.required' => 'El precio es obligatorio',
+            'price.numeric' => 'El precio no es válido',
+            'description.required' => 'La descripción es obligatoria',
+            'features.required' => 'Las características son obligatorias',
         ];
     }
 }

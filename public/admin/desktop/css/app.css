@@ -1029,6 +1029,10 @@ header {
   padding: 0.5rem;
   cursor: pointer;
 }
+.delete .box-buttons .button-yes button svg {
+  width: 1.5rem;
+  height: 1.5rem;
+}
 .delete .box-buttons .button-no {
   padding: 1rem;
 }
@@ -1039,6 +1043,10 @@ header {
   color: white;
   padding: 0.5rem;
   cursor: pointer;
+}
+.delete .box-buttons .button-no button svg {
+  width: 1.5rem;
+  height: 1.5rem;
 }
 .delete.active {
   opacity: 1;

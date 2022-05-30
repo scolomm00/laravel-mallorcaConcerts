@@ -27,7 +27,7 @@
     </main>
     
     @include('front.layout.partials.footer')
-
+    @include('front.layout.partials.notify')
     @include('front.layout.partials.js')
 
 </body>
