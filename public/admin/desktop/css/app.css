@@ -983,6 +983,14 @@ header {
   color: hsl(0deg, 0%, 0%);
   font-size: 1.2rem;
 }
+.admin-faqs .box-faqs .faqs-input select {
+  width: 100%;
+  height: 100%;
+  border: none;
+  outline: none;
+  color: hsl(0deg, 0%, 0%);
+  font-size: 1.2rem;
+}
 .admin-faqs .box-faqs .faqs-ckeditor {
   padding-top: 3%;
   padding-bottom: 3%;

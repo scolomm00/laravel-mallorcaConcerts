@@ -81,24 +81,45 @@
 
             <div class="admin-faqs">
                 <div class="box-faqs">
-                    <div class="faqs-label">
-                        <label>Nombre</label>
+                    <div class="desktop-two-columns">
+                        <div class="column">
+                            <div class="faqs-label">
+                                <label>Nombre</label>
+                            </div>
+                            <div class="faqs-input">
+                                <input type="text" name="name" value="{{isset($product->name) ? $product->name : ''}}">
+                            </div>
+                        </div>
+                        <div class="column">
+                            <div class="faqs-label">
+                                <label>Título</label>
+                            </div>
+                            <div class="faqs-input">
+                                <input type="text" name="title" value="{{isset($product->title) ? $product->title : ''}}">
+                            </div>
+                        </div>
                     </div>
-                    <div class="faqs-input">
-                        <input type="text" name="name" value="{{isset($product->name) ? $product->name : ''}}">
+                    <div class="desktop-two-columns">
+                        <div class="column">
+                            <div class="faqs-label">
+                                <label>Categoría</label>
+                            </div>
+                            <div class="faqs-input">
+                                <select name="categoria_id">
+                                    <option value="">-- Selecciona una categoría --</option>
+                                </select>
+                            </div>     
+                        </div>
+                        <div class="column">
+                            <div class="faqs-label">
+                                <label>Precio</label>
+                            </div>
+                            <div class="faqs-input">
+                                <input type="text" name="price" value="{{isset($product->price) ? $product->price : ''}}">
+                            </div>
+                        </div>
                     </div>
-                    <div class="faqs-label">
-                        <label>Título</label>
-                    </div>
-                    <div class="faqs-input">
-                        <input type="text" name="title" value="{{isset($product->title) ? $product->title : ''}}">
-                    </div>
-                    <div class="faqs-label">
-                        <label>Precio</label>
-                    </div>
-                    <div class="faqs-input">
-                        <input type="text" name="price" value="{{isset($product->price) ? $product->price : ''}}">
-                    </div>
+                    
                     <div class="faqs-label">
                         <label>Descripción</label>
                     </div>
