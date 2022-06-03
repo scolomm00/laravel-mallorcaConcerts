@@ -112,9 +112,13 @@ export let form = () => {
         
                             error.json().then(jsonError => {
 
+                               
+
                                 let errors = jsonError.errors;      
                                 let errorMessage = '';
-            
+
+                                console.log(errors);
+                                
                                 Object.keys(errors).forEach(function(key) {
                                     errorMessage += '<li>' + errors[key] + '</li>';
                                 })

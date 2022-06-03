@@ -58,6 +58,7 @@ class UserController extends Controller
             'name' => request('name'),
             'email' => request('email'),
             'password' => request('password'),
+            'active' => 1,
         ]);
 
         $view = View::make('admin.pages.users.index')

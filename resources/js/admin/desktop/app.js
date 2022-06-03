@@ -9,6 +9,7 @@ import{renderFaqs} from './faqs.js';
 import{imageContent} from './image-content.js';
 import {renderTable} from './table.js';
 import { renderModalDelete } from './modal-delete.js';
+import { errorsFormMessage } from './errorsFormMessage.js';
 
 burgerButton();
 filterBar();
@@ -21,3 +22,4 @@ renderFaqs();
 imageContent();
 renderTable();
 renderModalDelete();
+errorsFormMessage();

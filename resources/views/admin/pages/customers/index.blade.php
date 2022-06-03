@@ -79,50 +79,50 @@
             
             <input type="hidden" name="id">
 
-            <div class="admin-faqs">
-                <div class="box-faqs">
+            <div class="admin-panel">
+                <div class="box-panel">
                     <div class="desktop-two-columns">
                         <div class="column">
-                            <div class="faqs-label">
+                            <div class="panel-label">
                                 <label>Nombre</label>
                             </div>
-                            <div class="faqs-input">
+                            <div class="panel-input">
                                 <input type="text" name="name" value="{{isset($customer->name) ? $customer->name : ''}}">
                             </div>
                         </div>
                         <div class="column">
-                            <div class="faqs-label">
+                            <div class="panel-label">
                                 <label>Apellido</label>
                             </div>
-                            <div class="faqs-input">
+                            <div class="panel-input">
                                 <input type="text" name="surname" value="{{isset($customer->surname) ? $customer->surname : ''}}">
                             </div>
                         </div>
                     </div>
                     <div class="desktop-two-columns">
                         <div class="column">
-                            <div class="faqs-label">
+                            <div class="panel-label">
                                 <label>Telefono</label>
                             </div>
-                            <div class="faqs-input">
+                            <div class="panel-input">
                                 <input type="text" name="phone" value="{{isset($customer->phone) ? $customer->phone : ''}}">
                             </div>
                         </div>
                         <div class="column">
-                            <div class="faqs-label">
+                            <div class="panel-label">
                                 <label>Email</label>
                             </div>
-                            <div class="faqs-input">
+                            <div class="panel-input">
                                 <input type="text" name="email" value="{{isset($customer->email) ? $customer->email : ''}}">
                             </div>
                         </div>
                     </div>
                     <div class="desktop-two-columns">
                         <div class="column">
-                            <div class="faqs-label">
+                            <div class="panel-label">
                                 <label>Ciudad</label>
                             </div>
-                            <div class="faqs-input">
+                            <div class="panel-input">
                                 <select name="city" value="{{isset($customer->city) ? $customer->city : ''}}">
                                     <option value="">-- Selecciona una ciudad --</option>
                                     <option value="mallorca">Mallorca</option>
@@ -130,18 +130,18 @@
                             </div>
                         </div>
                         <div class="column">
-                            <div class="faqs-label">
+                            <div class="panel-label">
                                 <label>Codigo postal</label>
                             </div>
-                            <div class="faqs-input">
+                            <div class="panel-input">
                                 <input type="text" name="postal_code" value="{{isset($customer->postal_code) ? $customer->postal_code : ''}}">
                             </div>  
                         </div>
                     </div>             
-                    <div class="faqs-label">
+                    <div class="panel-label">
                         <label>Direccion</label>
                     </div>
-                    <div class="faqs-input">
+                    <div class="panel-input">
                         <input type="text" name="address" value="{{isset($customer->address) ? $customer->address : ''}}">
                     </div>
                 </div>      

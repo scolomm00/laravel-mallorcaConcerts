@@ -1,0 +1,13 @@
+#error{
+    
+    &.error{
+        border: 2px solid red;
+    }
+
+    #message-error{
+
+        &.error{
+            color: red;
+        }
+    }
+}

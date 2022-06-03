@@ -79,30 +79,30 @@
             
             <input type="hidden" name="id">
 
-            <div class="admin-faqs">
-                <div class="box-faqs">
-                    <div class="faqs-label">
+            <div class="admin-panel">
+                <div class="box-panel">
+                    <div class="panel-label">
                         <label>Nombre</label>
                     </div>
-                    <div class="faqs-input">
+                    <div class="panel-input">
                         <input type="text" name="name" value="{{isset($user->name) ? $user->name : ''}}">
                     </div>
-                    <div class="faqs-label">
+                    <div class="panel-label">
                         <label>Email</label>
                     </div>
-                    <div class="faqs-input">
+                    <div class="panel-input">
                         <input type="email" name="email" value="{{isset($user->email) ? $user->email : ''}}">
                     </div>
-                    <div class="faqs-label">
+                    <div class="panel-label">
                         <label>Contraseña:</label>
                     </div>
-                    <div class="faqs-input">
+                    <div class="panel-input">
                         <input type="password" name="password" value="{{isset($user->password) ? $user->password : ''}}">
                     </div>
-                    <div class="faqs-label">
+                    <div class="panel-label">
                         <label>Repite contraseña:</label>
                     </div>
-                    <div class="faqs-input">
+                    <div class="panel-input">
                         <input type="password" name="password_confirmation">
                     </div>
                 </div>      

@@ -845,12 +845,11 @@ header {
 }
 
 #notify {
-  background-color: rgba(0, 128, 0, 0.719);
-  bottom: 15vh;
+  bottom: 63vh;
   opacity: 0;
   position: fixed;
   padding: 1.5rem;
-  left: 90vh;
+  left: 70vh;
   transition: opacity 0.5s;
   z-index: -1;
   border-radius: 10px;
@@ -956,17 +955,17 @@ header {
   transform: rotate(-0.125turn) translate(0, -16px);
 }
 
-.admin-faqs .box-faqs {
+.admin-panel .box-panel {
   margin: 3%;
 }
-.admin-faqs .box-faqs .faqs-label {
+.admin-panel .box-panel .panel-label {
   font-size: 1.2rem;
   font-weight: bold;
   margin-bottom: 1rem;
   color: hsl(0deg, 0%, 100%);
   padding-top: 1rem;
 }
-.admin-faqs .box-faqs .faqs-input {
+.admin-panel .box-panel .panel-input {
   width: 100%;
   height: 2rem;
   border: 1px solid hsl(0deg, 0%, 80%);
@@ -975,7 +974,7 @@ header {
   font-size: 1.2rem;
   color: black;
 }
-.admin-faqs .box-faqs .faqs-input input {
+.admin-panel .box-panel .panel-input input {
   width: 100%;
   height: 100%;
   border: none;
@@ -983,7 +982,7 @@ header {
   color: hsl(0deg, 0%, 0%);
   font-size: 1.2rem;
 }
-.admin-faqs .box-faqs .faqs-input select {
+.admin-panel .box-panel .panel-input select {
   width: 100%;
   height: 100%;
   border: none;
@@ -991,7 +990,7 @@ header {
   color: hsl(0deg, 0%, 0%);
   font-size: 1.2rem;
 }
-.admin-faqs .box-faqs .faqs-ckeditor {
+.admin-panel .box-panel .panel-ckeditor {
   padding-top: 3%;
   padding-bottom: 3%;
   border: 1px solid hsl(0deg, 0%, 80%);
@@ -999,7 +998,7 @@ header {
   width: 100%;
   padding: 0.5rem;
 }
-.admin-faqs .box-faqs .faqs-ckeditor .ck.ck-editor__editable_inline > :last-child {
+.admin-panel .box-panel .panel-ckeditor .ck.ck-editor__editable_inline > :last-child {
   color: black;
   min-height: 10rem;
   font-size: 1.2rem;
@@ -1059,4 +1058,11 @@ header {
 .delete.active {
   opacity: 1;
   z-index: 5000;
+}
+
+#error.error {
+  border: 2px solid red;
+}
+#error #message-error.error {
+  color: red;
 }

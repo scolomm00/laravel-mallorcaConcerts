@@ -48,6 +48,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _image_content_js__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./image-content.js */ "./resources/js/admin/desktop/image-content.js");
 /* harmony import */ var _table_js__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./table.js */ "./resources/js/admin/desktop/table.js");
 /* harmony import */ var _modal_delete_js__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./modal-delete.js */ "./resources/js/admin/desktop/modal-delete.js");
+/* harmony import */ var _errorsFormMessage_js__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./errorsFormMessage.js */ "./resources/js/admin/desktop/errorsFormMessage.js");
+
 
 
 
@@ -70,6 +72,7 @@ __webpack_require__.r(__webpack_exports__);
 (0,_image_content_js__WEBPACK_IMPORTED_MODULE_8__.imageContent)();
 (0,_table_js__WEBPACK_IMPORTED_MODULE_9__.renderTable)();
 (0,_modal_delete_js__WEBPACK_IMPORTED_MODULE_10__.renderModalDelete)();
+(0,_errorsFormMessage_js__WEBPACK_IMPORTED_MODULE_11__.errorsFormMessage)();
 
 /***/ }),
 
@@ -127,6 +130,32 @@ var renderCkeditor = function renderCkeditor() {
     })["catch"](function (error) {
       console.error(error);
     });
+  });
+};
+
+/***/ }),
+
+/***/ "./resources/js/admin/desktop/errorsFormMessage.js":
+/*!*********************************************************!*\
+  !*** ./resources/js/admin/desktop/errorsFormMessage.js ***!
+  \*********************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "errorsFormMessage": () => (/* binding */ errorsFormMessage)
+/* harmony export */ });
+var errorsFormMessage = function errorsFormMessage() {
+  document.addEventListener('errorsMessage', function (event) {
+    var errors = document.getElementById('error');
+    var errorMessage = document.getElementById('message-error');
+    Object.keys(event.detail.errors).forEach(function (key) {
+      errorMessage += '<li>' + errors[key] + '</li>';
+    });
+    errors.innerHTML = errorMessage;
+    errors.classList.add('active');
+    errorMessage.classList.add('active');
   });
 };
 
@@ -355,6 +384,7 @@ var form = function form() {
                         error.json().then(function (jsonError) {
                           var errors = jsonError.errors;
                           var errorMessage = '';
+                          console.log(errors);
                           Object.keys(errors).forEach(function (key) {
                             errorMessage += '<li>' + errors[key] + '</li>';
                           });

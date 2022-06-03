@@ -79,18 +79,18 @@
             
             <input type="hidden" name="id">
 
-            <div class="admin-faqs">
-                <div class="box-faqs">
-                    <div class="faqs-label">
+            <div class="admin-panel">
+                <div class="box-panel">
+                    <div class="panel-label">
                         <label>Nombre</label>
                     </div>
-                    <div class="faqs-input">
+                    <div class="panel-input">
                         <input type="text" name="name" value="{{isset($product_category->name) ? $product_category->name : ''}}">
                     </div>
-                    <div class="faqs-label">
+                    <div class="panel-label">
                         <label>Título</label>
                     </div>
-                    <div class="faqs-input">
+                    <div class="panel-input">
                         <input type="text" name="title" value="{{isset($product_category->title) ? $product_category->title : ''}}">
                     </div>
                 </div>      

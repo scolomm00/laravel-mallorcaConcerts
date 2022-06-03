@@ -79,57 +79,57 @@
             
             <input type="hidden" name="id">
 
-            <div class="admin-faqs">
-                <div class="box-faqs">
+            <div class="admin-panel">
+                <div class="box-panel">
                     <div class="desktop-two-columns">
                         <div class="column">
-                            <div class="faqs-label">
+                            <div class="panel-label">
                                 <label>Nombre</label>
                             </div>
-                            <div class="faqs-input">
+                            <div class="panel-input">
                                 <input type="text" name="name" value="{{isset($product->name) ? $product->name : ''}}">
                             </div>
                         </div>
                         <div class="column">
-                            <div class="faqs-label">
+                            <div class="panel-label">
                                 <label>Título</label>
                             </div>
-                            <div class="faqs-input">
+                            <div class="panel-input">
                                 <input type="text" name="title" value="{{isset($product->title) ? $product->title : ''}}">
                             </div>
                         </div>
                     </div>
                     <div class="desktop-two-columns">
                         <div class="column">
-                            <div class="faqs-label">
+                            <div class="panel-label">
                                 <label>Categoría</label>
                             </div>
-                            <div class="faqs-input">
+                            <div class="panel-input">
                                 <select name="categoria_id">
                                     <option value="">-- Selecciona una categoría --</option>
                                 </select>
                             </div>     
                         </div>
                         <div class="column">
-                            <div class="faqs-label">
+                            <div class="panel-label">
                                 <label>Precio</label>
                             </div>
-                            <div class="faqs-input">
+                            <div class="panel-input">
                                 <input type="text" name="price" value="{{isset($product->price) ? $product->price : ''}}">
                             </div>
                         </div>
                     </div>
                     
-                    <div class="faqs-label">
+                    <div class="panel-label">
                         <label>Descripción</label>
                     </div>
-                    <div class="faqs-ckeditor">
+                    <div class="panel-ckeditor">
                         <textarea class="ckeditor" name="description">{{isset($product->description) ? $product->description : ''}}</textarea>
                     </div>
-                    <div class="faqs-label">
+                    <div class="panel-label">
                         <label>Caracteristicas</label>
                     </div>
-                    <div class="faqs-ckeditor">
+                    <div class="panel-ckeditor">
                         <textarea class="ckeditor" name="features">{{isset($product->features) ? $product->features : ''}}</textarea>
                     </div>
 

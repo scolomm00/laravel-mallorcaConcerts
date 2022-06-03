@@ -79,24 +79,24 @@
             
             <input type="hidden" name="id">
 
-            <div class="admin-faqs">
-                <div class="box-faqs">
-                    <div class="faqs-label">
+            <div class="admin-panel">
+                <div class="box-panel">
+                    <div class="panel-label">
                         <label>Nombre</label>
                     </div>
-                    <div class="faqs-input">
+                    <div class="panel-input">
                         <input type="text" name="name" value="{{isset($faq->name) ? $faq->name : ''}}">
                     </div>
-                    <div class="faqs-label">
+                    <div class="panel-label">
                         <label>Título</label>
                     </div>
-                    <div class="faqs-input">
+                    <div class="panel-input">
                         <input type="text" name="title" value="{{isset($faq->title) ? $faq->title : ''}}">
                     </div>
-                    <div class="faqs-label">
+                    <div class="panel-label">
                         <label>Descripción</label>
                     </div>
-                    <div class="faqs-ckeditor">
+                    <div class="panel-ckeditor">
                         <textarea class="ckeditor" name="description">{{isset($faq->description) ? $faq->description : ''}}</textarea>
                     </div>
                 </div>      
