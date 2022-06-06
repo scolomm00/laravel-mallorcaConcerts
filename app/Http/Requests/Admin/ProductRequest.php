@@ -19,6 +19,8 @@ class ProductRequest extends FormRequest
             'price' => 'required|numeric',
             'description' => 'required',
             'features' => 'required',
+            'day' => 'required',
+            'address' => 'required',
         ];
     }
 
@@ -31,6 +33,8 @@ class ProductRequest extends FormRequest
             'price.numeric' => 'El precio no es válido',
             'description.required' => 'La descripción es obligatoria',
             'features.required' => 'Las características son obligatorias',
+            'day.required' => 'El día es obligatorio',
+            'address.required' => 'La dirección es obligatoria',
         ];
     }
 }

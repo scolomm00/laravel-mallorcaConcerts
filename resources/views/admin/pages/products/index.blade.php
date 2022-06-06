@@ -119,7 +119,24 @@
                             </div>
                         </div>
                     </div>
-                    
+                    <div class="desktop-two-columns">
+                        <div class="column">
+                            <div class="panel-label">
+                                <label>Fecha</label>
+                            </div>
+                            <div class="panel-input">
+                                <input type="text" name="day" value="{{isset($product->day) ? $product->day : ''}}">
+                            </div>     
+                        </div>
+                        <div class="column">
+                            <div class="panel-label">
+                                <label>Ubicación</label>
+                            </div>
+                            <div class="panel-input">
+                                <input type="text" name="address" value="{{isset($product->address) ? $product->address : ''}}">
+                            </div>
+                        </div>
+                    </div>
                     <div class="panel-label">
                         <label>Descripción</label>
                     </div>

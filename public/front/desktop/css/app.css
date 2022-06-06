@@ -792,18 +792,19 @@ header {
   padding: 0.2rem 2rem 0.2rem 0.2rem;
 }
 .products .products-gallery {
+  flex-wrap: wrap;
+  display: flex;
+  justify-content: start;
   width: 100%;
+  margin-top: 2rem;
 }
 .products .products-gallery .products-element {
   border: solid 3px hsl(0deg, 0%, 100%);
-  border-radius: 10px;
+  border-radius: 6px;
   background-color: hsla(0deg, 1%, 74%, 0.76);
-  margin: 2rem 0;
+  margin: 1rem 1rem;
   padding: 0.1rem;
-  box-shadow: 5px 5px 15px 5px hsla(0deg, 100%, 50%, 0.835);
-}
-.products .products-gallery .products-element:hover {
-  box-shadow: 5px 5px 15px 5px hsl(0deg, 0%, 0%);
+  width: 28%;
 }
 .products .products-gallery .products-element .products-element-image:hover {
   cursor: pointer;
@@ -815,6 +816,7 @@ header {
   text-overflow: ellipsis;
   overflow: hidden;
   padding: 0 0.3rem;
+  text-align: center;
 }
 .products .products-gallery .products-element .products-element-title span {
   font-size: 1.5rem;
@@ -831,10 +833,13 @@ header {
   text-overflow: ellipsis;
   overflow: hidden;
   padding: 0 0.3rem;
+  text-align: center;
 }
 .products .products-gallery .products-element .products-element-day svg {
   width: 1.3rem;
   height: 1.3rem;
+  align-items: center;
+  padding-right: 0.5rem;
 }
 .products .products-gallery .products-element .products-element-address {
   min-height: 5vh;
@@ -842,10 +847,12 @@ header {
   white-space: nowrap;
   text-overflow: ellipsis;
   overflow: hidden;
+  text-align: center;
 }
 .products .products-gallery .products-element .products-element-address svg {
   width: 1.3rem;
   height: 1.3rem;
+  padding-right: 0.5rem;
 }
 .products .products-gallery .products-element .products-element-buy {
   padding: 0.5rem;
@@ -858,16 +865,15 @@ header {
   height: 2rem;
   border-radius: 10px;
   font-size: 150%;
-  font-weight: bolder;
   font-family: "Roboto Condensed";
   background-color: hsla(0deg, 0%, 0%, 0.966);
   cursor: pointer;
   color: hsl(0deg, 0%, 100%);
+  border: solid 2px hsl(0deg, 0%, 100%);
 }
 .products .products-gallery .products-element .products-element-buy button:hover {
-  color: hsl(0deg, 0%, 0%);
-  background-color: hsl(0deg, 0%, 100%);
-  border: solid 2px;
+  cursor: pointer;
+  background-color: hsla(0deg, 1%, 19%, 0.966);
 }
 
 .product {

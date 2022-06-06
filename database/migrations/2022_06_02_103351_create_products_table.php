@@ -21,6 +21,8 @@ return new class extends Migration
             $table->decimal('price');
             $table->text('description');
             $table->text('features');
+            $table->datetime('day');
+            $table->string('address');
             $table->boolean('active');
             $table->boolean('visible');
             $table->timestamps();

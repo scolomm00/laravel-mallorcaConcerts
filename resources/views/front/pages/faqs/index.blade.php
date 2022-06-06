@@ -7,12 +7,12 @@
 
     @if($agent->isDesktop())
         @include('front.components.desktop.title', ['title' => 'Preguntas frecuentes'])
-        @include('front.pages.faqs.desktop.faqs')
+        @include('front.pages.faqs.desktop.faqs', ['faqs' => $faqs])
     @endif
 
     @if($agent->isMobile())
         @include('front.components.mobile.title', ['title' => 'Preguntas frecuentes'])
-        @include('front.pages.faqs.mobile.faqs')
+        @include('front.pages.faqs.mobile.faqs', ['faqs' => $faqs])
     @endif
 
 @endsection

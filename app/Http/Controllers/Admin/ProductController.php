@@ -62,6 +62,8 @@ class ProductController extends Controller
                 'price' => request('price'),
                 'description' => request('description'),
                 'features' => request('features'),
+                'day' => request('day'),
+                'address' => request('address'),
                 'visible' => 1,
                 'active' => 1,
         ]);
