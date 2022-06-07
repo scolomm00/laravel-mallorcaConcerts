@@ -20,6 +20,7 @@ class ProductRequest extends FormRequest
             'description' => 'required',
             'features' => 'required',
             'day' => 'required',
+            'hour' => 'required',
             'address' => 'required',
         ];
     }
@@ -34,6 +35,7 @@ class ProductRequest extends FormRequest
             'description.required' => 'La descripción es obligatoria',
             'features.required' => 'Las características son obligatorias',
             'day.required' => 'El día es obligatorio',
+            'hour.required' => 'La hora es obligatoria',
             'address.required' => 'La dirección es obligatoria',
         ];
     }

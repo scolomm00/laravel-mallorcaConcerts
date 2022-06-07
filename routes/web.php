@@ -77,15 +77,15 @@ Route::group(['prefix' => 'admin'], function () {
 
 });
 
-Route::get('/', 'App\Http\Controllers\Front\HomeController@index')->name('home');
+Route::get('/', 'App\Http\Controllers\Front\HomeController@index')->name('front_home');
 
-Route::get('/carrito', 'App\Http\Controllers\Front\CartController@index')->name('cart');
-Route::get('/pago', 'App\Http\Controllers\Front\CheckoutController@index')->name('checkout');
+Route::get('/carrito', 'App\Http\Controllers\Front\CartController@index')->name('front_cart');
+Route::get('/pago', 'App\Http\Controllers\Front\CheckoutController@index')->name('front_checkout');
 
-Route::get('/contacto', 'App\Http\Controllers\Front\ContactController@index')->name('contact');
+Route::get('/contacto', 'App\Http\Controllers\Front\ContactController@index')->name('front_contact');
 Route::post('/contacto', 'App\Http\Controllers\Front\ContactController@store')->name('contacts_store');
 
-Route::get('/faqs', 'App\Http\Controllers\Front\FaqController@index')->name('faqs');
+Route::get('/faqs', 'App\Http\Controllers\Front\FaqController@index')->name('front_faqs');
 
-Route::get('/productos', 'App\Http\Controllers\Front\ProductController@index')->name('products');
-Route::get('/producto', 'App\Http\Controllers\Front\ProductController@show')->name('product');
+Route::get('/productos', 'App\Http\Controllers\Front\ProductController@index')->name('front_products');
+Route::get('/productos/{product}', 'App\Http\Controllers\Front\ProductController@show')->name('products_show');

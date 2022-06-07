@@ -854,24 +854,24 @@ header {
   height: 1.3rem;
   padding-right: 0.5rem;
 }
-.products .products-gallery .products-element .products-element-buy {
+.products .products-gallery .products-element .products-element-show {
   padding: 0.5rem;
   align-items: center;
   display: flex;
   justify-content: center;
 }
-.products .products-gallery .products-element .products-element-buy button {
+.products .products-gallery .products-element .products-element-show button {
   width: 10rem;
   height: 2rem;
   border-radius: 10px;
-  font-size: 150%;
+  font-size: 125%;
   font-family: "Roboto Condensed";
   background-color: hsla(0deg, 0%, 0%, 0.966);
   cursor: pointer;
   color: hsl(0deg, 0%, 100%);
   border: solid 2px hsl(0deg, 0%, 100%);
 }
-.products .products-gallery .products-element .products-element-buy button:hover {
+.products .products-gallery .products-element .products-element-show button:hover {
   cursor: pointer;
   background-color: hsla(0deg, 1%, 19%, 0.966);
 }
@@ -886,7 +886,6 @@ header {
   margin: 2%;
 }
 .product .product-text {
-  width: 170rem;
   margin-left: 10%;
 }
 .product .product-text .product-text-price {

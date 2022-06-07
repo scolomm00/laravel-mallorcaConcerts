@@ -35,7 +35,20 @@ class ProductController extends Controller
         return $view;
     }
 
-    public function show(){
+    public function show(Product $product){
 
+        $view = View::make('front.pages.product.index')
+        ->with('product', $product);
+
+        if(request()->ajax()) {
+            
+            $sections = $view->renderSections();
+    
+            return response()->json([
+                'content' => $sections['content'],
+            ]); 
+        }
+
+        return $view;
     }
 }

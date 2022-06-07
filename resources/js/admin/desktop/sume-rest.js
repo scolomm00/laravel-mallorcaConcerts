@@ -1,7 +1,7 @@
 export let sumeRest = () => {
 
     let restas = document.querySelectorAll(".rest");
-    let sumas = document.querySelectorAll(".sume");
+    let sumas = document.querySelectorAll(".sume");;
 
     sumas.forEach(suma => {
 

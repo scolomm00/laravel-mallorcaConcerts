@@ -656,6 +656,7 @@ __webpack_require__.r(__webpack_exports__);
 var sumeRest = function sumeRest() {
   var restas = document.querySelectorAll(".rest");
   var sumas = document.querySelectorAll(".sume");
+  ;
   sumas.forEach(function (suma) {
     suma.addEventListener("click", function () {
       var contador = suma.closest('.box-plus-minus').querySelector('.plus-minus-input');

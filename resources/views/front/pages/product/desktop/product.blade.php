@@ -1,8 +1,9 @@
 
 <div class="product">
     <div class="desktop-two-columns">
-        <div class="product-image">
-            <div class="column">
+        <div class="column">
+            <div class="product-image">
+            
                 <div class="product-image-main">
                     <img src="images/estopa.webp" alt="">
                 </div>
@@ -27,13 +28,14 @@
                 </div>
             </div>
         </div>
-        <div class="product-text">
-            <div class="column">
+        <div class="column">
+            <div class="product-text">
+            
                 <div class="product-text-title">
-                    <h1>ESTOPA - Gira FUEGO 2022</h1>
+                    <h1>{{$product->title}}</h1>
                 </div>
                 <div class="product-text-price">
-                    <span> 35€ entrada general</span>
+                    <span> {{$product->price}}€</span>
                 </div>
                 
                 @include('front.components.desktop.tabs')

@@ -1,9 +1,9 @@
 <header>
     <div class="mobile-menu mobile-only" id="menuList">
         <ul>
-            <li>INICIO</li>
-            <li>CONCIERTOS</li>
-            <li>CONTACTO</li>
+            <li class="buttons-menu" data-url="{{route('front_home')}}">INICIO</li>
+            <li class="buttons-menu" data-url="{{route('front_products')}}">CONCIERTOS</li>
+            <li class="buttons-menu" data-url="{{route('front_contact')}}">CONTACTO</li>
         </ul>
     </div>
     <div class="desktop-two-columns mobile-two-columns-aside">
@@ -15,9 +15,9 @@
         <div class="column column-aside">
             <div class="header-menu desktop-only">
                 <ul>
-                    <li>INICIO</li>
-                    <li>CONCIERTOS</li>
-                    <li>CONTACTO</li>
+                    <li class="buttons-menu" data-url="{{route('front_home')}}">INICIO</li>
+                    <li class="buttons-menu" data-url="{{route('front_products')}}">CONCIERTOS</li>
+                    <li class="buttons-menu" data-url="{{route('front_contact')}}">CONTACTO</li>
                 </ul>
             </div>
             <div class="mobile-header-button-menu mobile-only">

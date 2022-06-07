@@ -112,30 +112,39 @@
                         </div>
                         <div class="column">
                             <div class="panel-label">
-                                <label>Precio</label>
-                            </div>
-                            <div class="panel-input">
-                                <input type="text" name="price" value="{{isset($product->price) ? $product->price : ''}}">
-                            </div>
-                        </div>
-                    </div>
-                    <div class="desktop-two-columns">
-                        <div class="column">
-                            <div class="panel-label">
-                                <label>Fecha</label>
-                            </div>
-                            <div class="panel-input">
-                                <input type="text" name="day" value="{{isset($product->day) ? $product->day : ''}}">
-                            </div>     
-                        </div>
-                        <div class="column">
-                            <div class="panel-label">
                                 <label>Ubicación</label>
                             </div>
                             <div class="panel-input">
                                 <input type="text" name="address" value="{{isset($product->address) ? $product->address : ''}}">
                             </div>
                         </div>
+                    </div>
+                    <div class="desktop-three-columns">
+                        <div class="column">
+                            <div class="panel-label">
+                                <label>Día</label>
+                            </div>
+                            <div class="panel-input">
+                                <input type="date" name="day" value="{{isset($product->day) ? $product->day : ''}}">
+                            </div>     
+                        </div>
+                        <div class="column">
+                            <div class="panel-label">
+                                <label>Hora</label>
+                            </div>
+                            <div class="panel-input">
+                                <input type="time" name="hour" value="{{isset($product->hour) ? $product->hour : ''}}">
+                            </div>
+                        </div>
+                        <div class="column">
+                            <div class="panel-label">
+                                <label>Precio</label>
+                            </div>
+                            <div class="panel-input">
+                                <input type="text" name="price" value="{{isset($product->price) ? $product->price : ''}}">
+                            </div>
+                        </div>
+                        
                     </div>
                     <div class="panel-label">
                         <label>Descripción</label>

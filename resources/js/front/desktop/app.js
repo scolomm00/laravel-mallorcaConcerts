@@ -7,6 +7,8 @@ import {form} from './form.js';
 import {renderCkeditor} from './ckeditor.js';
 import{renderFaqs} from './faqs.js';
 import{imageContent} from './image-content.js';
+import{product} from './product.js';
+import { menu } from './menu.js';
 
 burgerButton();
 filterBar();
@@ -17,3 +19,5 @@ form();
 renderCkeditor();
 renderFaqs();
 imageContent();
+product();
+menu();

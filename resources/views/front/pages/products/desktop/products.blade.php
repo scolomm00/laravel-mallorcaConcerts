@@ -67,8 +67,8 @@
                                         </svg>{{$product->address}}
                                     </span>
                                 </div>
-                                <div class="products-element-buy">
-                                    <button>Entradas</button>
+                                <div class="products-element-show" data-url="{{route('products_show', ['product'=>$product->id])}}">
+                                    <button>Ver producto</button>
                                 </div>
                             </div>
                         @endforeach
@@ -79,4 +79,3 @@
         </div>
     </div>
 </div>
-

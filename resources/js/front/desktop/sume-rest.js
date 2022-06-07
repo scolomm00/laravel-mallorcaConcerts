@@ -3,6 +3,10 @@ export let sumeRest = () => {
     let restas = document.querySelectorAll(".rest");
     let sumas = document.querySelectorAll(".sume");
 
+    document.addEventListener("renderProductModules",( event =>{
+        sumeRest();
+    }), {once: true})
+    
     sumas.forEach(suma => {
 
         suma.addEventListener("click", () => {

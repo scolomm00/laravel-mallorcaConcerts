@@ -373,6 +373,85 @@ var imageContent = function imageContent() {
 
 /***/ }),
 
+/***/ "./resources/js/front/desktop/menu.js":
+/*!********************************************!*\
+  !*** ./resources/js/front/desktop/menu.js ***!
+  \********************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "menu": () => (/* binding */ menu)
+/* harmony export */ });
+/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/regenerator */ "./node_modules/@babel/runtime/regenerator/index.js");
+/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__);
+
+
+function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } }
+
+function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err); } _next(undefined); }); }; }
+
+var menu = function menu() {
+  var menuButtons = document.querySelectorAll('.buttons-menu');
+  var main = document.querySelector('main');
+
+  if (menuButtons) {
+    menuButtons.forEach(function (menuButton) {
+      menuButton.addEventListener("click", function () {
+        var url = menuButton.dataset.url;
+        console.log(url);
+
+        var sendCreateRequest = /*#__PURE__*/function () {
+          var _ref = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee() {
+            var response;
+            return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().wrap(function _callee$(_context) {
+              while (1) {
+                switch (_context.prev = _context.next) {
+                  case 0:
+                    _context.next = 2;
+                    return fetch(url, {
+                      headers: {
+                        'X-Requested-With': 'XMLHttpRequest'
+                      },
+                      method: 'GET'
+                    }).then(function (response) {
+                      if (!response.ok) throw response;
+                      return response.json();
+                    }).then(function (json) {
+                      main.innerHTML = json.content;
+                    })["catch"](function (error) {
+                      if (error.status == '500') {
+                        console.log(error);
+                      }
+
+                      ;
+                    });
+
+                  case 2:
+                    response = _context.sent;
+
+                  case 3:
+                  case "end":
+                    return _context.stop();
+                }
+              }
+            }, _callee);
+          }));
+
+          return function sendCreateRequest() {
+            return _ref.apply(this, arguments);
+          };
+        }();
+
+        sendCreateRequest();
+      });
+    });
+  }
+};
+
+/***/ }),
+
 /***/ "./resources/js/front/desktop/notify.js":
 /*!**********************************************!*\
   !*** ./resources/js/front/desktop/notify.js ***!
@@ -400,6 +479,98 @@ var notify = function notify() {
 
 /***/ }),
 
+/***/ "./resources/js/front/desktop/product.js":
+/*!***********************************************!*\
+  !*** ./resources/js/front/desktop/product.js ***!
+  \***********************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "product": () => (/* binding */ product)
+/* harmony export */ });
+/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/regenerator */ "./node_modules/@babel/runtime/regenerator/index.js");
+/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__);
+
+
+function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } }
+
+function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err); } _next(undefined); }); }; }
+
+var product = function product() {
+  var showProductButtons = document.querySelectorAll('.products-element-show');
+  var main = document.querySelector('main');
+  document.addEventListener("loadProduct", function (event) {
+    main.innerHTML = event.detail.main;
+  });
+  document.addEventListener("renderProductModules", function (event) {
+    product();
+  }, {
+    once: true
+  });
+
+  if (showProductButtons) {
+    showProductButtons.forEach(function (showProductButton) {
+      showProductButton.addEventListener("click", function () {
+        var url = showProductButton.dataset.url;
+
+        var sendCreateRequest = /*#__PURE__*/function () {
+          var _ref = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee() {
+            var response;
+            return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().wrap(function _callee$(_context) {
+              while (1) {
+                switch (_context.prev = _context.next) {
+                  case 0:
+                    document.dispatchEvent(new CustomEvent('startWait'));
+                    _context.next = 3;
+                    return fetch(url, {
+                      headers: {
+                        'X-Requested-With': 'XMLHttpRequest'
+                      },
+                      method: 'GET'
+                    }).then(function (response) {
+                      if (!response.ok) throw response;
+                      return response.json();
+                    }).then(function (json) {
+                      document.dispatchEvent(new CustomEvent('loadProduct', {
+                        detail: {
+                          main: json.content
+                        }
+                      }));
+                      document.dispatchEvent(new CustomEvent('renderProductModules'));
+                    })["catch"](function (error) {
+                      if (error.status == '500') {
+                        console.log(error);
+                      }
+
+                      ;
+                    });
+
+                  case 3:
+                    response = _context.sent;
+
+                  case 4:
+                  case "end":
+                    return _context.stop();
+                }
+              }
+            }, _callee);
+          }));
+
+          return function sendCreateRequest() {
+            return _ref.apply(this, arguments);
+          };
+        }();
+
+        sendCreateRequest();
+      });
+    });
+  }
+};
+
+/***/ }),
+
 /***/ "./resources/js/front/desktop/sume-rest.js":
 /*!*************************************************!*\
   !*** ./resources/js/front/desktop/sume-rest.js ***!
@@ -414,6 +585,11 @@ __webpack_require__.r(__webpack_exports__);
 var sumeRest = function sumeRest() {
   var restas = document.querySelectorAll(".rest");
   var sumas = document.querySelectorAll(".sume");
+  document.addEventListener("renderProductModules", function (event) {
+    sumeRest();
+  }, {
+    once: true
+  });
   sumas.forEach(function (suma) {
     suma.addEventListener("click", function () {
       var contador = suma.closest('.box-plus-minus').querySelector('.plus-minus-input');
@@ -447,6 +623,11 @@ __webpack_require__.r(__webpack_exports__);
 var tabBar = function tabBar() {
   var tabs = document.querySelectorAll('.tab');
   var tabsContent = document.querySelectorAll('.tab-content');
+  document.addEventListener("renderProductModules", function (event) {
+    tabBar();
+  }, {
+    once: true
+  });
   tabs.forEach(function (tab) {
     tab.addEventListener('click', function () {
       tabsContent.forEach(function (tabContent) {
@@ -1339,6 +1520,10 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _ckeditor_js__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./ckeditor.js */ "./resources/js/front/desktop/ckeditor.js");
 /* harmony import */ var _faqs_js__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./faqs.js */ "./resources/js/front/desktop/faqs.js");
 /* harmony import */ var _image_content_js__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./image-content.js */ "./resources/js/front/desktop/image-content.js");
+/* harmony import */ var _product_js__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./product.js */ "./resources/js/front/desktop/product.js");
+/* harmony import */ var _menu_js__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./menu.js */ "./resources/js/front/desktop/menu.js");
+
+
 
 
 
@@ -1357,6 +1542,8 @@ __webpack_require__.r(__webpack_exports__);
 (0,_ckeditor_js__WEBPACK_IMPORTED_MODULE_6__.renderCkeditor)();
 (0,_faqs_js__WEBPACK_IMPORTED_MODULE_7__.renderFaqs)();
 (0,_image_content_js__WEBPACK_IMPORTED_MODULE_8__.imageContent)();
+(0,_product_js__WEBPACK_IMPORTED_MODULE_9__.product)();
+(0,_menu_js__WEBPACK_IMPORTED_MODULE_10__.menu)();
 })();
 
 /******/ })()
