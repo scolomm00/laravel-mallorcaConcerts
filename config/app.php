@@ -187,6 +187,9 @@ return [
          */
 
         Jenssegers\Agent\AgentServiceProvider::class,
+
+        //Custom View Composers
+        App\Providers\ViewComposerServiceProvider::class,
         
 
 

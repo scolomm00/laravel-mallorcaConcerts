@@ -10,9 +10,11 @@
                 <div class="categories-menu-elements">
                     <ul>
                         <li>Todas</li>
-                        <li>Reggaeton</li>
-                        <li>Pop</li>
-                        <li>Techno</li>
+                        @if(isset($product_categories))
+                            @foreach($product_categories as $category)
+                                <li value="{{$category->id}}">{{$category->title}}</li>
+                            @endforeach
+                        @endif
                     </ul>
                 </div>
             </div>

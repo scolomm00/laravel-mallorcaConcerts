@@ -395,12 +395,19 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 var menu = function menu() {
   var menuButtons = document.querySelectorAll('.buttons-menu');
   var main = document.querySelector('main');
+  document.addEventListener("loadProduct", function (event) {
+    main.innerHTML = event.detail.main;
+  });
+  document.addEventListener("renderProductModules", function (event) {
+    menu();
+  }, {
+    once: true
+  });
 
   if (menuButtons) {
     menuButtons.forEach(function (menuButton) {
       menuButton.addEventListener("click", function () {
         var url = menuButton.dataset.url;
-        console.log(url);
 
         var sendCreateRequest = /*#__PURE__*/function () {
           var _ref = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee() {
@@ -409,7 +416,8 @@ var menu = function menu() {
               while (1) {
                 switch (_context.prev = _context.next) {
                   case 0:
-                    _context.next = 2;
+                    document.dispatchEvent(new CustomEvent('startWait'));
+                    _context.next = 3;
                     return fetch(url, {
                       headers: {
                         'X-Requested-With': 'XMLHttpRequest'
@@ -419,7 +427,12 @@ var menu = function menu() {
                       if (!response.ok) throw response;
                       return response.json();
                     }).then(function (json) {
-                      main.innerHTML = json.content;
+                      document.dispatchEvent(new CustomEvent('loadProduct', {
+                        detail: {
+                          main: json.content
+                        }
+                      }));
+                      document.dispatchEvent(new CustomEvent('renderProductModules'));
                     })["catch"](function (error) {
                       if (error.status == '500') {
                         console.log(error);
@@ -428,10 +441,10 @@ var menu = function menu() {
                       ;
                     });
 
-                  case 2:
+                  case 3:
                     response = _context.sent;
 
-                  case 3:
+                  case 4:
                   case "end":
                     return _context.stop();
                 }

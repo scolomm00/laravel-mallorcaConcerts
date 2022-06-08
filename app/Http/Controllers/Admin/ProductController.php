@@ -18,13 +18,13 @@ class ProductController extends Controller
     {
         $this->product = $product;
     }
-    
+   
     public function index()
     {
 
         $view = View::make('admin.pages.products.index')
-                ->with('product', $this->product)
-                ->with('products', $this->product->where('active', 1)->get());
+            ->with('product', $this->product)
+            ->with('products', $this->product->where('active', 1)->get());
 
         if(request()->ajax()) {
             
