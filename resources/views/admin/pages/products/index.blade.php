@@ -149,7 +149,7 @@
                                 <label>Precio</label>
                             </div>
                             <div class="panel-input">
-                                <input type="text" name="price" value="{{isset($product->price) ? $product->price : ''}}">
+                                <input type="number" name="price" value="{{isset($product->price) ? $product->price : ''}}">
                             </div>
                         </div>
                         

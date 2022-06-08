@@ -6,7 +6,6 @@ use Illuminate\Support\Facades\View;
 use App\Http\Controllers\Controller;
 use App\Models\Product;
 use App\Http\Requests\Admin\ProductRequest;
-use Debugbar;
 
 class ProductController extends Controller
 {
@@ -72,12 +71,11 @@ class ProductController extends Controller
         $view = View::make('admin.pages.products.index')
         ->with('products', $this->product->where('active', 1)->get())
         ->with('product', $this->product)
-        ->renderSections();        
+        ->renderSections();    
 
         return response()->json([
             'table' => $view['table'],
             'form' => $view['form'],
-            'id' => $product->id,
         ]);
     }
 

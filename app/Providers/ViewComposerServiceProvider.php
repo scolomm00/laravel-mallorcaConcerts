@@ -27,10 +27,9 @@ class ViewComposerServiceProvider extends ServiceProvider
         //el contenido definido en la segunda linea.
 
         //La segunda linea digo que archivo quiero tener disponible en la vista.
+        //Se pueden añadir todas las vistas que quiera.
 
         view()->composer([
-
-            //Se pueden añadir todas las vistas que quiera.
             'admin.pages.products.index'],
             'App\Http\ViewComposers\Admin\ProductCategories' 
         );
