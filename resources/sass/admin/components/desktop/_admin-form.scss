@@ -55,9 +55,11 @@
             
 
             .ck.ck-editor__editable_inline>:last-child {
-                color: black;
                 min-height: 10rem;
-                font-size: 1.2rem;
+            }
+
+            p{
+                color: #000;
             }
         }
     }

@@ -18,7 +18,6 @@ class ProductCategories
 
         $this->product_categories = $product_categories;
     }
-
     
     public function compose(View $view)
     {

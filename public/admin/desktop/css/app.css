@@ -999,9 +999,10 @@ header {
   padding: 0.5rem;
 }
 .admin-panel .box-panel .panel-ckeditor .ck.ck-editor__editable_inline > :last-child {
-  color: black;
   min-height: 10rem;
-  font-size: 1.2rem;
+}
+.admin-panel .box-panel .panel-ckeditor p {
+  color: #000;
 }
 
 .delete {

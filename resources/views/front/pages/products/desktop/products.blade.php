@@ -9,10 +9,10 @@
                 </div>
                 <div class="categories-menu-elements">
                     <ul>
-                        <li>Todas</li>
+                        <li class="buttons-category" data-url="{{route('front_products')}}">Todas</li>
                         @if(isset($product_categories))
                             @foreach($product_categories as $category)
-                                <li value="{{$category->id}}">{{$category->title}}</li>
+                                <li class="buttons-category" data-url="{{route('front_product_categories', ['category'=>$category->id])}}" value="{{$category->id}}">{{$category->title}}</li>
                             @endforeach
                         @endif
                     </ul>

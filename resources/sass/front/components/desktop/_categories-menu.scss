@@ -10,10 +10,15 @@
         ul li{
 
             color: hsl(0, 0%, 100%);
-            cursor: pointer;
             font-size: 1.2rem;
             font-weight: 600;
-            margin: 1rem 0
+            margin: 1rem 0;
+
+            &:hover{
+
+                color: hsla(0, 100%, 50%, 0.588);
+                cursor: pointer;
+            }
         }
     }
     
