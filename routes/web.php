@@ -89,4 +89,4 @@ Route::get('/faqs', 'App\Http\Controllers\Front\FaqController@index')->name('fro
 
 Route::get('/productos', 'App\Http\Controllers\Front\ProductController@index')->name('front_products');
 Route::get('/productos/{product}', 'App\Http\Controllers\Front\ProductController@show')->name('products_show');
-Route::get('/productos/categorias/{category}', 'App\Http\Controllers\Front\ProductController@category')->name('front_product_categories');
+Route::get('/productos/categorias/{category}', 'App\Http\Controllers\Front\ProductCategoryController@show')->name('front_product_category');

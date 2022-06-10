@@ -4,7 +4,6 @@ namespace App\Http\Controllers\Front;
 
 use Illuminate\Support\Facades\View;
 use App\Http\Controllers\Controller;
-use App\Models\ProductCategory;
 use App\Models\Product;
 use App\Http\Requests\Front\ProductRequest;
 
@@ -44,24 +43,6 @@ class ProductController extends Controller
         if(request()->ajax()) {
             
             $sections = $view->renderSections();
-    
-            return response()->json([
-                'content' => $sections['content'],
-            ]); 
-        }
-
-        return $view;
-    }
-
-    public function category(ProductCategory $category){
-
-        $view = View::make('front.pages.products.index')
-        ->with('category', $category)
-        ->with('products', $category->products()->where('active', 1)->where('visible', 1)->get());
-    
-        if(request()->ajax()) {
-            
-            $sections = $view->renderSections(); 
     
             return response()->json([
                 'content' => $sections['content'],

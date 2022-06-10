@@ -29,67 +29,142 @@
                 font-size: 1.5rem;
                 font-weight: 600;
             }
+
+            svg{
+
+                width: 1.3rem;
+                height: 1.3rem;
+                padding-right: 0.5rem;
+                color: white;
+            }
         }
 
-        .product-text-day {
+        .product-text-category{
 
-            margin-top: 5%;
-            width: 70%;
+            margin: 3% 0;
 
-            .product-text-day-letter {
+            span {
+
+                color: hsl(0, 0%, 100%);
+                font-size: 1.5rem;
+                font-weight: 600;
+            }
+        }
+
+        .product-text-date {          
+
+            .product-text-day{
+                
+                margin: 5% 0 1% 0;
 
                 span {
 
                     color: hsl(0, 0%, 100%);
-                    font-weight: 600;
+                }
+
+                svg{
+
+                    width: 1.3rem;
+                    height: 1.3rem;
+                    align-items: center;
+                    padding-right: 0.5rem;
+                    color: white;
                 }
             }
 
-            .box-plus-minus {
+            .product-text-hour{
 
-                display: flex;
+                margin: 0 0 5% 0;
 
-                .plus-minus-counter.rest {
+                span {
 
-                    button {
-
-                        border-radius: 1rem 0 0 1rem;
-                        background-color: hsl(0, 100%, 50%);
-                        color: hsl(0, 0%, 100%);
-                        font-weight: 600;
-                        width: 2rem;
-                        height: 2rem;
-
-                        &:hover {
-                            cursor: pointer;
-                        }
-                    }
+                    color: hsl(0, 0%, 100%);
                 }
 
-                .plus-minus.counter {
+                svg{
 
-                    input {
+                    width: 1.3rem;
+                    height: 1.3rem;
+                    align-items: center;
+                    padding-right: 0.5rem;
+                    color: white;
+                }
+            }
+        }   
+        
+        .product-text-address{
 
-                        width: 1.5rem;
-                        height: 1.5rem;
-                        text-align: center;
+            margin: 5% 0 5% 0;
+
+            span {
+
+                color: hsl(0, 0%, 100%);
+            }
+
+            svg{
+
+                width: 1.3rem;
+                height: 1.3rem;
+                padding-right: 0.5rem;
+                color: white;
+            }
+
+        }
+
+        .product-text-tickets {
+
+            margin: 18% 0 5% 0;
+            span {
+
+                color: hsl(0, 0%, 100%);
+            }
+        }
+
+        .box-plus-minus {
+
+            display: flex;
+            margin: 15% 0 5% 0;
+
+            .plus-minus-counter.rest {
+
+                button {
+
+                    border-radius: 1rem 0 0 1rem;
+                    background-color: hsl(0, 100%, 50%);
+                    color: hsl(0, 0%, 100%);
+                    font-weight: 600;
+                    width: 2rem;
+                    height: 2rem;
+
+                    &:hover {
+                        cursor: pointer;
                     }
                 }
+            }
 
-                .plus-minus-counter.sume {
+            .plus-minus.counter {
 
-                    button {
+                input {
 
-                        border-radius: 0 1rem 1rem 0;
-                        background-color: hsl(120, 100%, 25%);
-                        color: hsl(0, 0%, 100%);
-                        font-weight: 600;
-                        width: 2rem;
-                        height: 2rem;
+                    width: 1.5rem;
+                    height: 1.5rem;
+                    text-align: center;
+                }
+            }
 
-                        &:hover {
-                            cursor: pointer;
-                        }
+            .plus-minus-counter.sume {
+
+                button {
+
+                    border-radius: 0 1rem 1rem 0;
+                    background-color: hsl(120, 100%, 25%);
+                    color: hsl(0, 0%, 100%);
+                    font-weight: 600;
+                    width: 2rem;
+                    height: 2rem;
+
+                    &:hover {
+                        cursor: pointer;
                     }
                 }
             }
@@ -103,7 +178,7 @@
 
                 button {
 
-                    width: 15rem;
+                    width: 100%;
                     height: 2.5rem;
                     border-radius: 10px;
                     background-color: hsla(0, 0%, 0%, 0.548);
@@ -114,12 +189,10 @@
                     &:hover {
 
                         cursor: pointer;
-                        box-shadow: 5px 5px 15px 5px hsla(0, 100%, 50%, 0.835);
                         color: hsl(0, 0%, 100%);
                     }
                 }
             }
         }
     }
-
 }

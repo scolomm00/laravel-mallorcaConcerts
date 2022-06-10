@@ -395,9 +395,6 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 var menuCategory = function menuCategory() {
   var categoryMenus = document.querySelectorAll('.buttons-category');
   var main = document.querySelector('main');
-  document.addEventListener("loadProduct", function (event) {
-    main.innerHTML = event.detail.main;
-  });
   document.addEventListener("renderProductModules", function (event) {
     menuCategory();
   }, {
@@ -409,15 +406,14 @@ var menuCategory = function menuCategory() {
       categoryMenu.addEventListener("click", function () {
         var url = categoryMenu.dataset.url;
 
-        var sendCreateRequest = /*#__PURE__*/function () {
+        var sendShowRequest = /*#__PURE__*/function () {
           var _ref = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee() {
             var response;
             return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().wrap(function _callee$(_context) {
               while (1) {
                 switch (_context.prev = _context.next) {
                   case 0:
-                    document.dispatchEvent(new CustomEvent('startWait'));
-                    _context.next = 3;
+                    _context.next = 2;
                     return fetch(url, {
                       headers: {
                         'X-Requested-With': 'XMLHttpRequest'
@@ -427,11 +423,7 @@ var menuCategory = function menuCategory() {
                       if (!response.ok) throw response;
                       return response.json();
                     }).then(function (json) {
-                      document.dispatchEvent(new CustomEvent('loadProduct', {
-                        detail: {
-                          main: json.content
-                        }
-                      }));
+                      main.innerHTML = json.content;
                       document.dispatchEvent(new CustomEvent('renderProductModules'));
                     })["catch"](function (error) {
                       if (error.status == '500') {
@@ -441,10 +433,10 @@ var menuCategory = function menuCategory() {
                       ;
                     });
 
-                  case 3:
+                  case 2:
                     response = _context.sent;
 
-                  case 4:
+                  case 3:
                   case "end":
                     return _context.stop();
                 }
@@ -452,12 +444,12 @@ var menuCategory = function menuCategory() {
             }, _callee);
           }));
 
-          return function sendCreateRequest() {
+          return function sendShowRequest() {
             return _ref.apply(this, arguments);
           };
         }();
 
-        sendCreateRequest();
+        sendShowRequest();
       });
     });
   }

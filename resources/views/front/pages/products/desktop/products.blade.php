@@ -11,8 +11,8 @@
                     <ul>
                         <li class="buttons-category" data-url="{{route('front_products')}}">Todas</li>
                         @if(isset($product_categories))
-                            @foreach($product_categories as $category)
-                                <li class="buttons-category" data-url="{{route('front_product_categories', ['category'=>$category->id])}}" value="{{$category->id}}">{{$category->title}}</li>
+                            @foreach($product_categories as $category_element)
+                                <li class="buttons-category {{isset($category) && $category->id == $category_element->id ? 'active' : ''}}" data-url="{{route('front_product_category', ['category'=>$category_element->id])}}">{{$category_element->title}}</li>
                             @endforeach
                         @endif
                     </ul>

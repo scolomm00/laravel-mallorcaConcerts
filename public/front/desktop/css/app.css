@@ -767,7 +767,7 @@ header {
   font-weight: 600;
   margin: 1rem 0;
 }
-.categories-menu .categories-menu-elements ul li:hover {
+.categories-menu .categories-menu-elements ul li:hover, .categories-menu .categories-menu-elements ul li.active {
   color: hsla(0deg, 100%, 50%, 0.588);
   cursor: pointer;
 }
@@ -899,18 +899,69 @@ header {
   font-size: 1.5rem;
   font-weight: 600;
 }
-.product .product-text .product-text-day {
-  margin-top: 5%;
-  width: 70%;
+.product .product-text .product-text-price svg {
+  width: 1.3rem;
+  height: 1.3rem;
+  padding-right: 0.5rem;
+  color: white;
 }
-.product .product-text .product-text-day .product-text-day-letter span {
+.product .product-text .product-text-category {
+  margin: 3% 0;
+}
+.product .product-text .product-text-category span {
   color: hsl(0deg, 0%, 100%);
+  font-size: 1.5rem;
   font-weight: 600;
 }
-.product .product-text .product-text-day .box-plus-minus {
-  display: flex;
+.product .product-text .product-text-date .product-text-day {
+  margin: 5% 0 1% 0;
 }
-.product .product-text .product-text-day .box-plus-minus .plus-minus-counter.rest button {
+.product .product-text .product-text-date .product-text-day span {
+  color: hsl(0deg, 0%, 100%);
+}
+.product .product-text .product-text-date .product-text-day svg {
+  width: 1.3rem;
+  height: 1.3rem;
+  align-items: center;
+  padding-right: 0.5rem;
+  color: white;
+}
+.product .product-text .product-text-date .product-text-hour {
+  margin: 0 0 5% 0;
+}
+.product .product-text .product-text-date .product-text-hour span {
+  color: hsl(0deg, 0%, 100%);
+}
+.product .product-text .product-text-date .product-text-hour svg {
+  width: 1.3rem;
+  height: 1.3rem;
+  align-items: center;
+  padding-right: 0.5rem;
+  color: white;
+}
+.product .product-text .product-text-address {
+  margin: 5% 0 5% 0;
+}
+.product .product-text .product-text-address span {
+  color: hsl(0deg, 0%, 100%);
+}
+.product .product-text .product-text-address svg {
+  width: 1.3rem;
+  height: 1.3rem;
+  padding-right: 0.5rem;
+  color: white;
+}
+.product .product-text .product-text-tickets {
+  margin: 18% 0 5% 0;
+}
+.product .product-text .product-text-tickets span {
+  color: hsl(0deg, 0%, 100%);
+}
+.product .product-text .box-plus-minus {
+  display: flex;
+  margin: 15% 0 5% 0;
+}
+.product .product-text .box-plus-minus .plus-minus-counter.rest button {
   border-radius: 1rem 0 0 1rem;
   background-color: hsl(0deg, 100%, 50%);
   color: hsl(0deg, 0%, 100%);
@@ -918,15 +969,15 @@ header {
   width: 2rem;
   height: 2rem;
 }
-.product .product-text .product-text-day .box-plus-minus .plus-minus-counter.rest button:hover {
+.product .product-text .box-plus-minus .plus-minus-counter.rest button:hover {
   cursor: pointer;
 }
-.product .product-text .product-text-day .box-plus-minus .plus-minus.counter input {
+.product .product-text .box-plus-minus .plus-minus.counter input {
   width: 1.5rem;
   height: 1.5rem;
   text-align: center;
 }
-.product .product-text .product-text-day .box-plus-minus .plus-minus-counter.sume button {
+.product .product-text .box-plus-minus .plus-minus-counter.sume button {
   border-radius: 0 1rem 1rem 0;
   background-color: hsl(120deg, 100%, 25%);
   color: hsl(0deg, 0%, 100%);
@@ -934,14 +985,14 @@ header {
   width: 2rem;
   height: 2rem;
 }
-.product .product-text .product-text-day .box-plus-minus .plus-minus-counter.sume button:hover {
+.product .product-text .box-plus-minus .plus-minus-counter.sume button:hover {
   cursor: pointer;
 }
 .product .product-text .product-text-booking {
   margin-top: 6%;
 }
 .product .product-text .product-text-booking .product-text-booking-button button {
-  width: 15rem;
+  width: 100%;
   height: 2.5rem;
   border-radius: 10px;
   background-color: hsla(0deg, 0%, 0%, 0.548);
@@ -951,7 +1002,6 @@ header {
 }
 .product .product-text .product-text-booking .product-text-booking-button button:hover {
   cursor: pointer;
-  box-shadow: 5px 5px 15px 5px hsla(0deg, 100%, 50%, 0.835);
   color: hsl(0deg, 0%, 100%);
 }
 
@@ -1293,7 +1343,6 @@ form .form-button-send button:hover {
 }
 .box-tabs-content .tabs-content {
   width: 30rem;
-  height: 15rem;
 }
 .box-tabs-content .tabs-content .tab-content {
   display: none;

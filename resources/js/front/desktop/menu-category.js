@@ -3,10 +3,6 @@ export let menuCategory = () => {
     let categoryMenus = document.querySelectorAll('.buttons-category');
     let main = document.querySelector('main');
 
-    document.addEventListener("loadProduct", (event => {
-        main.innerHTML = event.detail.main;
-    }));
-
     document.addEventListener("renderProductModules", (event => {
         menuCategory();
     }), { once: true });
@@ -19,9 +15,7 @@ export let menuCategory = () => {
 
                 let url = categoryMenu.dataset.url;
 
-                let sendCreateRequest = async () => {
-
-                    document.dispatchEvent(new CustomEvent('startWait'));
+                let sendShowRequest = async () => {
 
                     let response = await fetch(url, {
                         headers: {
@@ -36,12 +30,8 @@ export let menuCategory = () => {
                         return response.json();
                     })
                     .then(json => {
-                                    
-                        document.dispatchEvent(new CustomEvent('loadProduct', {
-                            detail: {
-                                main: json.content,
-                            }
-                        }));
+                        
+                        main.innerHTML = json.content;
 
                         document.dispatchEvent(new CustomEvent('renderProductModules'));
                     })
@@ -54,7 +44,7 @@ export let menuCategory = () => {
                       
                 };
 
-                sendCreateRequest();
+                sendShowRequest();
                 
             });
         });
