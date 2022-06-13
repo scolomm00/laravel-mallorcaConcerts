@@ -10,6 +10,7 @@ import{imageContent} from './image-content.js';
 import{product} from './product.js';
 import { menu } from './menu.js';
 import { menuCategory } from './menu-category.js';
+import { menuFilter } from './menu-filter.js';
 
 burgerButton();
 filterBar();
@@ -23,3 +24,4 @@ imageContent();
 product();
 menu();
 menuCategory();
+menuFilter();

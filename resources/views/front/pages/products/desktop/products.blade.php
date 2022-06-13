@@ -33,11 +33,10 @@
                         </div>
                         <div class="column">
                             <div class="products-menu-filter">
-                                <select>
-                                    <option>Todas</option>
-                                    <option>Reggaeton</option>
-                                    <option>Pop</option>
-                                    <option>Techno</option>
+                                <select class="menu-filter">
+                                    <option selected disabled>Ordenar por precio</option>
+                                    <option value="{{route('front_product_price_desc', ['price'=>'desc'])}}">Mayor a menor</option>
+                                    <option value="{{route('front_product_price_asc', ['price'=>'asc'])}}">Menor a mayor</option>
                                 </select>
                             </div>
                         </div>
@@ -45,7 +44,7 @@
                 </div>
 
                 <div class="products-gallery">
-        
+
                     @if(isset($products))
                         @foreach($products as $product)
                             <div class="products-element">
@@ -75,7 +74,7 @@
                             </div>
                         @endforeach
                     @endif
-                        
+
                 </div>
             </div>
         </div>

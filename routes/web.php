@@ -74,7 +74,6 @@ Route::group(['prefix' => 'admin'], function () {
         ]
     ]);
 
-
 });
 
 Route::get('/', 'App\Http\Controllers\Front\HomeController@index')->name('front_home');
@@ -90,3 +89,6 @@ Route::get('/faqs', 'App\Http\Controllers\Front\FaqController@index')->name('fro
 Route::get('/productos', 'App\Http\Controllers\Front\ProductController@index')->name('front_products');
 Route::get('/productos/{product}', 'App\Http\Controllers\Front\ProductController@show')->name('products_show');
 Route::get('/productos/categorias/{category}', 'App\Http\Controllers\Front\ProductCategoryController@show')->name('front_product_category');
+
+Route::get('/productos/{price}/desc', 'App\Http\Controllers\Front\ProductController@priceDesc')->name('front_product_price_desc');
+Route::get('/productos/{price}/asc', 'App\Http\Controllers\Front\ProductController@priceAsc')->name('front_product_price_asc');
