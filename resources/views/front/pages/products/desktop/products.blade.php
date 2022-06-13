@@ -21,9 +21,7 @@
         </div>
 
         <div class="column-main">
-
             <div class="products">
-
                 <div class="products-menu">
                     <div class="desktop-two-columns">
                         <div class="column">
