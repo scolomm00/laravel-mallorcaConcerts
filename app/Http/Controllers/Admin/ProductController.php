@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use Illuminate\Support\Facades\View;
 use App\Http\Controllers\Controller;
 use App\Models\Product;
+use App\Models\Price;
 use App\Http\Requests\Admin\ProductRequest;
 
 class ProductController extends Controller
@@ -13,9 +14,10 @@ class ProductController extends Controller
     protected $product;
 
 
-    public function __construct(Product $product)
+    public function __construct(Product $product, Price $price)
     {
         $this->product = $product;
+        $this->price = $price;
     }
    
     public function index()
@@ -58,7 +60,6 @@ class ProductController extends Controller
                 'name' => request('name'),
                 'title' => request('title'),
                 'category_id' => request('category_id'),
-                'price' => request('price'),
                 'description' => request('description'),
                 'features' => request('features'),
                 'day' => request('day'),
@@ -67,6 +68,14 @@ class ProductController extends Controller
                 'visible' => 1,
                 'active' => 1,
         ]);
+
+        // $price = $this->price->updateOrCreate([
+        //         'product_id' => $product->id,
+        //         'valid' => 1,
+        // ],[
+        //         'base_price' => request('base_price'),
+        //         'valid' => 1,
+        // ]);
 
         $view = View::make('admin.pages.products.index')
         ->with('products', $this->product->where('active', 1)->get())
