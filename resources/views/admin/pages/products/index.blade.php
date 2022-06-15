@@ -16,7 +16,6 @@
                         </div>
                     </div>
                     <div class="column-aside">
-
                         <div class="desktop-two-columns">
                             <div class="table-buttons">
                                 <div class="column">
@@ -37,7 +36,6 @@
                                 </div>
                             </div>
                         </div>
-
                     </div>
                 </div>
             </div>
@@ -77,7 +75,7 @@
 
         <form class="admin-form" action="{{route("products_store")}}">
             
-            <input type="hidden" name="id">
+            <input type="hidden" name="id" value="{{$product->id}}">
 
             <div class="admin-panel">
                 <div class="box-panel">
@@ -107,11 +105,11 @@
                             <div class="panel-input">
                                 <select name="category_id">
 
-                                    <option value="" disabled selected>--Selecciona una categoría--</option>
+                                    <option value="" disabled>--Selecciona una categoría--</option>
 
                                     @if(isset($product_categories))
                                         @foreach($product_categories as $category)
-                                            <option value="{{$category->id}}">{{$category->title}}</option>
+                                            <option value="{{$category->id}}" {{ isset($product->category->id) && $product->category->id == $category->id ? 'selected' : ''}}>{{$category->title}}</option>
                                         @endforeach
                                     @endif
                                     
@@ -127,7 +125,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="desktop-three-columns">
+                    <div class="desktop-four-columns">
                         <div class="column">
                             <div class="panel-label">
                                 <label>Día</label>
@@ -149,10 +147,27 @@
                                 <label>Precio</label>
                             </div>
                             <div class="panel-input">
-                                <input type="number" name="price_id" value="{{isset($product->prices->base_price) ? $product->prices->base_price : ''}}">
+                                <input type="number" name="price" value="{{isset($product->prices->first()->base_price) ? $product->prices->first()->base_price : ''}}">
                             </div>
                         </div>
-                        
+
+                        <div class="column">
+                            <div class="panel-label">
+                                <label>IVA</label>
+                            </div>
+                            <div class="panel-input">
+                                <select name="tax_id">
+                                    <option value="" disabled>--Selecciona un IVA--</option>
+
+                                    @if(isset($taxes))
+                                        @foreach($taxes as $tax)
+                                            <option value="{{$tax->id}}" {{ isset($product->prices->first()->tax->id)  && $product->prices->first()->tax->id == $tax->id ? 'selected' : ''}}>{{$tax->type}}</option>
+                                        @endforeach
+                                    @endif
+                                    
+                                </select>
+                            </div>
+                        </div>
                     </div>
                     <div class="panel-label">
                         <label>Descripción</label>

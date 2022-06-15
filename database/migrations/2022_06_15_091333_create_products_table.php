@@ -13,12 +13,16 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('taxes', function (Blueprint $table) {
+        Schema::create('products', function (Blueprint $table) {
             $table->id();
             $table->string('name');
-            $table->decimal('type');
-            $table->boolean('valid');
-            $table->decimal('multiplicator');
+            $table->string('title');
+            $table->string('description');
+            $table->string('features');
+            $table->date('day');
+            $table->time('hour');
+            $table->integer('category_id');
+            $table->boolean('visible');
             $table->boolean('active');
             $table->timestamps();
         });
@@ -31,6 +35,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('taxes');
+        Schema::dropIfExists('products');
     }
 };

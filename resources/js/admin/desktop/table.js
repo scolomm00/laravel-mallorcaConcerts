@@ -6,7 +6,7 @@ export let renderTable = () => {
     
     document.addEventListener("loadTable",( event =>{
         tableContainer.innerHTML = event.detail.table;
-    }));
+    }), {once: true});
 
     document.addEventListener("renderTableModules",( event =>{
         renderTable();

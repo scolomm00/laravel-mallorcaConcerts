@@ -118,6 +118,8 @@ __webpack_require__.r(__webpack_exports__);
 var renderCkeditor = function renderCkeditor() {
   document.addEventListener("renderFormModules", function (event) {
     renderCkeditor();
+  }, {
+    once: true
   });
   window.ckeditors = [];
   document.querySelectorAll('.ckeditor').forEach(function (ckeditor) {
@@ -263,6 +265,8 @@ var form = function form() {
   var forms = document.querySelectorAll('.admin-form');
   document.addEventListener("loadForm", function (event) {
     formContainer.innerHTML = event.detail.form;
+  }, {
+    once: true
   });
   document.addEventListener("renderFormModules", function (event) {
     form();
@@ -534,6 +538,8 @@ var renderModalDelete = function renderModalDelete() {
   document.addEventListener("openModalDelete", function (event) {
     deleteConfirm.dataset.url = event.detail.url;
     deleteNotify.classList.add('active');
+  }, {
+    once: true
   });
   deleteCancel.addEventListener("click", function () {
     deleteNotify.classList.remove('active');
@@ -734,6 +740,8 @@ var renderTable = function renderTable() {
   var deleteButtons = document.querySelectorAll(".table-button-delete");
   document.addEventListener("loadTable", function (event) {
     tableContainer.innerHTML = event.detail.table;
+  }, {
+    once: true
   });
   document.addEventListener("renderTableModules", function (event) {
     renderTable();

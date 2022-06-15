@@ -15,7 +15,7 @@ class Price extends Model
 
     public function tax()
     {
-        return $this->belongsTo(Tax::class)->where('active', 1);
+        return $this->belongsTo(Tax::class)->where('active', 1)->where('valid', 1);
     }
 
 }

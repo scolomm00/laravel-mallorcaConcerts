@@ -16,9 +16,10 @@ return new class extends Migration
         Schema::create('prices', function (Blueprint $table) {
             $table->id();
             $table->decimal('base_price');
+            $table->integer('tax_id');
             $table->boolean('valid');
             $table->integer('product_id');
-            $table->integer('tax_id');
+            $table->boolean('active');
             $table->timestamps();
         });
     }

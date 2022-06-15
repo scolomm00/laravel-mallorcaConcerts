@@ -7,7 +7,7 @@ export let form = () => {
 
     document.addEventListener("loadForm",( event =>{
         formContainer.innerHTML = event.detail.form;
-    }));
+    }), {once: true});
 
     document.addEventListener("renderFormModules",( event =>{
         form();

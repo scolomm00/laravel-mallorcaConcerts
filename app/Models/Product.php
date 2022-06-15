@@ -13,9 +13,9 @@ class Product extends Model
         return $this->belongsTo(ProductCategory::class)->where('active', 1);
     }
 
-    public function price()
+    public function prices()
     {
-        return $this->hasOne(Price::class, 'product_id')->where('active', 1)->where('valid', 1);
+        return $this->hasMany(Price::class, 'product_id')->where('active', 1)->where('valid', 1);
     }
 
 }

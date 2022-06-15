@@ -8,7 +8,7 @@ export let renderModalDelete = () => {
         
         deleteConfirm.dataset.url = event.detail.url;
         deleteNotify.classList.add('active');
-    }));
+    }), {once: true});
 
     deleteCancel.addEventListener("click", () => {
         deleteNotify.classList.remove('active');
