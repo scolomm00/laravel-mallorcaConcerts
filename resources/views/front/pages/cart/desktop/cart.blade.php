@@ -12,18 +12,11 @@
             </tr>
             <tr>
                 <td><img src="images/estopa.webp" alt=""></td>
-                <td>ESTOPA - Gira FUEGO</td>
-                <td>35€</td>
-                <td>
-
-                    @include ('front.components.desktop.plus_minus_button')
-
-                </td>
-            </tr>
-            <tr>
-                <td><img src="images/fito.webp" alt=""></td>
-                <td>Fito & Fitipaldis - Cada vez cadaver</td>
-                <td>30€</td>
+                @if(isset($product))
+                    <td>{{$product->title}}</td>
+                    <td>{{$product->price_id}}</td>
+                    <td>{{$product->quantity}}</td>
+                @endif
                 <td>
 
                     @include ('front.components.desktop.plus_minus_button')

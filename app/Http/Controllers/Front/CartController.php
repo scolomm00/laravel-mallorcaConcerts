@@ -4,8 +4,8 @@ namespace App\Http\Controllers\Front;
 
 use Illuminate\Support\Facades\View;
 use App\Http\Controllers\Controller;
-// use App\Models\Cart;
-// use App\Http\Requests\Front\CartRequest;
+use App\Models\Cart;
+use App\Http\Requests\Front\CartRequest;
 
 class CartController extends Controller
 {
@@ -27,5 +27,23 @@ class CartController extends Controller
         }
 
         return $view;
+    }
+
+    public function store(CartRequest $request)
+    {
+
+        $cart = $this->cart->create([
+                'id' => request('id')],[
+                'price_id' => request('price_id'),
+                'fingerprint_id' => request('fingerprint_id'),
+                'sales_id' => request('sales_id'),
+                'customer_id' => request('customer_id'),
+                'active' => 1,
+            ]);
+
+        return response()->json([
+            'cart' => $cart,
+        ]);
+
     }
 }

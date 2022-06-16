@@ -11,6 +11,7 @@ import{product} from './product.js';
 import { menu } from './menu.js';
 import { menuCategory } from './menu-category.js';
 import { menuFilter } from './menu-filter.js';
+import {cart} from './cart.js';
 
 burgerButton();
 filterBar();
@@ -25,3 +26,4 @@ product();
 menu();
 menuCategory();
 menuFilter();
+cart();

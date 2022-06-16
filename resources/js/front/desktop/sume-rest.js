@@ -9,9 +9,11 @@ export let sumeRest = () => {
     
     sumas.forEach(suma => {
 
-        suma.addEventListener("click", () => {
+        suma.addEventListener("click", (event) => {
 
-            let contador = suma.closest('.box-plus-minus').querySelector('.plus-minus-input');
+            event.preventDefault();
+
+            let contador = suma.closest('.box-plus-minus').querySelector('.quantity');
             contador.value  = (parseInt(contador.value) + 1);
             
         });
@@ -19,9 +21,11 @@ export let sumeRest = () => {
 
     restas.forEach(resta => {
 
-        resta.addEventListener("click", () => {
+        resta.addEventListener("click", (event) => {
 
-            let contador = resta.closest('.box-plus-minus').querySelector('.plus-minus-input');
+            event.preventDefault();
+
+            let contador = resta.closest('.box-plus-minus').querySelector('.quantity');
 
             if (contador.value > 1) {
 
