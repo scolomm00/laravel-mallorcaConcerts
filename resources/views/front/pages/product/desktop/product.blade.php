@@ -60,7 +60,18 @@
                         </div>
                         <div class="column">
 
-                            @include ('front.components.desktop.plus_minus_button')
+                            <div class="box-plus-minus">
+                                <div class="plus-minus-counter rest">
+                                    <button>-</button>
+                                </div>
+                                <div class="plus-minus counter">
+                                    <input type="hidden" name="price_id" value="{{$product->prices->first()->id}}">
+                                    <input class="quantity" name="quantity" type="number" value="1">
+                                </div>
+                                <div class="plus-minus-counter sume">
+                                    <button>+</button>
+                                </div>
+                            </div>
 
                         </div>
                     </div>
@@ -87,7 +98,7 @@
                     
                     <div class="product-text-booking">
                         <div class="product-text-booking-button">
-                            <button class="store-button" data-url="{{route('cart_store')}}">Comprar ahora</button>
+                            <button class="store-button">Comprar ahora</button>
                         </div>
                     </div>
                 </div>

@@ -3,10 +3,6 @@ export let product = () => {
     let showProductButtons = document.querySelectorAll('.products-element-show');
     let main = document.querySelector('main');
 
-    document.addEventListener("loadProduct",( event =>{
-        main.innerHTML = event.detail.main;
-    }));
-
     document.addEventListener("renderProductModules",( event =>{
         product();
     }), {once: true});
@@ -37,11 +33,7 @@ export let product = () => {
                     })
                     .then(json => {
                                     
-                        document.dispatchEvent(new CustomEvent('loadProduct', {
-                            detail: {
-                                main: json.content,
-                            }
-                        }));
+                        main.innerHTML = json.content;
 
                         document.dispatchEvent(new CustomEvent('renderProductModules'));
                     })

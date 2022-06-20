@@ -10,19 +10,28 @@
                 <th>Precio</th>
                 <th>Cantidad</th>
             </tr>
-            <tr>
-                <td><img src="images/estopa.webp" alt=""></td>
-                @if(isset($product))
-                    <td>{{$product->title}}</td>
-                    <td>{{$product->price_id}}</td>
-                    <td>{{$product->quantity}}</td>
-                @endif
-                <td>
-
-                    @include ('front.components.desktop.plus_minus_button')
-
-                </td>
-            </tr>
+            @if(isset($carts))
+                @foreach($carts as $cart)
+                    <tr>
+                        <td><img src="images/estopa.webp" alt=""></td>
+                        <td>{{$cart->price->product->title}}</td>
+                        <td>{{$cart->price->base_price}}€</td>
+                        <td>
+                            <div class="box-plus-minus">
+                                <div class="plus-minus-counter rest plus-minus-button" data-url="{{route('minus_cart', ['fingerprint'=>$fingerprint, 'price_id'=>$cart->price_id])}}">
+                                    <button class="plus-minus-counter">-</button>
+                                </div>
+                                <div class="plus-minus counter">
+                                    <input class="quantity" name="quantity" type="number" value="{{$cart->quantity}}">
+                                </div>
+                                <div class="plus-minus-counter sume plus-minus-button" data-url="{{route('plus_cart', ['fingerprint'=>$fingerprint, 'price_id'=>$cart->price_id])}}">
+                                    <button>+</button>
+                                </div>
+                            </div>
+                        </td>
+                    </tr>
+                @endforeach
+            @endif
         </table>
     </div>
     <div class="cart-resume">
