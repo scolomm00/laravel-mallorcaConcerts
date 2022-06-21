@@ -68,6 +68,16 @@
                         background-color: hsl(0, 0%, 100%);
                     }
         
+                    .total{
+                            
+                        border: 2px solid hsl(0, 0%, 100%);
+
+                        td{
+                        
+                            font-weight: 600;
+                            color: hsl(0, 0%, 100%);
+                        }
+                    }
                     td{
         
                         text-align: center;

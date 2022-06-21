@@ -1,5 +1,5 @@
 <div class="cart">
-    
+
     @include('front.components.desktop.title')
 
     <div class="cart-table">
@@ -33,34 +33,59 @@
                 @endforeach
             @endif
         </table>
-    </div>
-    <div class="cart-resume">
-        <table>
-            <tr>
-                <th colspan="2">Resumen de la compra</th>
-            </tr>
-            <tr>
-                <td>IVA</td>
-                <td>20€</td>
-            </tr>
-            <tr>
-                <td>Transporte</td>
-                <td>0€</td>
-            </tr>
-            <tr>
-                <td>Total</td>
-                <td>120€</td>
-            </tr>
-        </table>
-        <div class="cart-resume-button">
-                <div class="cart-resume-button-return">
-                    <button>Volver</button>
-                </div>
-                <div class="cart-resume-button-buy">
-                    <button>Comprar</button>
+    </div> 
+    @if(isset($carts))
+        <div class="cart-resume">
+            <table>
+                <tr>
+                    <th colspan="2">Resumen de la compra</th>
+                </tr>
+                <tr>
+                    <td>Base imponible</td>
+
+                    @php
+                        $total_base = 0;
+                        foreach($carts as $cart){
+                            $total_base += $cart->price->base_price * $cart->quantity;
+                        }
+                    @endphp
+
+                    <td>{{$total_base}}€</td>
+                </tr>
+                <tr>
+                    <td>IVA</td>
+
+                    @php
+                        $total_tax = 0;
+                        foreach($carts as $cart){
+                            $total_tax += $cart->price->base_price * $cart->quantity * $cart->price->tax->type/100;
+                        }
+                    @endphp
+
+                    <td>{{$total_tax}}€</td>
+                </tr>
+                <tr class="total">
+                    <td>Total</td>
+
+                    @php
+                        $total = 0;
+                        foreach($carts as $cart){
+                            $total += $cart->price->base_price * $cart->quantity + $cart->price->base_price * $cart->quantity * $cart->price->tax->type/100;
+                        }
+                    @endphp
+
+                    <td>{{$total}}€</td>
+                </tr>
+            </table>
+            <div class="cart-resume-button">
+                    <div class="cart-resume-button-return">
+                        <button>Volver</button>
+                    </div>
+                    <div class="cart-resume-button-buy" data-url="{{route('front_checkout')}}">
+                        <button>Pagar</button>
+                    </div>
                 </div>
             </div>
         </div>
-    </div>       
+    @endif      
 </div>
-       

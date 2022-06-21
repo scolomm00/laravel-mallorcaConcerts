@@ -1155,6 +1155,9 @@ form .form-button-send button:hover {
   border-bottom: 3px solid hsl(0deg, 0%, 100%);
   color: hsl(0deg, 0%, 100%);
 }
+.cart .cart-table table th .total {
+  border-top: 2px solid white;
+}
 .cart .cart-table table td {
   font-weight: 300;
   padding: 1rem;
@@ -1214,6 +1217,13 @@ form .form-button-send button:hover {
 .cart .cart-resume table th {
   border: 2px solid hsl(0deg, 0%, 100%);
   background-color: hsl(0deg, 0%, 100%);
+}
+.cart .cart-resume table .total {
+  border-top: 2px solid white;
+}
+.cart .cart-resume table .total td {
+  font-weight: 600;
+  color: hsl(0deg, 0%, 100%);
 }
 .cart .cart-resume table td {
   text-align: center;
@@ -1292,6 +1302,13 @@ form .form-button-send button:hover {
 .checkout .checkout-form .checkout-form-payment .cart-resume table th {
   border: 2px solid hsl(0deg, 0%, 100%);
   background-color: hsl(0deg, 0%, 100%);
+}
+.checkout .checkout-form .checkout-form-payment .cart-resume table .total {
+  border: 2px solid hsl(0deg, 0%, 100%);
+}
+.checkout .checkout-form .checkout-form-payment .cart-resume table .total td {
+  font-weight: 600;
+  color: hsl(0deg, 0%, 100%);
 }
 .checkout .checkout-form .checkout-form-payment .cart-resume table td {
   text-align: center;

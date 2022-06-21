@@ -11,16 +11,16 @@ class CheckoutController extends Controller
 {
 
     protected $checkout;
-    
+
     public function index()
     {
 
         $view = View::make('front.pages.checkout.index');
 
         if(request()->ajax()) {
-            
+
             $sections = $view->renderSections(); 
-    
+
             return response()->json([
                 'content' => $sections['content'],
             ]); 

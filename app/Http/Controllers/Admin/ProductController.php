@@ -130,4 +130,5 @@ class ProductController extends Controller
             'form' => $view['form']
         ]);
     }
+    
 }

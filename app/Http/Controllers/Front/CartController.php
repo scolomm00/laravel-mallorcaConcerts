@@ -93,8 +93,6 @@ class CartController extends Controller
     public function minusCart(){
 
         $cart = $this->cart->update([
-            'price_id' => request('price_id'),
-            'fingerprint' => 1,
             'active' => 0
         ]);
 
@@ -113,7 +111,23 @@ class CartController extends Controller
             'content' => $sections['content'],
         ]);
     }
+    
 
+    public function sumPrice(){
 
+        $carts = $this->cart->price->sum('base_price as total_price')->where('active', 1)->where('fingerprint', 1);
 
+        $sections = View::make('front.pages.cart.index')
+        ->groupByRaw('total_price')
+        ->with('carts', $carts)
+        ->with('fingerprint', $cart->fingerprint)
+        ->renderSections();
+
+        return response()->json([
+            'content' => $sections['content'],
+        ]);
+
+    }
+    
 }
+

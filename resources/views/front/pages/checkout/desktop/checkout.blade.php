@@ -109,16 +109,16 @@
                                     <th colspan="2">Resumen de la compra</th>
                                 </tr>
                                 <tr>
+                                    <td>Base imponible</td>
+                                    <td>250€</td>
+                                </tr>
+                                <tr>
                                     <td>IVA</td>
-                                    <td>20€</td>
+                                    <td>50€</td>
                                 </tr>
-                                <tr>
-                                    <td>Transporte</td>
-                                    <td>0€</td>
-                                </tr>
-                                <tr>
+                                <tr class="total">
                                     <td>Total</td>
-                                    <td>120€</td>
+                                    <td>300€</td>
                                 </tr>
                             </table>
                         </div>
