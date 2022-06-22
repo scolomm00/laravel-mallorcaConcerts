@@ -1457,3 +1457,29 @@ form .form-button-send button:hover {
   color: hsl(0deg, 0%, 100%);
   font-weight: 600;
 }
+
+.purchases {
+  padding: 2rem;
+}
+.purchases .message-confirm {
+  padding: 10rem 10rem 5rem 10rem;
+  text-align: center;
+}
+.purchases .message-confirm span {
+  border: 2px solid rgb(0, 0, 0);
+  border-radius: 10px;
+  background-color: green;
+  padding: 2rem;
+  color: black;
+  font-size: 1.5rem;
+  font-weight: 600;
+}
+.purchases .message-small {
+  padding: 2rem;
+  padding-bottom: 12rem;
+  text-align: center;
+}
+.purchases .message-small span {
+  font-size: 1.2rem;
+  color: white;
+}

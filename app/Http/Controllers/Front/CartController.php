@@ -54,10 +54,22 @@ class CartController extends Controller
         ->where('active', '1')
         ->where('fingerprint', $cart->fingerprint)
         ->get();
+        
+        $totals = $this->cart
+        ->where('carts.fingerprint', $cart->fingerprint)
+        ->where('carts.active', 1)
+        ->where('carts.sale_id', null)
+        ->join('prices', 'prices.id', '=', 'carts.price_id')
+        ->join('taxes', 'taxes.id', '=', 'prices.tax_id')
+        ->select(DB::raw('sum(prices.base_price) as base_total'), DB::raw('round(sum(prices.base_price * taxes.multiplicator),2) as total') )
+        ->first();
 
         $sections = View::make('front.pages.cart.index')
         ->with('carts', $carts)
         ->with('fingerprint', $cart->fingerprint)
+        ->with('base_total', $totals->base_total)
+        ->with('tax_total', ($totals->total - $totals->base_total))
+        ->with('total', $totals->total)
         ->renderSections();
 
         return response()->json([
@@ -66,11 +78,11 @@ class CartController extends Controller
 
     }
 
-    public function plusCart(){
+    public function plusCart($fingerprint, $price_id){
 
         $cart = $this->cart->create([
-            'price_id' => request('price_id'),
-            'fingerprint' => 1,
+            'price_id' => $price_id,
+            'fingerprint' => $fingerprint,
             'active' => 1
         ]);
 
@@ -80,9 +92,21 @@ class CartController extends Controller
         ->where('fingerprint', $cart->fingerprint)
         ->get();
 
+        $totals = $this->cart
+        ->where('carts.fingerprint', $cart->fingerprint)
+        ->where('carts.active', 1)
+        ->where('carts.sale_id', null)
+        ->join('prices', 'prices.id', '=', 'carts.price_id')
+        ->join('taxes', 'taxes.id', '=', 'prices.tax_id')
+        ->select(DB::raw('sum(prices.base_price) as base_total'), DB::raw('round(sum(prices.base_price * taxes.multiplicator),2) as total') )
+        ->first();
+
         $sections = View::make('front.pages.cart.index')
         ->with('carts', $carts)
         ->with('fingerprint', $cart->fingerprint)
+        ->with('base_total', $totals->base_total)
+        ->with('tax_total', ($totals->total - $totals->base_total))
+        ->with('total', $totals->total)
         ->renderSections();
 
         return response()->json([
@@ -90,43 +114,38 @@ class CartController extends Controller
         ]);
     }
 
-    public function minusCart(){
+    public function minusCart($fingerprint, $price_id){
 
-        $cart = $this->cart->update([
-            'active' => 0
-        ]);
+        $cart = $this->cart->where('price_id', $price_id)->where('fingerprint', $fingerprint)->first();
+        $cart->active = 0;
+        $cart->save();
 
         $carts = $this->cart->select(DB::raw('count(price_id) as quantity'),'price_id')
         ->groupByRaw('price_id')
         ->where('active', '1')
-        ->where('fingerprint', $cart->fingerprint)
+        ->where('fingerprint', $fingerprint)
         ->get();
 
+        $totals = $this->cart
+        ->where('carts.fingerprint', $fingerprint)
+        ->where('carts.active', 1)
+        ->where('carts.sale_id', null)
+        ->join('prices', 'prices.id', '=', 'carts.price_id')
+        ->join('taxes', 'taxes.id', '=', 'prices.tax_id')
+        ->select(DB::raw('sum(prices.base_price) as base_total'), DB::raw('round(sum(prices.base_price * taxes.multiplicator),2) as total') )
+        ->first();
+
         $sections = View::make('front.pages.cart.index')
         ->with('carts', $carts)
-        ->with('fingerprint', $cart->fingerprint)
+        ->with('fingerprint', $fingerprint)
+        ->with('base_total', $totals->base_total)
+        ->with('tax_total', ($totals->total - $totals->base_total))
+        ->with('total', $totals->total)
         ->renderSections();
 
         return response()->json([
             'content' => $sections['content'],
         ]);
-    }
-    
-
-    public function sumPrice(){
-
-        $carts = $this->cart->price->sum('base_price as total_price')->where('active', 1)->where('fingerprint', 1);
-
-        $sections = View::make('front.pages.cart.index')
-        ->groupByRaw('total_price')
-        ->with('carts', $carts)
-        ->with('fingerprint', $cart->fingerprint)
-        ->renderSections();
-
-        return response()->json([
-            'content' => $sections['content'],
-        ]);
-
     }
     
 }

@@ -254,7 +254,9 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 
 var checkout = function checkout() {
   var storeButtons = document.querySelectorAll('.cart-resume-button-buy');
-  var main = document.querySelector('main');
+  var main = document.querySelector('main'); // let purchaseButtons = document.querySelectorAll('.checkout-form-payment-button');
+  // let forms = document.querySelectorAll('.front-form');
+
   document.addEventListener("renderProductModules", function (event) {
     checkout();
   }, {
@@ -1006,6 +1008,149 @@ var product = function product() {
         }();
 
         sendCreateRequest();
+      });
+    });
+  }
+};
+
+/***/ }),
+
+/***/ "./resources/js/front/desktop/purchase.js":
+/*!************************************************!*\
+  !*** ./resources/js/front/desktop/purchase.js ***!
+  \************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "purchase": () => (/* binding */ purchase)
+/* harmony export */ });
+/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/regenerator */ "./node_modules/@babel/runtime/regenerator/index.js");
+/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__);
+
+
+function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } }
+
+function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err); } _next(undefined); }); }; }
+
+function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest(); }
+
+function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
+
+function _iterableToArrayLimit(arr, i) { var _i = arr == null ? null : typeof Symbol !== "undefined" && arr[Symbol.iterator] || arr["@@iterator"]; if (_i == null) return; var _arr = []; var _n = true; var _d = false; var _s, _e; try { for (_i = _i.call(arr); !(_n = (_s = _i.next()).done); _n = true) { _arr.push(_s.value); if (i && _arr.length === i) break; } } catch (err) { _d = true; _e = err; } finally { try { if (!_n && _i["return"] != null) _i["return"](); } finally { if (_d) throw _e; } } return _arr; }
+
+function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
+
+function _createForOfIteratorHelper(o, allowArrayLike) { var it = typeof Symbol !== "undefined" && o[Symbol.iterator] || o["@@iterator"]; if (!it) { if (Array.isArray(o) || (it = _unsupportedIterableToArray(o)) || allowArrayLike && o && typeof o.length === "number") { if (it) o = it; var i = 0; var F = function F() {}; return { s: F, n: function n() { if (i >= o.length) return { done: true }; return { done: false, value: o[i++] }; }, e: function e(_e2) { throw _e2; }, f: F }; } throw new TypeError("Invalid attempt to iterate non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); } var normalCompletion = true, didErr = false, err; return { s: function s() { it = it.call(o); }, n: function n() { var step = it.next(); normalCompletion = step.done; return step; }, e: function e(_e3) { didErr = true; err = _e3; }, f: function f() { try { if (!normalCompletion && it["return"] != null) it["return"](); } finally { if (didErr) throw err; } } }; }
+
+function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
+
+function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) { arr2[i] = arr[i]; } return arr2; }
+
+var purchase = function purchase() {
+  var main = document.querySelector('main');
+  var storeButton = document.querySelector('.checkout-form-payment-button');
+  var forms = document.querySelectorAll('.front-form');
+  document.addEventListener("renderProductModules", function (event) {
+    purchase();
+  }, {
+    once: true
+  });
+
+  if (storeButton) {
+    storeButton.addEventListener("click", function (event) {
+      event.preventDefault();
+      forms.forEach(function (form) {
+        var data = new FormData(form);
+        var url = form.action;
+
+        var _iterator = _createForOfIteratorHelper(data.entries()),
+            _step;
+
+        try {
+          for (_iterator.s(); !(_step = _iterator.n()).done;) {
+            var pair = _step.value;
+            console.log(pair[0] + ', ' + pair[1]);
+          }
+        } catch (err) {
+          _iterator.e(err);
+        } finally {
+          _iterator.f();
+        }
+
+        if (ckeditors != 'null') {
+          Object.entries(ckeditors).forEach(function (_ref) {
+            var _ref2 = _slicedToArray(_ref, 2),
+                key = _ref2[0],
+                value = _ref2[1];
+
+            data.append(key, value.getData());
+          });
+        }
+
+        var sendPostRequest = /*#__PURE__*/function () {
+          var _ref3 = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee() {
+            var response;
+            return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().wrap(function _callee$(_context) {
+              while (1) {
+                switch (_context.prev = _context.next) {
+                  case 0:
+                    _context.next = 2;
+                    return fetch(url, {
+                      headers: {
+                        'Accept': 'application/json',
+                        'X-CSRF-TOKEN': document.head.querySelector('meta[name="csrf-token"]').content
+                      },
+                      method: 'POST',
+                      body: data
+                    }).then(function (response) {
+                      if (!response.ok) throw response;
+                      return response.json();
+                    }).then(function (json) {
+                      main.innerHTML = json.content;
+                      document.dispatchEvent(new CustomEvent('renderFormModules'));
+                    })["catch"](function (error) {
+                      if (error.status == '422') {
+                        error.json().then(function (jsonError) {
+                          var errors = jsonError.errors;
+                          var errorMessage = '';
+                          Object.keys(errors).forEach(function (key) {
+                            errorMessage += '<li>' + errors[key] + '</li>';
+                          });
+                          document.dispatchEvent(new CustomEvent('message', {
+                            detail: {
+                              message: errorMessage,
+                              type: 'error'
+                            }
+                          }));
+                        });
+                      }
+
+                      if (error.status == '500') {
+                        console.log(error);
+                      }
+
+                      ;
+                    });
+
+                  case 2:
+                    response = _context.sent;
+
+                  case 3:
+                  case "end":
+                    return _context.stop();
+                }
+              }
+            }, _callee);
+          }));
+
+          return function sendPostRequest() {
+            return _ref3.apply(this, arguments);
+          };
+        }();
+
+        sendPostRequest();
       });
     });
   }
@@ -1970,6 +2115,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _menu_filter_js__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ./menu-filter.js */ "./resources/js/front/desktop/menu-filter.js");
 /* harmony import */ var _cart_js__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ./cart.js */ "./resources/js/front/desktop/cart.js");
 /* harmony import */ var _checkout_js__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! ./checkout.js */ "./resources/js/front/desktop/checkout.js");
+/* harmony import */ var _purchase_js__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! ./purchase.js */ "./resources/js/front/desktop/purchase.js");
+
 
 
 
@@ -2000,6 +2147,7 @@ __webpack_require__.r(__webpack_exports__);
 (0,_menu_filter_js__WEBPACK_IMPORTED_MODULE_12__.menuFilter)();
 (0,_cart_js__WEBPACK_IMPORTED_MODULE_13__.cart)();
 (0,_checkout_js__WEBPACK_IMPORTED_MODULE_14__.checkout)();
+(0,_purchase_js__WEBPACK_IMPORTED_MODULE_15__.purchase)();
 })();
 
 /******/ })()

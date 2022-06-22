@@ -2,6 +2,8 @@ export let checkout = () => {
 
     let storeButtons = document.querySelectorAll('.cart-resume-button-buy');
     let main = document.querySelector('main');
+    // let purchaseButtons = document.querySelectorAll('.checkout-form-payment-button');
+    // let forms = document.querySelectorAll('.front-form');
 
     document.addEventListener("renderProductModules",( event =>{
         checkout();
@@ -51,4 +53,5 @@ export let checkout = () => {
             });
         });
     }
+
 }

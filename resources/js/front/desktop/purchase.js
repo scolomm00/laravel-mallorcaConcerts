@@ -1,13 +1,11 @@
-export let cart = () => {
+export let purchase = () => {
 
-    let main = document.querySelector("main");
-    let forms = document.querySelectorAll(".front-form");
-    let storeButton = document.querySelector('.store-button');
-    let plusMinusButtons = document.querySelectorAll('.plus-minus-button');
-    
+    let main = document.querySelector('main');
+    let storeButton = document.querySelector('.checkout-form-payment-button');
+    let forms = document.querySelectorAll('.front-form');
 
     document.addEventListener("renderProductModules",( event =>{
-        cart();
+        purchase();
     }), {once: true});
 
     if(storeButton){
@@ -43,7 +41,6 @@ export let cart = () => {
                         method: 'POST',
                         body: data
                     })
-
                     .then(response => {
                     
                         if (!response.ok) throw response;
@@ -54,10 +51,30 @@ export let cart = () => {
 
                         main.innerHTML = json.content;
 
-                        document.dispatchEvent(new CustomEvent('renderProductModules'));
-
+                        document.dispatchEvent(new CustomEvent('renderFormModules'));
+                        
                     })
                     .catch ( error =>  {
+        
+                        if(error.status == '422'){
+        
+                            error.json().then(jsonError => {
+
+                                let errors = jsonError.errors;      
+                                let errorMessage = '';
+            
+                                Object.keys(errors).forEach(function(key) {
+                                    errorMessage += '<li>' + errors[key] + '</li>';
+                                })
+                
+                                document.dispatchEvent(new CustomEvent('message', {
+                                    detail: {
+                                        message: errorMessage,
+                                        type: 'error'
+                                    }
+                                }));
+                            })   
+                        }
     
                         if(error.status == '500'){
                             console.log(error);
@@ -69,46 +86,4 @@ export let cart = () => {
             });
         });
     }
-
-    plusMinusButtons.forEach(plusMinusButton => {
-
-        plusMinusButton.addEventListener("click", () => {
-
-            let url = plusMinusButton.dataset.url;
-
-            let sendNewRequest = async () => {
-                
-                let response = await fetch(url, {
-                    headers: {
-                        'X-Requested-With': 'XMLHttpRequest',
-                    },
-                    method: 'GET', 
-                })
-                .then(response => {
-                                
-                    if (!response.ok) throw response;
-
-                    return response.json();
-                })
-                .then(json => {
-
-                    mainContainer.innerHTML = json.content;
-
-                    document.dispatchEvent(new CustomEvent('renderProductModules'));
-                })
-                .catch(error =>  {
-    
-                    if(error.status == '500'){
-                        console.log(error);
-                    };
-                });
-            };
-
-            sendNewRequest();
-
-        });
-    });
-
-    
-
 }

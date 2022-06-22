@@ -43,36 +43,15 @@
                 <tr>
                     <td>Base imponible</td>
 
-                    @php
-                        $total_base = 0;
-                        foreach($carts as $cart){
-                            $total_base += $cart->price->base_price * $cart->quantity;
-                        }
-                    @endphp
-
-                    <td>{{$total_base}}€</td>
+                    <td>{{$base_total}}€</td>
                 </tr>
                 <tr>
                     <td>IVA</td>
 
-                    @php
-                        $total_tax = 0;
-                        foreach($carts as $cart){
-                            $total_tax += $cart->price->base_price * $cart->quantity * $cart->price->tax->type/100;
-                        }
-                    @endphp
-
-                    <td>{{$total_tax}}€</td>
+                    <td>{{$tax_total}}€</td>
                 </tr>
                 <tr class="total">
                     <td>Total</td>
-
-                    @php
-                        $total = 0;
-                        foreach($carts as $cart){
-                            $total += $cart->price->base_price * $cart->quantity + $cart->price->base_price * $cart->quantity * $cart->price->tax->type/100;
-                        }
-                    @endphp
 
                     <td>{{$total}}€</td>
                 </tr>
@@ -81,7 +60,7 @@
                     <div class="cart-resume-button-return">
                         <button>Volver</button>
                     </div>
-                    <div class="cart-resume-button-buy" data-url="{{route('front_checkout')}}">
+                    <div class="cart-resume-button-buy" data-url="{{route('front_checkout', ['fingerprint' => $fingerprint])}}">
                         <button>Pagar</button>
                     </div>
                 </div>

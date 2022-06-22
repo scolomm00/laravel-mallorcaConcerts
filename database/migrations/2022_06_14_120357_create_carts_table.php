@@ -17,7 +17,7 @@ return new class extends Migration
             $table->id();
             $table->integer('price_id');
             $table->integer('fingerprint');
-            $table->integer('sales_id')->nullable();
+            $table->integer('sale_id')->nullable();
             $table->integer('customer_id')->nullable();
             $table->boolean('active');
             $table->timestamps();

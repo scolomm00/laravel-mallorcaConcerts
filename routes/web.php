@@ -74,6 +74,20 @@ Route::group(['prefix' => 'admin'], function () {
         ]
     ]);
 
+    Route::resource('ventas', 'App\Http\Controllers\Admin\SaleController', [
+        'parameters' => [
+            'ventas' => 'sale', 
+        ],
+        'names' => [
+            'index' => 'sales',
+            'create' => 'sales_create',
+            'edit' => 'sales_edit',
+            'store' => 'sales_store',
+            'destroy' => 'sales_destroy',
+            'show' => 'sales_show',
+        ]
+    ]);
+
 });
 
 Route::get('/', 'App\Http\Controllers\Front\HomeController@index')->name('front_home');
@@ -83,7 +97,9 @@ Route::post('/carrito', 'App\Http\Controllers\Front\CartController@store')->name
 Route::get('/carrito/plus/{fingerprint}/{price_id}', 'App\Http\Controllers\Front\CartController@plusCart')->name('plus_cart');
 Route::get('/carrito/minus/{fingerprint}/{price_id}', 'App\Http\Controllers\Front\CartController@minusCart')->name('minus_cart');
 
-Route::get('/pago', 'App\Http\Controllers\Front\CheckoutController@index')->name('front_checkout');
+Route::get('/pago/{fingerprint}', 'App\Http\Controllers\Front\CheckoutController@index')->name('front_checkout');
+
+Route::post('/confirmacion', 'App\Http\Controllers\Front\CheckoutController@store')->name('front_purchase');
 
 Route::get('/contacto', 'App\Http\Controllers\Front\ContactController@index')->name('front_contact');
 Route::post('/contacto', 'App\Http\Controllers\Front\ContactController@store')->name('contacts_store');
@@ -96,3 +112,4 @@ Route::get('/productos/categorias/{category}', 'App\Http\Controllers\Front\Produ
 
 Route::get('/productos/{price}/desc', 'App\Http\Controllers\Front\ProductController@priceDesc')->name('front_product_price_desc');
 Route::get('/productos/{price}/asc', 'App\Http\Controllers\Front\ProductController@priceAsc')->name('front_product_price_asc');
+

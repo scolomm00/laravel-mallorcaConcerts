@@ -13,6 +13,7 @@ import { menuCategory } from './menu-category.js';
 import { menuFilter } from './menu-filter.js';
 import { cart } from './cart.js';
 import { checkout } from './checkout.js';
+import { purchase } from './purchase.js';
 
 
 burgerButton();
@@ -30,3 +31,4 @@ menuCategory();
 menuFilter();
 cart();
 checkout();
+purchase();

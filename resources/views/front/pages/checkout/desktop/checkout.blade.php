@@ -3,10 +3,11 @@
     @include('front.components.desktop.title')
     
     <div class="checkout-form">
-        <div class="desktop-two-columns">
-            <div class="column">
-                <div class="checkout-form-data">
-                    <form action="">
+        <form class="front-form" action="{{route('front_purchase')}}">
+            <div class="desktop-two-columns">
+                <div class="column">
+                    <div class="checkout-form-data">
+                        
                         <div class="desktop-two-columns">
                             <div class="column">
                                 <div class="form-element">
@@ -37,7 +38,7 @@
                                         <label>Teléfono</label>
                                     </div>
                                     <div class="form-element-input">
-                                        <input type="tel" name="telephone">
+                                        <input type="tel" name="phone">
                                     </div>
                                 </div>
                             </div>
@@ -59,18 +60,7 @@
                                         <label>Ciudad</label>
                                     </div>
                                     <div class="form-element-input">
-                                        <select name="city">
-                                            <option value="asturias">Asturias</option>
-                                            <option value="barcelona">Barcelona</option>
-                                            <option value="cadiz">Cádiz</option>
-                                            <option value="granada">Granada</option>
-                                            <option value="coruna">La Coruña</option>
-                                            <option value="madrid">Madrid</option>
-                                            <option value="malaga">Málaga</option>
-                                            <option value="palma" selected>Palma de Mallorca</option>
-                                            <option value="valencia">Valencia</option>
-                                            <option value="zaragoza">Zaragoza</option>
-                                        </select>
+                                        <input type="text" name="city">
                                     </div>
                                 </div>
                             </div>
@@ -80,7 +70,7 @@
                                         <label>Código postal</label>
                                     </div>
                                     <div class="form-element-input">
-                                        <input type="number" name="cp">
+                                        <input type="number" name="postal_code">
                                     </div>
                                 </div>
                             </div>
@@ -97,12 +87,10 @@
                                 </div>
                             </div>
                         </div>
-                    </form>
+                    </div>
                 </div>
-            </div>
-            <div class="column">
-                <div class="checkout-form-payment">
-                    <form action="">
+                <div class="column">
+                    <div class="checkout-form-payment">
                         <div class="cart-resume">
                             <table>
                                 <tr>
@@ -110,18 +98,19 @@
                                 </tr>
                                 <tr>
                                     <td>Base imponible</td>
-                                    <td>250€</td>
+                                    <td>{{$base_total}}€</td>
                                 </tr>
                                 <tr>
                                     <td>IVA</td>
-                                    <td>50€</td>
+                                    <td>{{$tax_total}}€</td>
                                 </tr>
                                 <tr class="total">
                                     <td>Total</td>
-                                    <td>300€</td>
+                                    <td>{{$total}}€</td>
                                 </tr>
                             </table>
                         </div>
+                        
                         <div class="checkout-form-payment-radio">
                             <div class="checkout-form-payment-radio-item">
                                 <input type="radio" id="banco" name="payment">
@@ -136,12 +125,12 @@
                                 <label for="tarjeta">Tarjeta de crédito</label>
                             </div>
                         </div>
-                        <div class="checkout-form-payment-button">
+                        <div class="checkout-form-payment-button" data-url="{{route('front_purchase')}}">
                             <button>Pagar</button>
                         </div>
-                    </form>
+                    </div>
                 </div>
             </div>
-        </div>
+        </form>
     </div>
 </div>
