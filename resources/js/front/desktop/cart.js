@@ -4,7 +4,6 @@ export let cart = () => {
     let forms = document.querySelectorAll(".front-form");
     let storeButton = document.querySelector('.store-button');
     let plusMinusButtons = document.querySelectorAll('.plus-minus-button');
-    
 
     document.addEventListener("renderProductModules",( event =>{
         cart();
@@ -70,45 +69,48 @@ export let cart = () => {
         });
     }
 
-    plusMinusButtons.forEach(plusMinusButton => {
+    if(plusMinusButtons){
 
-        plusMinusButton.addEventListener("click", () => {
+        plusMinusButtons.forEach(plusMinusButton => {
 
-            let url = plusMinusButton.dataset.url;
+            plusMinusButton.addEventListener("click", () => {
 
-            let sendNewRequest = async () => {
-                
-                let response = await fetch(url, {
-                    headers: {
-                        'X-Requested-With': 'XMLHttpRequest',
-                    },
-                    method: 'GET', 
-                })
-                .then(response => {
-                                
-                    if (!response.ok) throw response;
+                let url = plusMinusButton.dataset.url;
 
-                    return response.json();
-                })
-                .then(json => {
+                console.log(url);
 
-                    mainContainer.innerHTML = json.content;
+                let sendNewRequest = async () => {
+                    
+                    let response = await fetch(url, {
+                        headers: {
+                            'X-Requested-With': 'XMLHttpRequest',
+                        },
+                        method: 'GET', 
+                    })
+                    .then(response => {
+                                    
+                        if (!response.ok) throw response;
 
-                    document.dispatchEvent(new CustomEvent('renderProductModules'));
-                })
-                .catch(error =>  {
-    
-                    if(error.status == '500'){
-                        console.log(error);
-                    };
-                });
-            };
+                        return response.json();
+                    })
+                    .then(json => {
 
-            sendNewRequest();
+                        main.innerHTML = json.content;
 
+                        document.dispatchEvent(new CustomEvent('renderProductModules'));
+                    })
+                    .catch(error =>  {
+        
+                        if(error.status == '500'){
+                            console.log(error);
+                        };
+                    });
+                };
+
+                sendNewRequest();
+
+            });
         });
-    });
-
+    }
     
-
 }

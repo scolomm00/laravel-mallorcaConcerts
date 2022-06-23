@@ -8,6 +8,7 @@ use App\Models\Sale;
 use App\Models\Cart;
 use App\Models\Customer;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Http\Request;
 use Debugbar;
 
 class CheckoutController extends Controller
@@ -16,12 +17,13 @@ class CheckoutController extends Controller
     protected $checkout;
     protected $cart;
     protected $customer;
+    protected $sale;
 
-    public function __construct(Cart $cart, Customer $customer)
+    public function __construct(Cart $cart, Customer $customer, Sale $sale)
     {
         $this->cart = $cart;
         $this->customer = $customer;
-
+        $this->sale = $sale;
     }
 
     public function index($fingerprint)
@@ -63,7 +65,7 @@ class CheckoutController extends Controller
         ]);
     }
 
-    public function store()
+    public function store(Request $request)
     {            
 
         $customer = $this->customer->updateOrCreate([
@@ -79,6 +81,17 @@ class CheckoutController extends Controller
                 'active' => 1,
         ]);
 
+        $sale = $this->sale->create(,[
+            'sale_num' => '765765',
+            'total_base_price' => request('total_base_price'),
+            'total_tax_price' => request('total_tax_price'),
+            'total_price' => request('total_price'),
+            $customer->id => request('customer_id'),
+            'payment_method_id' => request('payment_method_id'),
+            'date_emision' => '20-10-2022',
+            'hour_emision' => '10:45',
+            'active' => 1,
+        ]);
 
         $sections = View::make('front.pages.purchases.index')->renderSections();        
 

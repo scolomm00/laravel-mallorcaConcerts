@@ -4,6 +4,11 @@
     
     <div class="checkout-form">
         <form class="front-form" action="{{route('front_purchase')}}">
+            <input type="hidden" name="total_base_price" value="{{$base_total}}">
+            <input type="hidden" name="total_tax_price" value="{{$tax_total}}">
+            <input type="hidden" name="total_price" value="{{$total}}">
+            <input type="hidden" name="fingerprint" value="{{$fingerprint}}">
+
             <div class="desktop-two-columns">
                 <div class="column">
                     <div class="checkout-form-data">
@@ -110,19 +115,19 @@
                                 </tr>
                             </table>
                         </div>
-                        
+
                         <div class="checkout-form-payment-radio">
                             <div class="checkout-form-payment-radio-item">
-                                <input type="radio" id="banco" name="payment">
-                                <label for="banco">Transferencia bancaria</label>
+                                <input type="radio" name="payment_method_id" value="1">
+                                <label>Tranferencia bancaria</label>
                             </div>
                             <div class="checkout-form-payment-radio-item">
-                                <input type="radio" id="paypal" name="payment">
-                                <label for="paypal">Paypal</label>
+                                <input type="radio" name="payment_method_id" value="2">
+                                <label>Paypal</label>
                             </div>
                             <div class="checkout-form-payment-radio-item">
-                                <input type="radio" id="tarjeta" name="payment">
-                                <label for="tarjeta">Tarjeta de crédito</label>
+                                <input type="radio" name="payment_method_id" value="3">
+                                <label>Tarjeta de crédito</label>
                             </div>
                         </div>
                         <div class="checkout-form-payment-button" data-url="{{route('front_purchase')}}">
