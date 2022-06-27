@@ -9,12 +9,10 @@ use App\Models\Cart;
 use App\Models\Customer;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
-use Debugbar;
 
 class CheckoutController extends Controller
 {
 
-    protected $checkout;
     protected $cart;
     protected $customer;
     protected $sale;
@@ -81,17 +79,23 @@ class CheckoutController extends Controller
                 'active' => 1,
         ]);
 
-        $sale = $this->sale->create(,[
+        $sale = $this->sale->create([
+            'customer_id' => $customer->id,
             'sale_num' => '765765',
             'total_base_price' => request('total_base_price'),
             'total_tax_price' => request('total_tax_price'),
             'total_price' => request('total_price'),
-            $customer->id => request('customer_id'),
             'payment_method_id' => request('payment_method_id'),
-            'date_emision' => '20-10-2022',
-            'hour_emision' => '10:45',
+            'date_emision' => date('y-m-d'),
+            'time_emision' => date('H:i:s'),
             'active' => 1,
         ]);
+
+        $cart = $this->cart
+        ->where('fingerprint', request('fingerprint'))
+        ->where('sale_id', null)
+        ->where('active', 1)
+        ->update(['sale_id' => $sale->id]);
 
         $sections = View::make('front.pages.purchases.index')->renderSections();        
 

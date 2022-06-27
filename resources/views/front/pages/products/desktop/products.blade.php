@@ -33,8 +33,8 @@
                             <div class="products-menu-filter">
                                 <select class="menu-filter">
                                     <option selected disabled>Ordenar por precio</option>
-                                    <option value="{{route('front_product_price_desc', ['price'=>'desc'])}}">Mayor a menor</option>
-                                    <option value="{{route('front_product_price_asc', ['price'=>'asc'])}}">Menor a mayor</option>
+                                    <option value="{{route('front_product_price_order', ['filter'=>'desc'])}}" {{isset ($filter) && $filter == 'desc' ? 'selected' : ''}}>Mayor a menor</option>
+                                    <option value="{{route('front_product_price_order', ['filter'=>'asc'])}}" {{isset ($filter) && $filter == 'asc' ? 'selected' : ''}}>Menor a mayor</option>
                                 </select>
                             </div>
                         </div>

@@ -16,12 +16,12 @@ class ProductController extends Controller
     {
         $this->product = $product;
     }
-    
+
     public function index()
     {
 
         $view = View::make('front.pages.products.index')
-        ->with('products', $this->product->where('active', 1)->where('visible', 1)->get());
+        ->with('products', $this->product->where('active', 1)->where('visible', 1)->orderBy('day', 'asc')->get());
         
         if(request()->ajax()) {
             
@@ -52,10 +52,19 @@ class ProductController extends Controller
         return $view;
     }
 
-    public function priceDesc(Product $product) {
+    public function orderFilter($filter){
+
+        $products = $this->product
+        ->join('prices', 'prices.product_id', '=', 'products.id')
+        ->where('products.active', 1)
+        ->where('products.visible', 1)
+        ->orderBy('prices.base_price', $filter)
+        ->get();
+
         $view = View::make('front.pages.products.index')
-        ->with('products', $this->product->where('active', 1)->where('visible', 1)->orderBy('price', 'desc')->get());
-        
+        ->with('products', $products)
+        ->with('filter', $filter);
+
         if(request()->ajax()) {
             
             $sections = $view->renderSections(); 
@@ -67,21 +76,4 @@ class ProductController extends Controller
 
         return $view;
     }
-
-    public function priceAsc(Product $product) {
-        $view = View::make('front.pages.products.index')
-        ->with('products', $this->product->where('active', 1)->where('visible', 1)->orderBy('price', 'asc')->get());
-        
-        if(request()->ajax()) {
-            
-            $sections = $view->renderSections(); 
-    
-            return response()->json([
-                'content' => $sections['content'],
-            ]); 
-        }
-
-        return $view;
-    }
-
 }
