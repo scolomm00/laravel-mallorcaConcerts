@@ -15,7 +15,7 @@ return new class extends Migration
     {
         Schema::create('sales', function (Blueprint $table) {
             $table->id();
-            $table->integer('sale_num');
+            $table->char('sale_num');
             $table->decimal('total_base_price');
             $table->decimal('total_tax_price');
             $table->decimal('total_price');

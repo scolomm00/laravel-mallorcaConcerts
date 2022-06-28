@@ -23,7 +23,7 @@ class CustomerRequest extends FormRequest
             'name' => 'required',
             'surname' => 'required',
             'phone' => 'required|min:9|max:9|regex:/^[0-9]+$/i',
-            'email' => ['required','email','max:255', Rule::unique('customers')->ignore($this->id)],
+            'email' => 'required','email','max:255',
             'city' => 'required',
             'postal_code' => 'required|min:5|max:5|regex:/^[0-9]+$/i',
             'address' => 'required'
@@ -42,7 +42,6 @@ class CustomerRequest extends FormRequest
             'email.required' => 'El email es obligatorio',
             'email.email' => 'El formato de email es incorrecto',
             'email.max' => 'El máximo de caracteres permitidos para el email son 255',
-            'email.unique' => 'El email ya existe',
             'city.required' => 'La ciudad es obligatoria',
             'city.regex' => 'Sólo se aceptan letras para la ciudad',
             'postal_code.required' => 'El código postal es obligatorio',

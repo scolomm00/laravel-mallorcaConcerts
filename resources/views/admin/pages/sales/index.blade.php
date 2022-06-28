@@ -21,8 +21,8 @@
                                 <div class="column">
                                     <div class="table-button-read" data-url="{{route('sales_edit', ['sale'=>$sale_element->id])}}">
                                         <svg viewBox="0 0 24 24">
-                                            <path fill="currentColor"
-                                                d="M20.71,7.04C21.1,6.65 21.1,6 20.71,5.63L18.37,3.29C18,2.9 17.35,2.9 16.96,3.29L15.12,5.12L18.87,8.87M3,17.25V21H6.75L17.81,9.93L14.06,6.18L3,17.25Z" />
+                                            <path fill="currentColor" 
+                                            d="M14,2H6A2,2 0 0,0 4,4V20A2,2 0 0,0 6,22H18A2,2 0 0,0 20,20V8L14,2M18,20H6V4H13V9H18V20Z" />
                                         </svg>
                                     </div>
                                 </div>
@@ -48,7 +48,7 @@
 
 @section('form')
 
-    @if(isset($sale))
+    @if(isset($sales))
 
         <div class="form-button">
             <div class="form-button-reset" data-url="{{route('sales_create')}}">
@@ -77,19 +77,97 @@
             
             <input type="hidden" name="id" value="{{$sale->id}}">
 
-            <div class="admin-panel">
+            <div class="sales-panel">
                 <div class="box-panel">
-                    <div class="desktop-one-column">
+                    <div class="box-panel-title">
+                        <h3>Datos de la venta</h3>
+                    </div>
+                    <div class="desktop-two-columns">
                         <div class="column">
                             <div class="panel-label-sales">
-                                <label>Numero de ticket</label>
+                                <label class="data">Total base:</label>
+                                <label>{{isset($sale->total_base_price) ? $sale->total_base_price . '€' : ''}}</label>
                             </div>
-                            <div class="panel-input-sales">
-                                <input disabled type="text" name="name" value="{{isset($sale->sale_num) ? $sale->sale_num : ''}}">
+                            <div class="panel-label-sales">
+                                <label class="data">Total IVA:</label>
+                                <label>{{isset($sale->total_tax_price) ? $sale->total_tax_price . '€' : ''}}</label>
+                            </div>
+                            <div class="panel-label-sales">
+                                <label class="data">Total:</label>
+                                <label>{{isset($sale->total_price) ? $sale->total_price . '€' : ''}}</label>
+                            </div>
+                        </div>
+                        <div class="column">
+                            <div class="panel-label-sales">
+                                <label class="data">Numero de ticket:</label>
+                                <label>{{$sale->sale_num}}</label>
+                            </div>
+                            <div class="panel-label-sales">
+                                <label class="data">Metodo de pago:</label>
+                                <label>{{isset($sale->payment_method->title) ? $sale->payment_method->title : ''}}</label>
                             </div>
                         </div>
                     </div>
-                </div>      
+                </div>
+                <div class="box-panel">
+                    <div class="box-panel-title">
+                        <h3>Datos del cliente</h3>
+                    </div>
+                    <div class="desktop-two-columns">
+                        <div class="column">
+                            <div class="panel-label-sales">
+                                <label class="data">Nombre:</label>
+                                <label>{{isset($sale->customer->name) ? $sale->customer->name : ''}}</label>
+                            </div>
+                            <div class="panel-label-sales">
+                                <label class="data">Apellido:</label>
+                                <label>{{isset($sale->customer->surname) ? $sale->customer->surname : ''}}</label>
+                            </div>
+                            <div class="panel-label-sales">
+                                <label class="data">Telefono:</label>
+                                <label>{{isset($sale->customer->phone) ? $sale->customer->phone : ''}}</label>
+                            </div>
+                            <div class="panel-label-sales">
+                                <label class="data">Email:</label>
+                                <label>{{isset($sale->customer->email) ? $sale->customer->email : ''}}</label>
+                            </div>
+                        </div>
+                        <div class="column">
+                            <div class="panel-label-sales">
+                                <label class="data">Ciudad:</label>
+                                <label>{{isset($sale->customer->city) ? $sale->customer->city : ''}}</label>
+                            </div>
+                            <div class="panel-label-sales">
+                                <label class="data">Dirección:</label>
+                                <label>{{isset($sale->customer->address) ? $sale->customer->address : ''}}</label>
+                            </div>
+                            <div class="panel-label-sales">
+                                <label class="data">CP:</label>
+                                <label>{{isset($sale->customer->postal_code) ? $sale->customer->postal_code : ''}}</label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="cart-table">
+                    <table>
+                        <tr>
+                            <th>Imagen</th>
+                            <th>Producto</th>
+                            <th>Precio</th>
+                            <th>Cantidad</th>
+                        </tr>
+                        @if(isset($sale))
+                            @foreach($sales as $sale)
+                                <tr>
+                                    <td><img src="" alt=""></td>
+                                    <td>{{isset($sale->carts->price->product->title) ? $sale->carts->price->product->title : ''}}</td>
+                                    <td>{{isset($sale->carts->price->base_price) ? $sale->carts->price->base_price : ''}}</td>
+                                    <td>{{isset($sale->carts->price->product->quantity) ? $sale->carts->price->product->quantity : ''}}</td>
+                                </tr>
+                            @endforeach
+                        @endif
+                    </table>
+                </div>
             </div>
         
         </form>

@@ -965,33 +965,6 @@ header {
   color: hsl(0deg, 0%, 100%);
   padding-top: 1rem;
 }
-.admin-panel .box-panel .panel-label-sales {
-  width: 50%;
-  font-size: 1.2rem;
-  font-weight: bold;
-  margin-bottom: 1rem;
-  color: hsl(0deg, 0%, 100%);
-  padding-top: 1rem;
-}
-.admin-panel .box-panel .panel-input-sales {
-  width: 19%;
-  height: 2rem;
-  border: 1px solid hsl(0deg, 0%, 80%);
-  border-radius: 0.25rem;
-  padding: 0.5rem;
-  font-size: 1.2rem;
-  color: black;
-  align-items: center;
-}
-.admin-panel .box-panel .panel-input-sales input {
-  width: 100%;
-  height: 100%;
-  border: none;
-  outline: none;
-  color: hsl(0deg, 0%, 100%);
-  font-size: 1.2rem;
-  text-align: center;
-}
 .admin-panel .box-panel .panel-input {
   width: 100%;
   height: 2rem;
@@ -1093,4 +1066,56 @@ header {
 }
 #error #message-error.error {
   color: red;
+}
+
+.sales-panel .box-panel {
+  border: 3px solid white;
+  margin-bottom: 5%;
+  padding: 2%;
+}
+.sales-panel .box-panel .box-panel-title {
+  font-size: 1.2rem;
+  font-weight: bold;
+  margin-bottom: 1rem;
+  color: hsl(0deg, 0%, 100%);
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+  text-decoration: underline;
+}
+.sales-panel .box-panel .panel-label-sales {
+  margin-bottom: 1rem;
+  color: hsl(0deg, 0%, 100%);
+}
+.sales-panel .box-panel .panel-label-sales .data {
+  font-weight: 600;
+}
+
+.cart-table table {
+  margin: auto;
+  width: 94%;
+  margin-bottom: 4rem;
+  border: 3px solid white;
+  margin: 3%;
+}
+.cart-table table th {
+  font-size: 1.2rem;
+  padding: 1rem;
+  border-bottom: 3px solid hsl(0deg, 0%, 100%);
+  color: hsl(0deg, 0%, 100%);
+  border-top: 3px solid white;
+}
+.cart-table table td {
+  font-weight: 300;
+  padding: 1rem;
+  text-align: center;
+  color: hsl(0deg, 0%, 100%);
+  border-bottom: 3px solid white;
+}
+.cart-table table td img {
+  border: 1px solid hsl(0deg, 0%, 100%);
+  width: 5rem;
+  height: 5rem;
+}
+.cart-table table td img:hover {
+  cursor: pointer;
 }

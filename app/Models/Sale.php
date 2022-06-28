@@ -8,9 +8,9 @@ class Sale extends Model
 {
     protected $guarded = [];
 
-    public function payment()
+    public function payment_method()
     {
-        return $this->belongsTo(PaymentMethod::class, 'payment_method_id')->where('active', 1);
+        return $this->belongsTo(PaymentMethod::class)->where('active', 1);
     }
 
     public function customer()

@@ -79,9 +79,17 @@ class CheckoutController extends Controller
                 'active' => 1,
         ]);
 
+        $saleNum = $this->sale->latest()->first()->sale_num;
+
+        if (str_contains($saleNum, date('ymd'))) {
+            $saleNum += 1;
+        } else {
+            $saleNum = date('ymd') . '0001';
+        }
+
         $sale = $this->sale->create([
             'customer_id' => $customer->id,
-            'sale_num' => '765765',
+            'sale_num' => $saleNum,
             'total_base_price' => request('total_base_price'),
             'total_tax_price' => request('total_tax_price'),
             'total_price' => request('total_price'),
@@ -90,6 +98,7 @@ class CheckoutController extends Controller
             'time_emision' => date('H:i:s'),
             'active' => 1,
         ]);
+
 
         $cart = $this->cart
         ->where('fingerprint', request('fingerprint'))

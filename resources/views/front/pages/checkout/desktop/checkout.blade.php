@@ -119,7 +119,7 @@
                         <div class="checkout-form-payment-radio">
                             <div class="checkout-form-payment-radio-item">
                                 <input type="radio" name="payment_method_id" value="1">
-                                <label>Tranferencia bancaria</label>
+                                <label>Trasferencia bancaria</label>
                             </div>
                             <div class="checkout-form-payment-radio-item">
                                 <input type="radio" name="payment_method_id" value="2">

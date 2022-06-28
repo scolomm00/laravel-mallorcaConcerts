@@ -89,7 +89,7 @@ class SaleController extends Controller
                 'form' => $sections['form'],
             ]); 
         }
-                
+
         return $view;
     }
 
