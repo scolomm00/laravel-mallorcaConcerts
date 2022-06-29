@@ -14,7 +14,7 @@ import { menuFilter } from './menu-filter.js';
 import { cart } from './cart.js';
 import { checkout } from './checkout.js';
 import { purchase } from './purchase.js';
-
+import { fingerprint } from './fingerprint.js';
 
 burgerButton();
 filterBar();
@@ -32,3 +32,5 @@ menuFilter();
 cart();
 checkout();
 purchase();
+fingerprint();
+

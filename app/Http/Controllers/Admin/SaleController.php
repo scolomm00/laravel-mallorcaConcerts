@@ -5,7 +5,9 @@ namespace App\Http\Controllers\Admin;
 use Illuminate\Support\Facades\View;
 use App\Http\Controllers\Controller;
 use App\Models\Sale;
+use App\Models\Cart;
 use App\Http\Requests\Admin\SaleRequest;
+use Illuminate\Support\Facades\DB;
 use Debugbar;
 
 class SaleController extends Controller
@@ -13,9 +15,10 @@ class SaleController extends Controller
 
     protected $sale;
 
-    public function __construct(Sale $sale)
+    public function __construct(Sale $sale, Cart $cart)
     {
         $this->sale = $sale;
+        $this->cart = $cart;
     }
     
     public function index()
@@ -75,11 +78,21 @@ class SaleController extends Controller
         ]);
     }
 
-    public function edit(sale $sale)
+    public function edit(Sale $sale)
     {
+
+        $carts = $this->cart->select(DB::raw('count(price_id) as quantity'),'price_id')
+        ->groupByRaw('price_id')
+        ->where('sale_id' , $sale->id)
+        ->where('active', '1')
+        ->get();
+
+
         $view = View::make('admin.pages.sales.index')
         ->with('sale', $sale)
-        ->with('sales', $this->sale->where('active', 1)->get());   
+        ->with('sales', $this->sale->where('active', 1)->get())
+        ->with('carts', $carts);
+        
         
         if(request()->ajax()) {
 

@@ -94,10 +94,10 @@ Route::get('/', 'App\Http\Controllers\Front\HomeController@index')->name('front_
 
 Route::get('/carrito', 'App\Http\Controllers\Front\CartController@index')->name('front_cart');
 Route::post('/carrito', 'App\Http\Controllers\Front\CartController@store')->name('cart_store');
-Route::get('/carrito/plus/{fingerprint}/{price_id}', 'App\Http\Controllers\Front\CartController@plusCart')->name('plus_cart');
-Route::get('/carrito/minus/{fingerprint}/{price_id}', 'App\Http\Controllers\Front\CartController@minusCart')->name('minus_cart');
+Route::get('/carrito/plus/{price_id}', 'App\Http\Controllers\Front\CartController@plusCart')->name('plus_cart');
+Route::get('/carrito/minus/{price_id}', 'App\Http\Controllers\Front\CartController@minusCart')->name('minus_cart');
 
-Route::get('/pago/{fingerprint}', 'App\Http\Controllers\Front\CheckoutController@index')->name('front_checkout');
+Route::get('/pago', 'App\Http\Controllers\Front\CheckoutController@index')->name('front_checkout');
 
 Route::post('/confirmacion', 'App\Http\Controllers\Front\CheckoutController@store')->name('front_purchase');
 
@@ -112,3 +112,4 @@ Route::get('/productos/categorias/{category}', 'App\Http\Controllers\Front\Produ
 
 Route::get('/productos/order/{filter}', 'App\Http\Controllers\Front\ProductController@orderFilter')->name('front_product_price_order');
 
+Route::post('/fingerprint', 'App\Http\Controllers\Front\FingerprintController@store');

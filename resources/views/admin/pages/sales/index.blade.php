@@ -5,7 +5,7 @@
     @if(isset($sales))
 
         @foreach($sales as $sale_element)
-        
+
             <div class="table-row swipe-element">
                 <div class="desktop-two-columns-aside">
                     <div class="column-main">
@@ -156,13 +156,16 @@
                             <th>Precio</th>
                             <th>Cantidad</th>
                         </tr>
-                        @if(isset($sale))
-                            @foreach($sales as $sale)
+                        @if(isset($carts))
+                            @foreach($carts as $cart)
                                 <tr>
                                     <td><img src="" alt=""></td>
-                                    <td>{{isset($sale->carts->price->product->title) ? $sale->carts->price->product->title : ''}}</td>
-                                    <td>{{isset($sale->carts->price->base_price) ? $sale->carts->price->base_price : ''}}</td>
-                                    <td>{{isset($sale->carts->price->product->quantity) ? $sale->carts->price->product->quantity : ''}}</td>
+
+                                    <td>{{$cart->price->product->title}}</td>
+
+                                    <td>{{$cart->price->base_price}}€</td>
+
+                                    <td>{{$cart->quantity}}</td>
                                 </tr>
                             @endforeach
                         @endif
