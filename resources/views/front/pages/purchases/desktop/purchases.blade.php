@@ -1,4 +1,4 @@
-<div class="purchases">
+<div class="purchases page-section" id="purchases">
     <div class="message-confirm">
         <span>COMPRA REALIZADA CORRECTAMENTE</span>
     </div>

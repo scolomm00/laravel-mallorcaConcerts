@@ -1,5 +1,5 @@
 
-<div class="product">
+<div class="product page-section" id="product">
     <div class="desktop-two-columns">
         <div class="column">
             <div class="product-image">

@@ -1,4 +1,4 @@
-<div class="checkout">
+<div class="checkout page-section" id="checkout">
     
     @include('front.components.desktop.title')
     

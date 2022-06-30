@@ -4,9 +4,12 @@ export let purchase = () => {
     let storeButton = document.querySelector('.checkout-form-payment-button');
     let forms = document.querySelectorAll('.front-form');
 
-    document.addEventListener("renderProductModules",( event =>{
+    document.addEventListener("checkout",( event =>{
+        
         purchase();
+
     }), {once: true});
+    
 
     if(storeButton){
 
@@ -50,8 +53,6 @@ export let purchase = () => {
                     .then(json => {
 
                         main.innerHTML = json.content;
-
-                        document.dispatchEvent(new CustomEvent('renderFormModules'));
                         
                     })
                     .catch ( error =>  {

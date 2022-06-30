@@ -1,4 +1,4 @@
-<div class="products-container">
+<div class="products-container page-section" id="products">
 
     <div class="desktop-two-columns-aside">
 

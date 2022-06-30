@@ -3,6 +3,13 @@ export let renderFaqs = () => {
     let faqs = document.querySelectorAll('.faq');
     let faqsContent = document.querySelectorAll('.faq-content');
 
+    document.addEventListener("products",( event =>{
+        
+            renderFaqs();
+            
+    }), {once: true});
+    
+
     if (faqs && faqsContent) {
 
         faqs.forEach(faq => {

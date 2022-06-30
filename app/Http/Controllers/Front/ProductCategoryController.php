@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Front;
 use Illuminate\Support\Facades\View;
 use App\Http\Controllers\Controller;
 use App\Models\ProductCategory;
+use Debugbar;
 
 class ProductCategoryController extends Controller
 {
@@ -17,6 +18,8 @@ class ProductCategoryController extends Controller
     }
 
     public function show(ProductCategory $category){
+
+        Debugbar::info($category->products->where('visible', 1));
 
         $view = View::make('front.pages.products.index')
         ->with('category', $category)

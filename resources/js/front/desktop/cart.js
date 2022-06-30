@@ -1,116 +1,89 @@
 export let cart = () => {
 
     let main = document.querySelector("main");
-    let forms = document.querySelectorAll(".front-form");
-    let storeButton = document.querySelector('.store-button');
     let plusMinusButtons = document.querySelectorAll('.plus-minus-button');
+    let storeButton = document.querySelector('.cart-resume-button-buy');
 
-    document.addEventListener("renderProductModules",( event =>{
+    document.addEventListener("cart",( event =>{
         cart();
     }), {once: true});
+    
+    plusMinusButtons.forEach(plusMinusButton => {
 
+        plusMinusButton.addEventListener("click", () => {
+
+            let url = plusMinusButton.dataset.url;
+
+            let sendNewRequest = async () => {
+                
+                let response = await fetch(url, {
+                    headers: {
+                        'X-Requested-With': 'XMLHttpRequest',
+                    },
+                    method: 'GET', 
+                })
+                .then(response => {
+                                
+                    if (!response.ok) throw response;
+
+                    return response.json();
+                })
+                .then(json => {
+
+                    main.innerHTML = json.content;
+
+                    document.dispatchEvent(new CustomEvent('cart'));
+                })
+                .catch(error =>  {
+    
+                    if(error.status == '500'){
+                        console.log(error);
+                    };
+                });
+            };
+
+            sendNewRequest();
+
+        });
+    });
+ 
     if(storeButton){
 
-        storeButton.addEventListener("click", (event) => {
+        storeButton.addEventListener("click", () => {
 
-            event.preventDefault();
-    
-            forms.forEach(form => { 
-                
-                let data = new FormData(form);
-                let url = form.action;
+            let url = storeButton.dataset.url;
 
+            let sendCreateRequest = async () => {
 
-                for (var pair of data.entries()) {
-                    console.log(pair[0]+ ', ' + pair[1]); 
-                }
-    
-                if( ckeditors != 'null'){
-    
-                    Object.entries(ckeditors).forEach(([key, value]) => {
-                        data.append(key, value.getData());
-                    });
-                }
-    
-                let sendPostRequest = async () => {
-                        
-                    let response = await fetch(url, {
-                        headers: {
-                            'Accept': 'application/json',
-                            'X-CSRF-TOKEN': document.head.querySelector('meta[name="csrf-token"]').content
-                        },
-                        method: 'POST',
-                        body: data
-                    })
+                let response = await fetch(url, {
+                    headers: {
+                        'X-Requested-With': 'XMLHttpRequest',
+                    },
+                    method: 'GET', 
+                })
+                .then(response => {
+                                
+                    if (!response.ok) throw response;
+                                
+                    return response.json();
+                })
+                .then(json => {
+                                
+                    main.innerHTML = json.content;
 
-                    .then(response => {
+                    document.dispatchEvent(new CustomEvent('checkout'));
+                })
+                .catch(error =>  {
+                                
+                    if(error.status == '500'){
+                        console.log(error);
+                    };
+                });
                     
-                        if (!response.ok) throw response;
+            };
 
-                        return response.json();
-                    })
-                    .then(json => {
-
-                        main.innerHTML = json.content;
-
-                        document.dispatchEvent(new CustomEvent('renderProductModules'));
-
-                    })
-                    .catch ( error =>  {
-    
-                        if(error.status == '500'){
-                            console.log(error);
-                        };
-                    });
-                };
-        
-                sendPostRequest();
-            });
+            sendCreateRequest();
+            
         });
     }
-
-    if(plusMinusButtons){
-
-        plusMinusButtons.forEach(plusMinusButton => {
-
-            plusMinusButton.addEventListener("click", () => {
-
-                let url = plusMinusButton.dataset.url;
-
-                console.log(url);
-
-                let sendNewRequest = async () => {
-                    
-                    let response = await fetch(url, {
-                        headers: {
-                            'X-Requested-With': 'XMLHttpRequest',
-                        },
-                        method: 'GET', 
-                    })
-                    .then(response => {
-                                    
-                        if (!response.ok) throw response;
-
-                        return response.json();
-                    })
-                    .then(json => {
-
-                        main.innerHTML = json.content;
-
-                        document.dispatchEvent(new CustomEvent('renderProductModules'));
-                    })
-                    .catch(error =>  {
-        
-                        if(error.status == '500'){
-                            console.log(error);
-                        };
-                    });
-                };
-
-                sendNewRequest();
-
-            });
-        });
-    }
-    
 }

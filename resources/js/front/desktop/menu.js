@@ -1,62 +1,91 @@
 export let menu = () => {
-
+    
     let menuButtons = document.querySelectorAll('.buttons-menu');
-    let main = document.querySelector('main');
+    let mainContent = document.querySelector('main');
 
-    document.addEventListener("loadProduct", (event => {
-        main.innerHTML = event.detail.main;
-    }));
 
-    document.addEventListener("renderProductModules", (event => {
-        menu();
-    }), { once: true });
+    menuButtons.forEach(menuButton => {
 
-    if(menuButtons){
-
-        menuButtons.forEach(menuButton => {
-
-            menuButton.addEventListener("click", () => {
-
-                let url = menuButton.dataset.url;
-
-                let sendCreateRequest = async () => {
-
-                    document.dispatchEvent(new CustomEvent('startWait'));
-
-                    let response = await fetch(url, {
-                        headers: {
-                            'X-Requested-With': 'XMLHttpRequest',
-                        },
-                        method: 'GET', 
-                    })
-                    .then(response => {
-                                    
-                        if (!response.ok) throw response;
-                                    
-                        return response.json();
-                    })
-                    .then(json => {
-                                    
-                        document.dispatchEvent(new CustomEvent('loadProduct', {
-                            detail: {
-                                main: json.content,
-                            }
-                        }));
-
-                        document.dispatchEvent(new CustomEvent('renderProductModules'));
-                    })
-                    .catch(error =>  {
-                                    
-                        if(error.status == '500'){
-                            console.log(error);
-                        };
-                    });
-                      
-                };
-
-                sendCreateRequest();
+        menuButton.addEventListener('click', () => {
                 
-            });
+            let url = menuButton.dataset.url;
+            let section = menuButton.dataset.section;
+            let currentSection = document.querySelector('.page-section').id;
+            sessionStorage.setItem('lastSection', currentSection);
+
+            let sendIndexRequest = async () => {
+    
+                let response = await fetch(url, {
+                    headers: {
+                        'X-Requested-With': 'XMLHttpRequest',
+                    },
+                    method: 'GET'
+                })
+                .then(response => {
+
+                    if (!response.ok) throw response;
+
+                    return response.json();
+                })
+                .then(json => {
+                    window.history.pushState('', '', url);
+                    mainContent.innerHTML = json.content;
+
+                    document.dispatchEvent(new CustomEvent(section));
+                })
+                .catch ( error =>  {
+
+                    if(error.status == '500'){
+                        console.log(error);
+                    }
+
+                });
+            }
+            sendIndexRequest();
         });
-    }
+    });
+
+    window.addEventListener('popstate', event => {
+
+        let url = window.location.href;
+
+        let sendIndexRequest = async () => {
+
+            let response = await fetch(url, {
+                headers: {
+                    'X-Requested-With': 'XMLHttpRequest',
+                },
+                method: 'GET'
+            })
+            .then(response => {
+
+                if (!response.ok) throw response;
+
+                return response.json();
+            })
+            .then(json => {
+
+                mainContent.innerHTML = json.content;
+
+                document.dispatchEvent(new CustomEvent('loadSection', {
+                    detail: {
+                        section: sessionStorage.getItem('lastSection')
+                    }
+                }));
+
+                let currentSection = document.querySelector('.page-section').id;
+                sessionStorage.setItem('lastSection', currentSection);
+            })
+            .catch ( error =>  {
+
+                if(error.status == '500'){
+                    console.log(error);
+                }
+
+            });
+        }
+
+        sendIndexRequest();
+        
+    });
 }

@@ -469,7 +469,7 @@ header {
   cursor: pointer;
   font-family: "Roboto Condensed";
   font-size: 1.5rem;
-  font-weight: 600;
+  font-weight: bold;
   align-items: center;
   justify-content: center;
   display: flex;

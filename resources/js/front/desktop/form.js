@@ -4,6 +4,12 @@ export let form = () => {
     let storeButton = document.querySelector('.form-button-send');
     let forms = document.querySelectorAll('.front-form');
 
+    document.addEventListener("contact",( event =>{
+        
+        form();
+        
+    }), {once: true});
+
     if(storeButton){
 
         storeButton.addEventListener("click", (event) => {
@@ -47,7 +53,11 @@ export let form = () => {
 
                         main.innerHTML = json.content;
 
-                        document.dispatchEvent(new CustomEvent('renderFormModules'));
+                        document.dispatchEvent(new CustomEvent('loadSection', {
+                            detail: {
+                                section: 'contact'
+                            }
+                        }));
 
                         document.dispatchEvent(new CustomEvent('message', {
                             detail: {

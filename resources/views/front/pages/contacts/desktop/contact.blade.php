@@ -1,4 +1,4 @@
-<div class="contact">
+<div class="contact page-section" id="contact">
     
     @include('front.components.desktop.title')
     

@@ -1,52 +1,51 @@
 export let menuFilter = () => {
 
-        let filterMenus = document.querySelectorAll('.menu-filter');
-        let main = document.querySelector('main');
+	let filterMenu = document.querySelector('.menu-filter');
+	let main = document.querySelector('main');
 
-        document.addEventListener("renderProductModules", (event => {
-                menuFilter();
-        }), { once: true });
+	document.addEventListener("products",( event =>{
+        
+        menuFilter();
 
-        if(filterMenus) {
+    }), {once: true});
 
-                filterMenus.forEach(filterMenu => {
+	if(filterMenu) {
 
-                        filterMenu.addEventListener("change", () => {
+		filterMenu.addEventListener("change", () => {
 
-                                let url = filterMenu.value;
+			let url = filterMenu.value;
 
-                                let sendShowRequest = async () => {
+			let sendShowRequest = async () => {
 
-                                        let response = await fetch(url, {
-                                                headers: {
-                                                        'X-Requested-With': 'XMLHttpRequest',
-                                                },
-                                                method: 'GET', 
-                                        })
-                                        .then(response => {
-                                                        
-                                                if (!response.ok) throw response;
+				let response = await fetch(url, {
+						headers: {
+								'X-Requested-With': 'XMLHttpRequest',
+						},
+						method: 'GET',
+				})
+				.then(response => {
 
-                                                return response.json();
-                                        })
-                                        .then(json => {
-                                        
-                                                main.innerHTML = json.content;
-                        
-                                                document.dispatchEvent(new CustomEvent('renderProductModules'));
-                                        })
-                                        .catch(error =>  {
-                                                        
-                                                if(error.status == '500'){
-                                                        console.log(error);
-                                                };
-                                        });
+						if (!response.ok) throw response;
 
-                                };
+						return response.json();
+				})
+				.then(json => {
 
-                                sendShowRequest();
+						main.innerHTML = json.content;
 
-                        });
-                });
-        };
+						document.dispatchEvent(new CustomEvent('products'));
+				})
+				.catch(error => {
+
+						if (error.status == '500') {
+								console.log(error);
+						};
+				});
+
+			};
+
+			sendShowRequest();
+
+		});
+	};
 }

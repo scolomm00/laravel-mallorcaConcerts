@@ -2,10 +2,66 @@ export let product = () => {
 
     let showProductButtons = document.querySelectorAll('.products-element-show');
     let main = document.querySelector('main');
+    let forms = document.querySelectorAll(".front-form");
+    let storeButton = document.querySelector('.store-button');
 
-    document.addEventListener("renderProductModules",( event =>{
+    document.addEventListener("products",( event =>{
+        
         product();
-    }), {once: true});
+        
+    }));
+
+    if(storeButton){
+
+        storeButton.addEventListener("click", (event) => {
+
+            event.preventDefault();
+    
+            forms.forEach(form => { 
+                
+                let data = new FormData(form);
+                let url = form.action;
+
+                for (var pair of data.entries()) {
+                    console.log(pair[0]+ ', ' + pair[1]); 
+                }
+    
+                let sendPostRequest = async () => {
+                        
+                    let response = await fetch(url, {
+                        headers: {
+                            'Accept': 'application/json',
+                            'X-CSRF-TOKEN': document.head.querySelector('meta[name="csrf-token"]').content
+                        },
+                        method: 'POST',
+                        body: data
+                    })
+
+                    .then(response => {
+                    
+                        if (!response.ok) throw response;
+
+                        return response.json();
+                    })
+                    .then(json => {
+
+                        main.innerHTML = json.content;
+
+                        document.dispatchEvent(new CustomEvent('cart'));
+
+                    })
+                    .catch ( error =>  {
+    
+                        if(error.status == '500'){
+                            console.log(error);
+                        };
+                    });
+                };
+        
+                sendPostRequest();
+            });
+        });
+    }
 
     if(showProductButtons){
 
@@ -16,8 +72,6 @@ export let product = () => {
                 let url = showProductButton.dataset.url;
 
                 let sendCreateRequest = async () => {
-
-                    document.dispatchEvent(new CustomEvent('startWait'));
 
                     let response = await fetch(url, {
                         headers: {
@@ -35,7 +89,7 @@ export let product = () => {
                                     
                         main.innerHTML = json.content;
 
-                        document.dispatchEvent(new CustomEvent('renderProductModules'));
+                        document.dispatchEvent(new CustomEvent('products'));
                     })
                     .catch(error =>  {
                                     

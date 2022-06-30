@@ -1,4 +1,4 @@
-<div class="main">
+<div class="main page-section" id="home">
 
     <div class="desktop-one-column">
         <div class="column">

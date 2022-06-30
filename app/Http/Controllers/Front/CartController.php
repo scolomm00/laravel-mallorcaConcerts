@@ -123,10 +123,9 @@ class CartController extends Controller
         $cart = $this->cart->where('price_id', $price_id)
         ->where('fingerprint', $request->cookie('fp'))
         ->where('active', 1)
-        ->first();
-        
-        $cart->active = 0;
-        $cart->save();
+        ->where('sale_id', null)
+        ->limit(1)
+        ->update(['active' => 0]);
 
         $carts = $this->cart->select(DB::raw('count(price_id) as quantity'),'price_id')
         ->groupByRaw('price_id')

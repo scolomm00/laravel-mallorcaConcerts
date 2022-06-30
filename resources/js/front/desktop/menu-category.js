@@ -3,9 +3,11 @@ export let menuCategory = () => {
     let categoryMenus = document.querySelectorAll('.buttons-category');
     let main = document.querySelector('main');
 
-    document.addEventListener("renderProductModules", (event => {
+    document.addEventListener("products",( event =>{
+        
         menuCategory();
-    }), { once: true });
+        
+    }), {once: true});
 
     if(categoryMenus){
 
@@ -33,7 +35,11 @@ export let menuCategory = () => {
                         
                         main.innerHTML = json.content;
 
-                        document.dispatchEvent(new CustomEvent('renderProductModules'));
+                        document.dispatchEvent(new CustomEvent('loadSection', {
+                            detail: {
+                                section: 'products'
+                            }
+                        }));
                     })
                     .catch(error =>  {
                                     

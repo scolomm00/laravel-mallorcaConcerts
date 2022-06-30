@@ -6,6 +6,7 @@ use Illuminate\Support\Facades\View;
 use App\Http\Controllers\Controller;
 use App\Models\Product;
 use App\Http\Requests\Front\ProductRequest;
+use Debugbar;
 
 class ProductController extends Controller
 {
@@ -59,6 +60,7 @@ class ProductController extends Controller
         ->where('products.active', 1)
         ->where('products.visible', 1)
         ->orderBy('prices.base_price', $filter)
+        ->select('products.*')
         ->get();
 
         $view = View::make('front.pages.products.index')

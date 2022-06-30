@@ -3,9 +3,11 @@ export let sumeRest = () => {
     let restas = document.querySelectorAll(".rest");
     let sumas = document.querySelectorAll(".sume");
 
-    document.addEventListener("renderProductModules",( event =>{
+    document.addEventListener("products",( event =>{
+        
         sumeRest();
-    }), {once: true})
+        
+    }), {once: true});
     
     sumas.forEach(suma => {
 

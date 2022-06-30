@@ -3,9 +3,12 @@ export let tabBar = () => {
     let tabs = document.querySelectorAll('.tab');
     let tabsContent = document.querySelectorAll('.tab-content');
 
-    document.addEventListener("renderProductModules",( event =>{
+    document.addEventListener("products",( event =>{
+        
         tabBar();
+        
     }), {once: true});
+    
 
     tabs.forEach(tab => {
 

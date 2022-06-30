@@ -1,57 +1,62 @@
 export let checkout = () => {
 
-    let storeButtons = document.querySelectorAll('.cart-resume-button-buy');
     let main = document.querySelector('main');
-    // let purchaseButtons = document.querySelectorAll('.checkout-form-payment-button');
-    // let forms = document.querySelectorAll('.front-form');
+    let purchaseButton = document.querySelector('.checkout-form-payment-button');
+    let forms = document.querySelectorAll('.front-form');
 
-    document.addEventListener("renderProductModules",( event =>{
+    document.addEventListener("checkout",( event =>{
         checkout();
     }), {once: true});
 
-    if(storeButtons){
+    if(purchaseButton){
 
-        storeButtons.forEach(storeButton => {
+        purchaseButton.addEventListener("click", (event) => {
 
-            storeButton.addEventListener("click", () => {
+            event.preventDefault();
+    
+            forms.forEach(form => { 
+                
+                let data = new FormData(form);
+                let url = form.action;
 
-                let url = storeButton.dataset.url;
-
-                let sendCreateRequest = async () => {
-
-                    document.dispatchEvent(new CustomEvent('startWait'));
-
+                for (var pair of data.entries()) {
+                    console.log(pair[0]+ ', ' + pair[1]); 
+                }
+    
+                let sendPostRequest = async () => {
+                        
                     let response = await fetch(url, {
                         headers: {
-                            'X-Requested-With': 'XMLHttpRequest',
+                            'Accept': 'application/json',
+                            'X-CSRF-TOKEN': document.head.querySelector('meta[name="csrf-token"]').content
                         },
-                        method: 'GET', 
+                        method: 'POST',
+                        body: data
                     })
+
                     .then(response => {
-                                    
+                    
                         if (!response.ok) throw response;
-                                    
+
                         return response.json();
                     })
                     .then(json => {
-                                    
+
                         main.innerHTML = json.content;
 
-                        document.dispatchEvent(new CustomEvent('renderProductModules'));
                     })
-                    .catch(error =>  {
-                                    
+                    .catch ( error =>  {
+    
                         if(error.status == '500'){
                             console.log(error);
                         };
                     });
-                      
                 };
-
-                sendCreateRequest();
-                
+        
+                sendPostRequest();
             });
         });
     }
+    
 
 }
